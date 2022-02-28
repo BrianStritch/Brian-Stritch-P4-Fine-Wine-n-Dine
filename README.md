@@ -10,3 +10,5 @@
  - python3 manage.py migrate   this migrates all our changes to the DB
 
  - python3 manage.py runserver    this is the code to run the file
+
+ db updated in heroku and url updated
