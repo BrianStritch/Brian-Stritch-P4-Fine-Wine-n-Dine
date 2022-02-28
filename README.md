@@ -11,4 +11,7 @@
 
  - python3 manage.py runserver    this is the code to run the file
 
- db updated in heroku and url updated
+ after creating database models you can make your migrations
+ - python3 manage.py makemigrations
+ then 
+ - python3 manage.py migrate
