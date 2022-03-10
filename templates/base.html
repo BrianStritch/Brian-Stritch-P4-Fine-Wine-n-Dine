@@ -19,13 +19,14 @@
 
 <body>
     <header>
-        {% if index in request.path %}
+        {% if review in request.path %}
+        {% endif %}
         <div class="container-fluid logo-div">
             <a href="index.html">
                 <img src="static/images/nannys-logo.JPG" alt="Nannys of duleek logo" id="header-logo">
             </a>
         </div>
-        {% endif %}
+        
         <h1 class="site-heading text-center text-faded d-none d-lg-block">
             <span class="site-heading-upper text-primary mb-3">Fine-wine-n-Dine @ Nanny's of Duleek</span>
             <span class="site-heading-lower">Modern fine dining</span>

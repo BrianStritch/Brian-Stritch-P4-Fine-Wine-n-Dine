@@ -1167,7 +1167,7 @@ progress {
 
   .col-md-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 20%;
   }
 
   .col-md-5 {
@@ -4545,6 +4545,7 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+  background-color: #e6a756ab;
 }
 
 .card-title {
@@ -11500,4 +11501,13 @@ p {
 
 .logo-div{
   background-color: #0e3226;
+}
+.review-link {
+  text-decoration: none;
+  color: #445261;
+}
+
+.review-link:hover,
+.page-link {
+  color: #E84610;
 }

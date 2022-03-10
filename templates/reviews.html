@@ -3,76 +3,68 @@
 
 {% block content %}
 
-<section class="page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex ms-auto rounded">
-                    <h2 class="section-heading mb-0">
-                        <span class="section-heading-upper">Blended to Perfection</span>
-                        <span class="section-heading-lower">Coffees & Teas</span>
-                    </h2>
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Review Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+             
+            {% for review in review_list %}
+            {{ review.id }}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in review.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="static/images/food-critic.jpg">
+                                
+                                {% else %}
+                                <img class="card-img-top" src=" {{ review.featured_image.url }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ review.author }}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="review-link">
+                                <h2 class="card-title">{{ review.title }}</h2>
+                                <p class="card-text">{{ review.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6">{{ review.created_on}} <i class="far fa-heart"></i>
+                                {{ review.number_of_likes }}</p>
+                        </div>
+                    </div>
                 </div>
+
+
+            {% if forloop.counter|divisibleby:4 %}
             </div>
-            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-01.jpg"
-                alt="..." />
-            <div class="product-item-description d-flex me-auto">
-                <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">We take pride in our work, and it shows. Every time you order a beverage from us, we
-                        guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan
-                        Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced
-                        black coffee, you will be coming back for more.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex me-auto rounded">
-                    <h2 class="section-heading mb-0">
-                        <span class="section-heading-upper">Delicious Treats, Good Eats</span>
-                        <span class="section-heading-lower">Bakery & Kitchen</span>
-                    </h2>
-                </div>
-            </div>
-            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-02.jpg"
-                alt="..." />
-            <div class="product-item-description d-flex ms-auto">
-                <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">Our seasonal menu features delicious snacks, baked goods, and even full meals
-                        perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms whenever
-                        possible, alongside premium vendors for specialty goods.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex ms-auto rounded">
-                    <h2 class="section-heading mb-0">
-                        <span class="section-heading-upper">From Around the World</span>
-                        <span class="section-heading-lower">Bulk Speciality Blends</span>
-                    </h2>
-                </div>
-            </div>
-            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-03.jpg"
-                alt="..." />
-            <div class="product-item-description d-flex me-auto">
-                <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">Travelling the world for the very best quality coffee is something take pride in.
-                        When you visit us, you'll always find new blends from around the world, mainly from regions in
-                        Central and South America. We sell our blends in smaller to large bulk quantities. Please visit
-                        us in person for more details.</p>
-                </div>
+            <div class="row">
+            {% endif %}
+
+            {% endfor%}
+
             </div>
         </div>
     </div>
-</section>
+
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
 
 {% endblock content%}
