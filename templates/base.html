@@ -40,12 +40,12 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="#">Home</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Products</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Contact & About</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="#">Reviews</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="base.html">base</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'products' %}">Products</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'contact' %}">Contact & About</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'reviews' %}">Reviews</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'opening_hours' %}">Opening hours</a></li>
                 </ul>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
     <footer class="footer text-faded text-center py-5">
         <div class="container">
-            <p class="m-0 small">Copyright &copy; Your Website 2021</p>
+            <p class="m-0 small">Copyright Fine-Wine-n-Dine @ Nanny's       EST.    2022</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
