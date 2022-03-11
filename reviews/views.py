@@ -43,16 +43,19 @@ class OpeningHours(generic.ListView):
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'opening-times.html'
-    
+
+  
 class AboutPage(generic.ListView):
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'about.html'
-    
+
+   
 class ProductsPage(generic.ListView):
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'about.html'
+
 
 class Contact(generic.ListView):
     model = Review
