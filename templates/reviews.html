@@ -2,14 +2,16 @@
 
 
 {% block content %}
-
+<h1>this is reviews</h1>
 <div class="container-fluid">
     <div class="row">
 
         <!-- Review Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-             
+            <!-- {% if 'reviews' in request.path %}
+            <h1>DO SOMETHING HERE and here</h1>
+            {% endif %} -->
             {% for review in review_list %}
             {{ review.id }}
                 <div class="col-md-4">
@@ -18,7 +20,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in review.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="static/images/food-critic.jpg">
+                                    src="/static/images/food-critic.jpg">
                                 
                                 {% else %}
                                 <img class="card-img-top" src=" {{ review.featured_image.url }}">
@@ -27,7 +29,7 @@
                                     <p class="author">Author: {{ review.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="review-link">
+                            <a href="{% url 'reviews_detail' review.slug %}" class="review-link">
                                 <h2 class="card-title">{{ review.title }}</h2>
                                 <p class="card-text">{{ review.excerpt }}</p>
                             </a>
