@@ -33,7 +33,7 @@ class ReviewsDetail(View):
             {
                 "review": review,
                 "comments": comments,
-                "commented": False,
+                # "commented": False,
                 "liked": liked,
             },
         )

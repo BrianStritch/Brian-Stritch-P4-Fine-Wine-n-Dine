@@ -11511,3 +11511,34 @@ p {
 .page-link {
   color: #E84610;
 }
+
+.centre-cards{
+  justify-content: center;
+}
+
+.centre-text{
+  text-align: center;
+}
+.reviews-detail{
+  width: 60%;
+}
+
+
+.masthead-text{
+  color: white;
+  width: 60%;
+  text-align: center;
+}
+
+.wooden-back{
+  background-color: #3b221a00;
+  color: white;
+}
+
+.like-btn-outline{
+  outline: #3b221a00;
+}
+
+.text-highlighted{
+  color: yellow;
+}
