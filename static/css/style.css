@@ -11304,8 +11304,8 @@ p {
 }
 
 .site-heading {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
   line-height: 1;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -11322,7 +11322,7 @@ p {
 }
 
 .page-section {
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
@@ -11494,13 +11494,26 @@ p {
 
 /* custom styles */
 
-#header-logo, .nannys-logo{
+.nannys-logo{
   width: 75px;
   height: auto;
 }
 
+#header-logo{
+  width: 75px;
+  height: auto;
+  position: relative;
+  top: 17px;
+}
+
 .logo-div{
   background-color: #0e3226;
+}
+
+#login-display{
+  text-align: end;
+  position: relative;
+  top: -17px;
 }
 .review-link {
   text-decoration: none;
@@ -11514,6 +11527,7 @@ p {
 
 .centre-cards{
   justify-content: center;
+  width: fit-content;
 }
 
 .centre-text{
@@ -11541,4 +11555,22 @@ p {
 
 .text-highlighted{
   color: yellow;
+}
+
+.author {
+  color: #565e66;
+  margin: 4px;
+  text-decoration: none;  
+}
+
+a {
+  text-decoration: none;
+}
+
+.white{
+  color: white;
+}
+
+.red{
+  color: red;
 }

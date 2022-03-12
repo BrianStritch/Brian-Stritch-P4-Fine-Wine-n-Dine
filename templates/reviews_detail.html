@@ -48,7 +48,6 @@
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "> {{ review.content | safe }}</p>
                 <div class="row">
-
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
@@ -56,17 +55,17 @@
                                     {% csrf_token %}
                                     {% if liked %}
                                         <button type="submit" name="blogpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" id="like-btn">
-                                            <i class="fas fa-heart" ></i>
+                                            <i class="far fa-heart red"></i>
                                         </button>
 
                                     {% else %}
                                         <button type="submit" name="blogpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" >
-                                            <i class="far fa-heart" ></i>
+                                            <i class="far fa-heart white"></i>
                                         </button>
                                     {% endif %}    
                                 </form>
                             {% else %}
-                                <span class="text-secondary"> <i class="far fa-heart"></i> </span>                                
+                                <span class="text-secondary"> <i class="far fa-heart white"></i> </span>                                
                             {% endif %}
                             <span class="text-secondary">{{ review.number_of_likes }}</span>
                         </strong>                        
