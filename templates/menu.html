@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="page-section md-9 ta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 mx-auto">
+                <div class="cta-inner timber text-center rounded">
+                    <div class="menu-container">
+                        <h2 class="section-heading mb-5">
+                            <span class="section-heading-upper">Carvery</span>
+                            <span class="section-heading-lower">Menu</span>
+                        </h2>
+                        <hr>
+                        <h4>
+                            STARTER:
+                        </h4>
+                        <hr>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Homemade Soup Of The Day With A Freshly Baked Roll
+                                <span class="ms-auto">€5.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Traditional Warm Chicken Caesar Salad
+                                <span class="ms-auto">€6.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Finger Licking Chicken Wings Tossed in BBQ Sauce
+                                <span class="ms-auto">€6.00</span>
+                            </li>
+                        </ul>
+                        <h4> MAIN COURSE:</h4>
+                        <hr>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                  Roast Rib of Beef
+                                <span class="ms-auto">  €14.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Roast Honey & Mustard Glazed Ham   with White Sauce
+                                <span class="ms-auto">  €13.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                  Roast Crown Of Turkey With Cranberry Sauce
+                                <span class="ms-auto">  €12.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                  Gourmet Beef Burger With Pepper Sauce and Nanny's Chips
+                                <span class="ms-auto">  €14.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Chicken And Mushroom Vol au Vont
+                                <span class="ms-auto">  €14.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Baked Atlantic Salmon in a Lemon Butter Sauce
+                                <span class="ms-auto">  €14.00</span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto" >
+                        <h4> KIDS MENU: </h4>
+                        <hr>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Bangers & Mash
+                                <span class="ms-auto">  €7.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Chicken Goujons & Skinny Chips
+                                <span class="ms-auto">  €7.00</span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto" >
+                            <h4> DESERT MENU: </h4>
+                            <hr>                            
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Selection of Ice Cream in a Gourmet Waffle Cone
+                                <span class="ms-auto">  €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Profite Rolls in Chocolate Sauce with Cream
+                                <span class="ms-auto">  €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Eaten Mess, With Mixed Berry Compote
+                                <span class="ms-auto">  €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Kids Jelly and Ice Cream
+                                <span class="ms-auto">  €4.00</span>
+                            </li>
+                        </ul>
+                        <p class="address mb-5">
+                            <em>
+                                <strong>Nanny's Of Dullek</strong>
+                                <strong>Knockisland, Newtown Commons, </strong>
+                                <br />
+                                Duleek, Co. Meath
+                            </em>
+                        </p>
+                        <p class="mb-0">
+                            <small><em>Contact number</em></small>
+                            <br />
+                            (046) 981-12345
+                        </p>
+                        <p class="mb-0">
+                            <small>
+                                <em>Online Booking Service available</em>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'bookings' %}">Click Here</a>
+                                {% endif %}                                
+                            </small>  
+                        </p>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content%}

@@ -11581,3 +11581,13 @@ a {
   width: 200%;
 }
 
+.timber{
+  background-image: url(/static/images/dinner-table.jpeg);
+  background-size: cover;
+  color: #141414;
+}
+
+.menu-container{
+  background-color: #ffffffb5;
+  padding-top: 2em;
+}
