@@ -1,6 +1,9 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+
+{% load crispy_forms_tags %}
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2 my-3">
@@ -9,8 +12,7 @@
                 Thank you {{ user.username }}, your comment has been submitted for approval
                 <button type="button" class="btn-close float-end" data-bs-dismiss="success" aria-label="Close"></button>                
             </div>  
-            {% endif %}
-                
+            {% endif %}   
         </div>
     </div>
 </div>
@@ -21,15 +23,12 @@
     <div class="container">
         <div class="row g-0 centre-cards">
             <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title ">
                     {{ review.title }}
                 </h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle ">{{ review.author }} | {{ review.created_on }}</p>
+                <p class="post-subtitle ">{{ review.author }} | {{ review.created_on }}</p>                
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image reviews-detail">
-                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in review.featured_image.url %}
                 <img src="/static/images/food-critic.jpg" width="100%">
                 {% else %}
@@ -44,22 +43,20 @@
     <div class="row reviews-detail">
         <div class="col card mb-4  mt-3 left  top wooden-back">
             <div class="card-body">
-                <!-- The review content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "> {{ review.content | safe }}</p>
                 <div class="row">
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
-                                <form class="d-inline like-btn-outline" action="#" method="POST">
+                                <form class="d-inline like-btn-outline" action="{% url 'review_like' review.slug %}" method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
-                                        <button type="submit" name="blogpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" id="like-btn">
-                                            <i class="far fa-heart red"></i>
+                                        <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" id="like-btn">
+                                            <i class="fas fa-heart red"></i>
                                         </button>
 
                                     {% else %}
-                                        <button type="submit" name="blogpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" >
+                                        <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" >
                                             <i class="far fa-heart white"></i>
                                         </button>
                                     {% endif %}    
@@ -73,7 +70,6 @@
                     <div class="col-1">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
                             {{ total_comments}}
                         </strong>
                         {% endwith %}
@@ -91,43 +87,42 @@
         <div class="col-md-8 card mb-4  mt-3 reviews-detail centre-text wooden-back">
             <h3 >Comments:</h3>
             <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments wooden-back" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                         {{ comment.name }}
                         <span class=" text-highlighted font-weight-bold wooden-back ">
-                            <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    <!-- The body of the comment goes before the | -->
                     {{ comment.body  | linebreaks }}
                 </div>
-                <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 wooden-back">
-            <div class="card-body ">
-                <!-- For later -->
+            <div >
                 {% if commented %}
-                <div class="alert alert-success" role="alert" id="msg">
-                    Your comment is awaiting approval
-                </div>
+                <div class="card-body min-20">
+                    <div class="alert alert-success" role="alert" id="msg">
+                   Your comment is awaiting approval
+                    </div>
+                </div>                
                 {% else %}
                 {% if user.is_authenticated %}
-
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg" >Submit</button>                    
-                </form>
+                <div class="min-20">
+                    <h3 class="wooden-back" >Leave a comment:</h3>
+                    <div class="card-body ">
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" style="margin-top: 1.3em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary btn-xl" >Submit</button>                    
+                        </form>
+                    </div>
+                </div>    
                 {% endif %}
-                {% endif %}
+                {% endif %}                
             </div>
         </div>
     </div>

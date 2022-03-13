@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'crispy_forms',
     'bookings',
     'reviews',
 ]
@@ -66,7 +67,7 @@ LOGOUT_REDIRECT_URL = '/'
 #     messages.ERROR: 'alert-danger',
 # }
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1167,7 +1167,7 @@ progress {
 
   .col-md-4 {
     flex: 0 0 auto;
-    width: 20%;
+    width: 25%;
   }
 
   .col-md-5 {
@@ -4616,6 +4616,7 @@ textarea.form-control-lg {
 .card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
+  
 }
 
 .card-img,
@@ -11347,10 +11348,11 @@ p {
 .btn-xl {
   font-weight: 700;
   font-size: 0.8rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: .5rem;
 }
 
 #mainNav {
@@ -11574,3 +11576,8 @@ a {
 .red{
   color: red;
 }
+
+.min-20{
+  width: 200%;
+}
+

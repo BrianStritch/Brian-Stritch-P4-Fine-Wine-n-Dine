@@ -1,10 +1,5 @@
 {% extends "base.html" %}
 
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% block content %}
 
 <section class="page-section cta">
@@ -12,15 +7,10 @@
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
-            <h1>{% trans "Sign Out" %}</h1>
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-            <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
-                <button class="primaryAction btn btn-primary btn-xl text-uppercase" type="submit">{% trans 'Sign Out' %}</button>
-            </form>          
+
+
+            
+            
         </div>
       </div>
     </div>
