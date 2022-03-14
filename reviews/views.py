@@ -155,14 +155,14 @@ class CreateReview(TemplateView):
 
     def post(self,request):
         form = CreateReviewForm(request.POST)
-        current_user = User
+        #current_user = User
         if form.is_valid():
             form.instance.email = request.user.email
             email = form.instance.email
             form.instance.name = request.user.username
             name = form.instance.name
-            #form.instance.author = current_user.username
-            #author = form.instance.author
+            form.instance.author = auth_user.id
+            author = form.instance.author
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
             featured_image = form.cleaned_data['featured_image']
@@ -175,17 +175,17 @@ class CreateReview(TemplateView):
                 'excerpt': excerpt,
                 'email': email,
                 'name': name,
-                #'author': author,               
+                'author': author,               
                 
                 }           
             
             review = form.save(commit=False)
             review.post = review
-            #review.save()
+            review.save()
         else:
             form = CreateReviewForm()
 
-        return render(request, self.template_name)
+        return render(request, self.template_name, context)
 
             
             
@@ -295,21 +295,16 @@ end test
 
 
 
-
-
-
+class Menu(generic.ListView):
+    model = Review
+    queryset = Review.objects.filter(status=1).order_by('-created_on')
+    template_name = 'menu.html'
 
 
 class OpeningHours(generic.ListView):
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'opening-times.html'
-
-  
-class Menu(generic.ListView):
-    model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
-    template_name = 'menu.html'
 
    
 class ProductsPage(generic.ListView):
