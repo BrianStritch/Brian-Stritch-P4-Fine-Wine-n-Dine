@@ -161,8 +161,8 @@ class CreateReview(TemplateView):
             email = form.instance.email
             form.instance.name = request.user.username
             name = form.instance.name
-            form.instance.author = auth_user.id
-            author = form.instance.author
+            #form.instance.author = auth_user.id
+            #author = form.instance.author
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
             featured_image = form.cleaned_data['featured_image']
@@ -175,7 +175,7 @@ class CreateReview(TemplateView):
                 'excerpt': excerpt,
                 'email': email,
                 'name': name,
-                'author': author,               
+                #'author': author,               
                 
                 }           
             
@@ -184,8 +184,8 @@ class CreateReview(TemplateView):
             review.save()
         else:
             form = CreateReviewForm()
-
-        return render(request, self.template_name, context)
+#context
+        return render(request, self.template_name, )
 
             
             
