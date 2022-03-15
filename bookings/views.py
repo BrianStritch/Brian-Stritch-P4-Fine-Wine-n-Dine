@@ -6,8 +6,10 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, get_object_or_404, reverse
 
 # Create your views here.
+
 class Bookings(TemplateView):
     template_name = 'bookings.html'
+
 
 class CreateBookings(TemplateView):
     template_name = 'create_a_booking.html'
@@ -41,7 +43,9 @@ class CreateBookings(TemplateView):
                     'slug': slug,
                     } 
             booked = form.save(commit=False)
+            #booked.user = request.user
             booked.post = booked
+            
             #booked.save() 
         else:
             form = BookingForm()

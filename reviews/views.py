@@ -162,14 +162,18 @@ class CreateReview(TemplateView):
             email = form.instance.email
             form.instance.name = request.user.username
             name = form.instance.name
-            #form.instance.author = User.auth_user
+            
             #author = form.instance.author
+
             title = form.cleaned_data['title']
             form.instance.slug = slugify(title)
             content = form.cleaned_data['content']
             featured_image = form.cleaned_data['featured_image']
             excerpt = form.cleaned_data['excerpt'] 
+
             review = form.save(commit=False)
+            #review.user = request.user
+            #form.instance.author = review.user.id
             review.post = review
             review.save()
         else:
