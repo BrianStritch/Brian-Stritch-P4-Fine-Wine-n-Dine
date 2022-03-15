@@ -10,7 +10,20 @@
      <div class="row">  <!--  action="" url 'save_new_review' -->
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
-            <h1>this is create review page</h1>
+            
+            {% if new_review %}
+            <h1 id="msg">Thank you for your review, your review will be published shortly. </h1>
+            <div>
+              <h1>Review Content</h1>
+                  <h2> Review Title:  {{ title }}</h2>
+                  <h2> Review Content:  {{ content }}</h2>
+                  <h2> Review {{ featured_image }}</h2>
+                  <h2> 4 {{ excerpt }}</h2>
+                  <h2> 5 user id = {{ user.id }}</h2>
+                  <h2>6 {{ new_review }}</h2>
+              </div> 
+            {% else %}
+            <h1>Create a Review:</h1>
             <form  method="POST" style="margin-top: 1.3em;">  
                           
                 {{ form | crispy }}
@@ -21,13 +34,7 @@
                 
                               
             </form> 
-            <div>
-                  <h2> 1  {{ title }}</h2>
-                  <h2> 2  {{ content }}</h2>
-                  <h2> 3 {{ featured_image }}</h2>
-                  <h2> 4 {{ excerpt }}</h2>
-                  <h2> 5 user id = {{ user.id }}</h2>
-              </div>    
+            {% endif %}   
 
             
             

@@ -650,6 +650,15 @@ progress {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
+  .row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 25vw;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+  }
 }
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
@@ -665,6 +674,7 @@ progress {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1320px;
   }
+  
 }
 .row {
   --bs-gutter-x: 1.5rem;

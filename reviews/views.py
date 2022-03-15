@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.models import User
 from django.views import generic, View 
+from django.template.defaultfilters import slugify
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from .models import Review
@@ -148,44 +149,34 @@ test new review form
 class CreateReview(TemplateView):
     template_name = 'create_review.html'
     
-
+    
     def get(self, request):
         form = CreateReviewForm()
-        return render(request, self.template_name , {'form': form })
+        return render(request, self.template_name, {'form': form})
 
-    def post(self,request):
-        form = CreateReviewForm(request.POST)
-        #current_user = User
+    def post(self, request):
+        form = CreateReviewForm(request.POST)        
+        
         if form.is_valid():
             form.instance.email = request.user.email
             email = form.instance.email
             form.instance.name = request.user.username
             name = form.instance.name
-            #form.instance.author = auth_user.id
+            #form.instance.author = User.auth_user
             #author = form.instance.author
             title = form.cleaned_data['title']
+            form.instance.slug = slugify(title)
             content = form.cleaned_data['content']
             featured_image = form.cleaned_data['featured_image']
-            excerpt = form.cleaned_data['excerpt']
-            context = {
-                'form': form , 
-                'title': title, 
-                'content': content, 
-                'featured_image': featured_image, 
-                'excerpt': excerpt,
-                'email': email,
-                'name': name,
-                #'author': author,               
-                
-                }           
-            
+            excerpt = form.cleaned_data['excerpt'] 
             review = form.save(commit=False)
             review.post = review
             review.save()
         else:
             form = CreateReviewForm()
-#context
-        return render(request, self.template_name, )
+
+        return HttpResponseRedirect(reverse('reviews'))
+       
 
             
             
@@ -228,7 +219,21 @@ class CreateReview(TemplateView):
         # )
 
         
-
+ # return render(
+        #     request, 
+        #     self.template_name, 
+        #     context = {
+        #         #'form': form, 
+        #         'title': title,                 
+        #         'content': content, 
+        #         'featured_image': featured_image, 
+        #         'excerpt': excerpt,
+        #         'email': email,
+        #         'name': name,
+        #         'new_review': True,                
+        #         #'id': id,               
+                
+        #         }  )
 """
 end test
 """
@@ -295,26 +300,19 @@ end test
 
 
 
-class Menu(generic.ListView):
-    model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
+
+class Menu(TemplateView):
     template_name = 'menu.html'
 
 
-class OpeningHours(generic.ListView):
-    model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
+class OpeningHours(TemplateView):
     template_name = 'opening-times.html'
 
    
-class ProductsPage(generic.ListView):
-    model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
+class ProductsPage(TemplateView):
     template_name = 'about.html'
 
 
-class Contact(generic.ListView):
-    model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
+class Contact(TemplateView):
     template_name = 'about.html'
     

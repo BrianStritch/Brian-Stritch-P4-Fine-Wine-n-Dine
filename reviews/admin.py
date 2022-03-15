@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Review, Comment
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Review, Comment
+
 
 # Register your models here.
 

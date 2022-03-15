@@ -25,7 +25,7 @@
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
 
-        {% if bookings %}
+          {% if bookings %}
           {% for booking in bookings %}
           <div class="col-md-4">
             <div class="card mb-4 ml-6 ">
@@ -47,20 +47,9 @@
 
           {% endfor %}
 
-          
-
           {% else %}
 
           <h1>You have no current bookings</h1>
-          <div>
-            <h1>{{ name }}</h1>
-            <h1>{{ booking }}</h1>
-            <h1>{{ number_of_guests }}</h1>
-            <h1>{{ slug }}</h1>
-            <h1>{{ email }}</h1>
-            <h1>{{ dietary_notes }}</h1> 
-            <h1>{{ booking_id }}</h1>   
-        </div>
 
           {% endif %}
 
