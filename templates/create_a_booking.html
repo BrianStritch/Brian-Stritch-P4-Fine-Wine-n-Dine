@@ -9,14 +9,15 @@
             <div class="row">
                 <div class="col-xl-9 mx-auto">
                     <div class="cta-inner bg-faded text-center rounded">
-                        <h1>RESTAURANT BOOKING FORM</h1>
+                        <h1>RESTAURANT BOOKING FORM</h1>                        
                         <form method="post" action="" class="needs-validation">
+                            
 
                             {{ form.as_p | safe}} 
                             {% csrf_token %}
 
 
-
+                            <input type='hidden' value='{{ booking_created_on }}' name='booking_created_date'>
                             <button type="submit" class="btn btn-primary btn-xl">Submit</button>
                         </form>
                         

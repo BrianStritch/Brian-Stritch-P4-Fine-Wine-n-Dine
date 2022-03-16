@@ -12,13 +12,12 @@ class Bookings(TemplateView):
 
     def get(self, request):
         model = Booking
-        booking = Booking.objects.all()
-        bookings_list = {
-            'bookings':booking
-        }
-        paginate_by = 8
+        bookings = Booking.objects.all()        
         template_name = 'bookings.html'
-        return render(request, template_name, bookings_list)
+        paginate_by = 8
+        return render(request, template_name, {
+            'bookings':bookings
+        })
         
 
 
@@ -48,34 +47,42 @@ class CreateBookings(TemplateView):
             'bookings':booking
         }
         if form.is_valid():
-            form.instance.booking_id = request.user.id
-            booking_id = form.instance.booking_id
+            #form.instance.booking_id = request.bookings.booking.id
+            #booking_id = form.booking
+            #booking_created_on = request.booking.booking_created_on
+
             form.instance.email = request.user.email
             email = form.instance.email
+            
             form.instance.name = request.user.username
+            name = form.instance.name
+
+
             form.instance.primary_guest = request.user
             primary_guest = form.instance.primary_guest
-            name = form.instance.name
-            # booking = form.cleaned_data['booking']
-            form.instance.slug = (f"{slugify('booking')}{name}")
-            slug = form.instance.slug
             number_of_guests = form.cleaned_data['number_of_guests']
             dietary_notes = form.cleaned_data['dietary_notes']
+            Meal_time = form.cleaned_data['Meal_time']
+            booking_date = form.cleaned_data['booking_date']
+            additional_comments = form.cleaned_data['additional_comments']
+            # booking = form.cleaned_data['booking']
+            form.instance.slug = (f"{slugify('booking id')}/{booking_date}/{Meal_time}")
+            slug = form.instance.slug
+
+            
             #form = BookingForm()
 
-
-            context = {
-                    'number_of_guests': number_of_guests,
-                    'dietary_notes': dietary_notes,
-                    'email': email,
-                    'name': name,
-                    'slug': slug,
-                    'primary_guest':primary_guest,
-                    } 
+            # context = {
+            #         'number_of_guests': number_of_guests,
+            #         'dietary_notes': dietary_notes,
+            #         'email': email,
+            #         'name': name,
+            #         'slug': slug,
+            #         'primary_guest':primary_guest,
+            #         } 
             booked = form.save(commit=False)
             primary_guest = request.user
-            booked.post = booked
-            
+            booked.post = booked            
             booked.save() 
         else:
             form = BookingForm()
@@ -89,4 +96,6 @@ class CreateBookings(TemplateView):
                     'email': email,
                     'name': name,
                     'slug': slug,
+                    'booking_date': booking_date,
+                    'Meal_time': Meal_time,
                     } )

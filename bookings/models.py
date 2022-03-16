@@ -1,4 +1,5 @@
-from django.db import models  # , forms
+from django.db import models
+from django import forms  # , forms
 # from .widgets import DateTimePickerInput
 
 
@@ -8,7 +9,7 @@ from django.contrib.auth.models import User
 
 BOOKING_STATUS = ((0, 'Pending'), (1, 'Approved'), (3, 'Completed'))
 TIMESLOTS = (
-    (0, 'Please choose a booking time'),
+    (0, 'Please choose:'),
     (1, '10:00'),
     (2, '11:00'),
     (3, '12:00'),
@@ -19,6 +20,9 @@ TIMESLOTS = (
     (8, '17:00'),
     (9, '18:00'),    
     )
+# BOOKING_DATES =(
+
+# )
 
 
 # Create your models here.
@@ -35,6 +39,7 @@ class Booking(models.Model):
     number_of_tables = models.IntegerField(blank=True, default=0)
     Meal_time = models.IntegerField(choices=TIMESLOTS, default=0)
     booking_created_on = models.DateTimeField(auto_now=True)
+    booking_date = models.TextField(max_length=200, blank=True)    
     
     # booking_id = models.IntegerField()
     # booking = models.CharField(max_length=200)

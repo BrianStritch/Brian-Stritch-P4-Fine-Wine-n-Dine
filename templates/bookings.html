@@ -15,7 +15,6 @@
     </div>
   </div>
 </nav>
-{% else %}
 {% endif %}
 
 
@@ -23,36 +22,40 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <div class="cta-inner bg-faded text-center rounded">
-          
-            <!-- {% if booking_status == 1 %} -->
+        <div class=" row cta-inner bg-faded text-center rounded">
           {% for booking in bookings %}
-            <div class="col-md-4">
-              <div class="card mb-4 ml-6 ">
-                <a href="#">
-                  <div class="card-body ">
-                    
-                    <a href="#" class="review-link">
-                      <h2 class="card-title">{{ booking.booking_status }}</h2>
-                      <p class="card-text">{{ booking.additional_comments }}</p>
-                    </a>
-                    <hr />
-                    <p class="card-text text-muted h6">{{ booking.booking_created_on}} <i class="far fa-heart"></i>
-                      {{ booking.id }}</p>
-                  </div>
-                </a>
-              </div>
+          <div class="col-md-4 row centre-cards">
+            <div class="card mb-4 ml-6 ">
+              <a href="#">
+                <div class="card-body ">
+
+                  <a href="#" class="review-link">
+                    <h2 class="card-title">booking status : {{ booking.booking_status }}</h2>
+                    <p class="card-text">{{ booking.additional_comments }}</p>
+                    <p> booking id = {{ booking.id  }} </p>
+                    <p> slug = {{booking.slug }} </p>
+                  </a>
+                  <hr />
+                  <p class="card-text text-muted h6">booking_created_on = {{ booking.booking_created_on}} <i class="far fa-heart"></i>
+                    {{ booking.id }}</p>
+                </div>
+              </a>
             </div>
+            {% if forloop.counter|divisibleby:3 %}
+          </div>
+          <div class="row centre-cards">
+            {% endif %}
+
+            {% endfor %}
 
 
-          {% endfor %}
-
+            <!-- 
           
-<!-- 
-          {% else %}
 
-          <h1>You have no current bookings</h1>
-          <div>
+          <h1>You have no current bookings</h1> -->
+            <!-- <div>
+            <h1>{{ booking }}</h1>
+            <h1> {{ bookings }}</h1>
             <h1>{{ name }}</h1>
             <h1>{{ booking_status }}</h1>
             <h1>{{ number_of_guests }}</h1>
@@ -60,19 +63,32 @@
             <h1>{{ email }}</h1>
             <h1>{{ dietary_notes }}</h1> 
             <h1>{{ booking_id }}</h1>   
-        </div>
+        </div> -->
 
-          {% endif %} -->
-
-
+            
 
 
 
 
+
+
+          </div>
         </div>
       </div>
+      {% if is_paginated %}
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+          {% endif %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
     </div>
-  </div>
 </section>
 
 
