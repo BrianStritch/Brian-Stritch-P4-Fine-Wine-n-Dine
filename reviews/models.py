@@ -9,7 +9,7 @@ STATUS = ((0, 'Draft'), (1, 'Published'))
 class Review(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review_posts', default=1) # noqa 
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review_posts') # noqa , default=1  
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')

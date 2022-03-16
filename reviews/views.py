@@ -154,7 +154,7 @@ class CreateReview(TemplateView):
         form = CreateReviewForm()
         return render(request, self.template_name, {'form': form})
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         form = CreateReviewForm(request.POST)        
         
         if form.is_valid():
@@ -162,18 +162,13 @@ class CreateReview(TemplateView):
             email = form.instance.email
             form.instance.name = request.user.username
             name = form.instance.name
-            
-            #author = form.instance.author
-
+            form.instance.author = request.user
             title = form.cleaned_data['title']
             form.instance.slug = slugify(title)
             content = form.cleaned_data['content']
             featured_image = form.cleaned_data['featured_image']
             excerpt = form.cleaned_data['excerpt'] 
-
             review = form.save(commit=False)
-            #review.user = request.user
-            #form.instance.author = review.user.id
             review.post = review
             review.save()
         else:
@@ -183,10 +178,12 @@ class CreateReview(TemplateView):
        
 
             
-            
+     #request.user.id
+            # author = form.instance.author       
     
     
-    
+    #review.user = request.user
+            #form.instance.author = review.user.id
     
     
     

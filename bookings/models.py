@@ -1,51 +1,70 @@
-from django.db import models
+from django.db import models  # , forms
+# from .widgets import DateTimePickerInput
+
+
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField
 
 
 BOOKING_STATUS = ((0, 'Pending'), (1, 'Approved'), (3, 'Completed'))
+TIMESLOTS = (
+    (0, 'Please choose a booking time'),
+    (1, '10:00'),
+    (2, '11:00'),
+    (3, '12:00'),
+    (4, '13:00'),
+    (5, '14:00'),
+    (6, '15:00'),
+    (7, '16:00'),
+    (8, '17:00'),
+    (9, '18:00'),    
+    )
+
 
 # Create your models here.
 
 # Booking Model
 class Booking(models.Model):
-    booking_id = models.IntegerField()
-    booking = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts') # noqa    
-    dietary_notes = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=BOOKING_STATUS, default=0)
-    number_of_guests = models.IntegerField(range(10,1))
-    number_of_tables = models.IntegerField()
+    primary_guest = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Booking_form') # noqa , ,default=""default=1  
+    booking_status = models.IntegerField(choices=BOOKING_STATUS, default=0)
     availability = models.BooleanField(default=True)
-    #meal_time = 
+    dietary_notes = models.TextField(max_length=200, blank=True)
+    additional_comments = models.TextField(max_length=200, blank=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    number_of_guests = models.IntegerField('Number of guests', default=1)
+    number_of_tables = models.IntegerField(blank=True, default=0)
+    Meal_time = models.IntegerField(choices=TIMESLOTS, default=0)
+    booking_created_on = models.DateTimeField(auto_now=True)
+    
+    # booking_id = models.IntegerField()
+    # booking = models.CharField(max_length=200)
+    # meal_time = 
 
     class Meta:
-        ordering = ['-created_on']
+        ordering = ['-booking_created_on']
 
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title
 
     
 
 
 
 # Approval model
-class Booking_approval(models.Model):
+# class Booking_approval(models.Model):
 
-    booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='Approval')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+#     booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='Approval')
+#     name = models.CharField(max_length=80)
+#     email = models.EmailField()
+#     body = models.TextField()
+#     created_on = models.DateTimeField(auto_now_add=True)
+#     approved = models.BooleanField(default=False)
 
-    class Meta:
-        ordering = ['created_on']
+#     class Meta:
+#         ordering = ['created_on']
 
-    def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+#     def __str__(self):
+#         return f"Comment {self.body} by {self.name}"
 
 
 # Reviews Model

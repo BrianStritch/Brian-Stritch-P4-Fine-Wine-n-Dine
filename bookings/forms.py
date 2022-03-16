@@ -1,12 +1,18 @@
 from django import forms
 from .models import Booking
-from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
+# from .widgets import DateTimePickerInput
 
 
 class BookingForm(forms.ModelForm):
-    #Post = Booking
+    # Post = Booking
 
     class Meta:
         model = Booking
-        fields = ('booking','number_of_guests', 'dietary_notes',)
-        
+        # my_date_time_field = forms.DateTimeField(widget=DateTimePickerInput)
+        fields = ('Meal_time', 'number_of_guests', 'dietary_notes', 'additional_comments',)  # noqa
+        # fields = ('my_date_time_field', 'dietary_notes',)
+
+        # widgets = {
+            
+        #     'my_date_time_field' : DateTimePickerInput(),
+        # }
