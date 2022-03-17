@@ -10,11 +10,11 @@ class Home(TemplateView):
     template_name = 'index.html'
    
 class Menu(TemplateView):
-    template_name = 'menu.html'
+    template_name = 'nannys_alternative/menu.html'
 
 
 class OpeningHours(TemplateView):
-    template_name = 'opening-times.html'
+    template_name = 'nannys_alternative/opening-times.html'
 
    
 class ProductsPage(TemplateView):
@@ -22,4 +22,8 @@ class ProductsPage(TemplateView):
 
 
 class Contact(TemplateView):
-    template_name = 'about.html'
+    template_name = 'user_account_details.html'
+
+
+class User_account_details(TemplateView):
+    template_name = 'user_account_details.html'

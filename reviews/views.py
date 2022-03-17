@@ -8,29 +8,10 @@ from .models import Review
 from .forms import CommentForm, CreateReviewForm
 
 
-# class Home(TemplateView):
-#     template_name = 'index.html'
-   
-# class Menu(TemplateView):
-#     template_name = 'menu.html'
-
-
-# class OpeningHours(TemplateView):
-#     template_name = 'opening-times.html'
-
-   
-# class ProductsPage(TemplateView):
-#     template_name = 'about.html'
-
-
-# class Contact(TemplateView):
-#     template_name = 'about.html'
-
-
 class ReviewsList(generic.ListView):
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
-    template_name = 'reviews.html'
+    template_name = 'reviews/reviews.html'
     paginate_by = 8
 
 
@@ -46,7 +27,7 @@ class ReviewsDetail(View):
 
         return render(
             request,
-            "reviews_detail.html",
+            "reviews/reviews_detail.html",
             {
                 "review": review,
                 "comments": comments,
@@ -77,7 +58,7 @@ class ReviewsDetail(View):
 
         return render(
             request,
-            "reviews_detail.html",
+            "reviews/reviews_detail.html",
             {
                 "review": review,
                 "comments": comments,
@@ -100,7 +81,7 @@ class ReviewLike(View):
 
 
 class CreateReview(TemplateView):
-    template_name = 'create_review.html'
+    template_name = 'reviews/create_review.html'
     
     
     def get(self, request):

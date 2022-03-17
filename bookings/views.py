@@ -7,22 +7,22 @@ from .forms import BookingForm
 from .models import Booking
 
 
-
-
 class Bookings(TemplateView):   
 
     def get(self, request):
-        model = Booking
         bookings = Booking.objects.all()        
-        template_name = 'bookings.html'
+        template_name = 'bookings/bookings.html'
         paginate_by = 8
-        return render(request, template_name, {
-            'bookings':bookings
-        })       
+        return render(
+            request, 
+            template_name, 
+            {
+                'bookings': bookings,
+            })       
 
 
 class CreateBookings(TemplateView):
-    template_name = 'create_a_booking.html'
+    template_name = 'bookings/create_a_booking.html'
     booking = Booking.objects.all()
     bookings_list = {
         'bookings':booking
@@ -36,16 +36,15 @@ class CreateBookings(TemplateView):
         }
         return render(
             request, 
-            self.template_name, {
-                'form': form,                
-                })
+            self.template_name, 
+            {
+            'form': form,                
+            })
 
     def post(self, request, *args, **kwargs):
         form = BookingForm(request.POST)
         booking = Booking.objects.all()
-        bookings_list = {
-            'bookings':booking
-        }
+        
         if form.is_valid():
             form.instance.email = request.user.email
             email = form.instance.email
