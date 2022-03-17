@@ -18,68 +18,71 @@
 {% endif %}
 
 
-<section class="page-section cta">
-  <div class="container">
+<section class="page-section cta wooden-back">
+  <div class="container ">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <div class=" row cta-inner bg-faded text-center rounded">
-          <h1>outside username = {{ user.username }}</h1>
-          
+        <div class=" row cta-inner bg-faded text-center rounded">          
             {% for booking in bookings %}
-            <div class="col-md-4 row centre-cards">
+            <div class="col-md-9 row booking-cards centre-cards">
               <div class="card mb-4 ml-6 ">
                 <a href="#">
-                  <div class="card-body ">
-                    <h1> booking.primaryguest = {{ booking.primary_guest }}</h1>
-                    <h1> username = {{ username }}</h1>
-
+                  <div class="booking-cards card-body ">
                     <a href="#" class="review-link">
-                      <h2>Booking created by: {{ booking.primary_guest }}</h2>
-                      <h2>Meal time : {{ booking.Meal_time }}</h2>
-                      <h2>Meal date : {{ booking_date}}</h2>
-                      <h2 class="card-title">booking status : {{ booking.booking_status }}</h2>
-                      <p class="card-text">{{ booking.additional_comments }}</p>
-                      <p> booking id = {{ booking.id  }} </p>
-                      <p> slug = {{booking.slug }} </p>
-                    </a>
+                      <h3>Booking date : {{ booking.booking_date}}</h3>
+                      <p>
+                        Meal time : 
+                        {% if booking.Meal_time == 0 %}                        
+                        <span>No time Specified, please call reception</span>
+                        {% elif booking.Meal_time == 1 %}
+                        <span>10:00</span>
+                        {% elif booking.Meal_time == 2 %}
+                        <span>11:00</span>
+                        {% elif booking.Meal_time == 3 %}
+                        <span>12:00</span>
+                        {% elif booking.Meal_time == 4 %}
+                        <span>13:00</span>
+                        {% elif booking.Meal_time == 5 %}
+                        <span>14:00</span>
+                        {% elif booking.Meal_time == 6 %}
+                        <span>15:00</span>
+                        {% elif booking.Meal_time == 7 %}
+                        <span>16:00</span>
+                        {% elif booking.Meal_time == 8 %}
+                        <span>17:00</span>
+                        {% elif booking.Meal_time == 9 %}
+                        <span>18:00</span>
+                        {% endif %}
+                      </p>
+                    </a> 
                     <hr />
-                    <p class="card-text text-muted h6">booking_created_on = {{ booking.booking_created_on}} <i class="far fa-heart"></i>
+                      <p class="card-title">
+                        booking status : 
+                        {% if booking.booking_status == 0 %}
+                        <span>Pending</span>
+                        {% elif booking.booking_status == 1 %}
+                        <span>Approved</span>
+                        {% else %}
+                        <span>Completed</span>
+                        {% endif %}
+                      </p>
+                      <p>Booking created by: {{ booking.primary_guest }}</p>
+                      <p>Number of guests = {{ booking.number_of_guests  }} </p>
+                      <p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
+                      <p class="card-text">Additional comments: {{ booking.additional_comments }}</p>                      
+                      <p>booking id = {{ booking.id  }} </p>  
+                    <hr />
+                    <p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} <i class="far fa-heart"></i>
                       {{ booking.id }}</p>
                   </div>
                 </a>
               </div>
               {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row centre-cards">
+            <div class="col-xl-9 row booking-cards centre-cards">
               {% endif %}
               
               {% endfor %}
-            
-            <h1>You have no current bookings</h1>
-            
-            <!-- 
-          
-
-          
-             <div> 
-            <h1>{{ booking }}</h1>
-            <h1> {{ bookings }}</h1>
-            <h1>{{ name }}</h1>
-            <h1>{{ booking_status }}</h1>
-            <h1>{{ number_of_guests }}</h1>
-            <h1>slug = {{ slug }}</h1>
-            <h1>{{ email }}</h1>
-            <h1>{{ dietary_notes }}</h1> 
-            <h1>{{ booking_id }}</h1>   
-        </div> -->
-
-            
-
-
-
-
-
-
           </div>
         </div>
       </div>

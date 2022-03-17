@@ -11542,6 +11542,10 @@ p {
   width: fit-content;
 }
 
+#booking-cards{
+  width: 30vw ;
+}
+
 .centre-text{
   text-align: center;
 }
