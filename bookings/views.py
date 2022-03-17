@@ -58,7 +58,7 @@ class CreateBookings(TemplateView):
             Meal_time = form.cleaned_data['Meal_time']
             booking_date = form.cleaned_data['booking_date']
             additional_comments = form.cleaned_data['additional_comments']
-            form.instance.slug = (f"{slugify('booking id')}/{booking_date}/{Meal_time}")
+            form.instance.slug = (f"{primary_guest}_{booking_date}_{Meal_time}")
             slug = form.instance.slug
             booked = form.save(commit=False)
             primary_guest = request.user
