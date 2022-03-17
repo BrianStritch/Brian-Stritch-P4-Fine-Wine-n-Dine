@@ -8,23 +8,23 @@ from .models import Review
 from .forms import CommentForm, CreateReviewForm
 
 
-class Home(TemplateView):
-    template_name = 'index.html'
+# class Home(TemplateView):
+#     template_name = 'index.html'
    
-class Menu(TemplateView):
-    template_name = 'menu.html'
+# class Menu(TemplateView):
+#     template_name = 'menu.html'
 
 
-class OpeningHours(TemplateView):
-    template_name = 'opening-times.html'
+# class OpeningHours(TemplateView):
+#     template_name = 'opening-times.html'
 
    
-class ProductsPage(TemplateView):
-    template_name = 'about.html'
+# class ProductsPage(TemplateView):
+#     template_name = 'about.html'
 
 
-class Contact(TemplateView):
-    template_name = 'about.html'
+# class Contact(TemplateView):
+#     template_name = 'about.html'
 
 
 class ReviewsList(generic.ListView):

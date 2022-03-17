@@ -4,7 +4,7 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container">
+<div class="container ">
     <div class="row">
         <div class="col-md-8 offset-md-2 my-3">
             {% if commented %}
@@ -18,111 +18,122 @@
 </div>
 
 
+<div class="col-xl-7 mx-auto">
+    <div class="masthead">
+        <div class="container">
+            <div class="row g-0 centre-cards ">
+                <div class="col-md-6 masthead-text">
+                    <h1 class="post-title ">
+                        {{ review.title }}
+                    </h1>
+                    <p class="post-subtitle ">{{ review.author }} | {{ review.created_on }}</p>                
+                </div>
+                <div class="d-none d-md-block col-md-6 masthead-image reviews-detail">
+                    {% if "placeholder" in review.featured_image.url %}
+                    <img src="/static/images/food-critic.jpg" width="100%">
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" width="100%">
+                    {% endif %}
+                </div>
+            </div>
 
-<div class="masthead">
+
+
+
+
+        </div>
+    </div>
+
     <div class="container">
-        <div class="row g-0 centre-cards">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title ">
-                    {{ review.title }}
-                </h1>
-                <p class="post-subtitle ">{{ review.author }} | {{ review.created_on }}</p>                
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image reviews-detail">
-                {% if "placeholder" in review.featured_image.url %}
-                <img src="/static/images/food-critic.jpg" width="100%">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="row reviews-detail">
+            <div class="col card mb-4  mt-3 left  top wooden-back">
 
-<div class="container">
-    <div class="row reviews-detail">
-        <div class="col card mb-4  mt-3 left  top wooden-back">
-            <div class="card-body">
-                <p class="card-text "> {{ review.content | safe }}</p>
-                <div class="row">
-                    <div class="col-1">
-                        <strong>
-                            {% if user.is_authenticated %}
-                                <form class="d-inline like-btn-outline" action="{% url 'review_like' review.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    {% if liked %}
-                                        <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" id="like-btn">
-                                            <i class="fas fa-heart red"></i>
-                                        </button>
 
-                                    {% else %}
-                                        <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" >
-                                            <i class="far fa-heart white"></i>
-                                        </button>
-                                    {% endif %}    
-                                </form>
-                            {% else %}
-                                <span class="text-secondary"> <i class="far fa-heart white"></i> </span>                                
-                            {% endif %}
-                            <span class="text-secondary">{{ review.number_of_likes }}</span>
-                        </strong>                        
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            {{ total_comments}}
-                        </strong>
-                        {% endwith %}
+
+                <div class="card-body">
+                    <p class="card-text "> {{ review.content | safe }}</p>
+                    <div class="row">
+                        <div class="col-1">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                    <form class="d-inline like-btn-outline" action="{% url 'review_like' review.slug %}" method="POST">
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                            <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" id="like-btn">
+                                                <i class="fas fa-heart red"></i>
+                                            </button>
+
+                                        {% else %}
+                                            <button type="submit" name="reviewpost_id" value="{{ review.slug }}" class="btn-like wooden-back like-btn-outline" >
+                                                <i class="far fa-heart white"></i>
+                                            </button>
+                                        {% endif %}    
+                                    </form>
+                                {% else %}
+                                    <span class="text-secondary"> <i class="far fa-heart white"></i> </span>                                
+                                {% endif %}
+                                <span class="text-secondary">{{ review.number_of_likes }}</span>
+                            </strong>                        
+                        </div>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                {{ total_comments}}
+                            </strong>
+                            {% endwith %}
+                        </div>
                     </div>
                 </div>
+
+                
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <hr>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
         </div>
-    </div>
-    <div class="row ">
-        <div class="col-md-8 card mb-4  mt-3 reviews-detail centre-text wooden-back">
-            <h3 >Comments:</h3>
-            <div class="card-body">
-                {% for comment in comments %}
-                <div class="comments wooden-back" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
-                        <span class=" text-highlighted font-weight-bold wooden-back ">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body  | linebreaks }}
+        <div class="row ">
+            <div class="col-md-8 card mb-4  mt-3 reviews-detail centre-text wooden-back">
+                <h3 >Comments:</h3>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <div class="comments wooden-back" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.name }}
+                            <span class=" text-highlighted font-weight-bold wooden-back ">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ comment.body  | linebreaks }}
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 wooden-back">
-            <div >
-                {% if commented %}
-                <div class="card-body min-20">
-                    <div class="alert alert-success" role="alert" id="msg">
-                   Your comment is awaiting approval
-                    </div>
-                </div>                
-                {% else %}
-                {% if user.is_authenticated %}
-                <div class="min-20">
-                    <h3 class="wooden-back" >Leave a comment:</h3>
-                    <div class="card-body ">
-                        <p>Posting as: {{ user.username }}</p>
-                        <form method="post" style="margin-top: 1.3em;">
-                            {{ comment_form | crispy }}
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary btn-xl" >Submit</button>                    
-                        </form>
-                    </div>
-                </div>    
-                {% endif %}
-                {% endif %}                
+            <div class="col-md-4 card mb-4  mt-3 wooden-back">
+                <div >
+                    {% if commented %}
+                    <div class="card-body min-20">
+                        <div class="alert alert-success" role="alert" id="msg">
+                    Your comment is awaiting approval
+                        </div>
+                    </div>                
+                    {% else %}
+                    {% if user.is_authenticated %}
+                    <div class="min-20">
+                        <h3 class="wooden-back" >Leave a comment:</h3>
+                        <div class="card-body ">
+                            <p>Posting as: {{ user.username }}</p>
+                            <form method="post" style="margin-top: 1.3em;">
+                                {{ comment_form | crispy }}
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary btn-xl" >Submit</button>                    
+                            </form>
+                        </div>
+                    </div>    
+                    {% endif %}
+                    {% endif %}                
+                </div>
             </div>
         </div>
     </div>
