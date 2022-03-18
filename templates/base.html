@@ -26,7 +26,7 @@
             <a href="{% url 'home' %}">
                 <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" id="header-logo">
             </a>
-            <p class="site-heading-upper text-primary mb-3" id="login-display">Logged in as: <span class="text-uppercase">{{ user.username }}</span></p>
+            <p class="site-heading-upper text-primary mb-3" id="login-display"><a href="{% url 'user_account' %}"> Logged in as: <span class="text-uppercase">{{ user.username }}</span></a></p>
             {% else %}
             <a href="{% url 'home' %}">
                 <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" class="nannys-logo">
@@ -55,7 +55,7 @@
                     {% endif %}
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'menu' %}">Menu</a></li>
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'products' %}">Products</a></li>
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'user_account' %}">Contact & About</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}">Contact & About</a></li>
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'reviews' %}">Reviews</a></li>
                     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'opening_hours' %}">Opening hours</a></li>
                     {% if user.is_authenticated %}

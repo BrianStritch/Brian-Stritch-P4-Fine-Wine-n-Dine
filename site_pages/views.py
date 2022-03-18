@@ -18,12 +18,12 @@ class OpeningHours(TemplateView):
 
    
 class ProductsPage(TemplateView):
-    template_name = 'about.html'
+    template_name = 'nannys_alternative/about.html'
 
 
-class Contact(TemplateView):
-    template_name = 'user_account_details.html'
+class About(TemplateView):
+    template_name = 'nannys_alternative/about.html'
 
 
 class User_account_details(TemplateView):
-    template_name = 'user_account_details.html'
+    template_name = 'nannys_alternative/user_account_details.html'
