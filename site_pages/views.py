@@ -1,14 +1,19 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.template.defaultfilters import slugify
-from django.views import generic, View
+# from django.shortcuts import render, get_object_or_404, reverse
+# from django.template.defaultfilters import slugify
+# from django.views import generic, View
 from django.views.generic import TemplateView
-from django.http import HttpResponseRedirect
+# from django.http import HttpResponseRedirect
 
-# Create your views here.
+
+"""
+commented out above imports as may not e required - test and see tomorrow
+"""
+
 
 class Home(TemplateView):
     template_name = 'index.html'
-   
+
+ 
 class Menu(TemplateView):
     template_name = 'nannys_alternative/menu.html'
 
