@@ -11526,6 +11526,7 @@ p {
   text-align: end;
   position: relative;
   top: -17px;
+  display: inline;
 }
 .review-link {
   text-decoration: none;
