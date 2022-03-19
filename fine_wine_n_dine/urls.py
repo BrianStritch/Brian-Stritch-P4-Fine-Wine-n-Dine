@@ -27,6 +27,7 @@ urlpatterns = [
     path('reviews/reviews', include('reviews.urls'), name='reviews'),
     path('bookings/', include('bookings.urls'), name='bookings'),
     path('accounts/', include('allauth.urls')),
+    path('sign_up/', include('site_pages.urls'), name='sign_up'),
     path('account_details/', include('site_pages.urls'), name='user_account'),
     
 ]

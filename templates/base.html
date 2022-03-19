@@ -20,32 +20,34 @@
 
 <body>
     <header>        
-        <div class="container-fluid logo-div">            
-            {% if user.is_authenticated %}
-            <a href="{% url 'home' %}">
-                <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" id="header-logo">
-            </a>
-            <ul id="login-display">
-               <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase" href="{% url 'account_logout' %}">Logout</a>
-                </li> 
-                <li class="site-heading-upper text-primary mb-3" >
-                    <a href="{% url 'user_account' %}"> Logged in as: <span class="text-uppercase">{{ user.username }}</span></a>
-                </li>
-            </ul>
-            {% else %}
-            <a href="{% url 'home' %}">
-                <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" class="nannys-logo">
-            </a>
-            <ul id="login-display">
+        <div class="container-fluid logo-div ">  
+            <nav class="navbar-nav mx-auto">                      
+                {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">
+                    <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" id="header-logo">
+                </a>
+                <ul id="login-display">
                 <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase" href="{% url 'account_signup' %}">Register</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase" href="{% url 'account_login' %}">Login</a>
-                </li>            
-            </ul>    
-            {% endif %}
+                        <a class="nav-link text-uppercase" href="{% url 'account_logout' %}">Logout</a>
+                    </li> 
+                    <li class="site-heading-upper text-primary mb-3" >
+                        <a href="#"> Logged in as: <span class="text-uppercase">{{ user.username }}</span></a>
+                    </li>
+                </ul>
+                {% else %}
+                <a href="{% url 'home' %}">
+                    <img src="/static/images/nannys-logo.JPG" alt="Nannys of duleek logo" class="nannys-logo">
+                </a>
+                <ul id="login-display">
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="{% url 'sign_up' %}">Register</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="{% url 'account_login' %}">Login</a>
+                    </li>            
+                </ul>    
+                {% endif %}
+            </nav>
 
         </div>
         

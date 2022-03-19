@@ -28,8 +28,8 @@ urlpatterns = [
         name='about'
         ),
     path(
-        'nannys_alternative/account_details/',
-        views.User_account_details.as_view(),
-        name='user_account'
+        'nannys_alternative/sign_up/',
+        views.Sign_up.as_view(),
+        name='sign_up'
         ),
 ]

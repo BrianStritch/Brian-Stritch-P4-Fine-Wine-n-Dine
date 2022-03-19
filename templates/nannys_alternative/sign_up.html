@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %
+
+{% block content %}
+
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded  rounded">
+                        <h1 class="text-center">Sign Up</h1>  
+                        <hr>                      
+                        <form method="post" action="" class="needs-validation">
+                            {{ form.as_p }} 
+                            {% csrf_token %}      
+                            <button type="submit" class="btn btn-success btn-xl">UPDATE</button>
+                            
+                        </form>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
