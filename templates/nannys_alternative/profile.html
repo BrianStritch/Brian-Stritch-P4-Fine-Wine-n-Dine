@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %
+
+{% block content %}
+
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded  rounded">
+                        <h1 class="text-center">User Profile</h1>  
+                        <hr>         
+                            <h3>Username : {{ user.username }} </h3>
+                            <h3>First Name : {{ user.first_name }} </h3>
+                            <h3>Last Name : {{ user.last_name }} </h3>
+                            <h3>Email :{{ user.email }} </h3>
+                            <h3>User id : {{user.id}} </h3>
+                        <hr>   
+                            <a href="{% url 'edit_profile' %}"><button class="btn btn-primary btn-xl">Edit User Details</button></a>
+                            
+                        </form>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

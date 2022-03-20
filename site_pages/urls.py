@@ -32,4 +32,14 @@ urlpatterns = [
         views.Sign_up.as_view(),
         name='sign_up'
         ),
+    path(
+        'nannys_alternative/profile/',
+        views.Profile.as_view(),
+        name='profile'
+        ),
+    path(
+        'nannys_alternative/edit_profile/',
+        views.Edit_profile.as_view(),
+        name='edit_profile'
+        ),
 ]

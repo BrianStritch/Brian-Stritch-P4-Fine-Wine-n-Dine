@@ -1,13 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-# from django.template.defaultfilters import slugify
-# from django.views import generic, View
 from django.views.generic import TemplateView
-from .forms import UserAccountDetailsForm
 from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import UserChangeForm
+from .forms import UserAccountDetailsForm, EditProfileForm
 
-"""
-commented out above imports as may not e required - test and see tomorrow
-"""
 
 
 class Home(TemplateView):
@@ -30,8 +26,8 @@ class About(TemplateView):
     template_name = 'nannys_alternative/about.html'
 
 
-# class User_account_details():
-#     template_name = 'nannys_alternative/user_account_details.html'
+class Profile(TemplateView):
+    template_name = 'nannys_alternative/profile.html'
 
 
 
@@ -56,11 +52,12 @@ class About(TemplateView):
 
 
 """
-
+SIgn Up template with form which allows users to input a username, first name, last name
+email address and a password with a password verifcation check.
 """
 
 class Sign_up(TemplateView):
-    template_name = 'nannys_alternative/sign_up.html'
+    template_name = 'nannys_alternative/edit_profile.html'
 
     def get(self, request):
         form = UserAccountDetailsForm()
@@ -76,13 +73,46 @@ class Sign_up(TemplateView):
 
         if request.method == 'POST':
             form = UserAccountDetailsForm(request.POST)
-            form.instance.user = request.user
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(reverse('home'))
 
         else:
             form = UserAccountDetailsForm()
+            details = {
+                'form': form,
+            }
+            return render(request, self.template_name, details)
+
+
+"""
+Edit profile template with form which allows users to Edit their username, first name, last name
+email address and a password with a password verifcation check.
+"""
+
+class Edit_profile(TemplateView):
+    template_name = 'nannys_alternative/edit_profile.html'
+
+    def get(self, request):
+        form = EditProfileForm()
+        
+        return render(
+            request, 
+            self.template_name, 
+            {
+            'form': form,
+            })
+
+    def post(self, request):
+
+        if request.method == 'POST':
+            form = EditProfileForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse('profile'))
+
+        else:
+            form = EditProfileForm(instance=request.user)
             details = {
                 'form': form,
             }
@@ -101,29 +131,4 @@ class Sign_up(TemplateView):
 """
 
 """
-    # def post(self, request, *args, **kwargs):
-    #     form = BookingForm(request.POST)
-    #     booking = Booking.objects.all()
-        
-    #     if form.is_valid():
-    #         form.instance.email = request.user.email
-    #         email = form.instance.email
-    #         form.instance.name = request.user.username
-    #         name = form.instance.name
-    #         form.instance.primary_guest = request.user
-    #         primary_guest = form.instance.primary_guest
-    #         number_of_guests = form.cleaned_data['number_of_guests']
-    #         dietary_notes = form.cleaned_data['dietary_notes']
-    #         Meal_time = form.cleaned_data['Meal_time']
-    #         booking_date = form.cleaned_data['booking_date']
-    #         additional_comments = form.cleaned_data['additional_comments']
-    #         form.instance.slug = (f"{primary_guest}_{booking_date}_{Meal_time}")
-    #         slug = form.instance.slug
-    #         booked = form.save(commit=False)
-    #         primary_guest = request.user
-    #         booked.post = booked            
-    #         booked.save() 
-    #     else:
-    #         form = BookingForm()
-    #     return HttpResponseRedirect(reverse('bookings'))
-
+ 

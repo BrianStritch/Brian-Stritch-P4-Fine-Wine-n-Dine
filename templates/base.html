@@ -31,7 +31,7 @@
                         <a class="nav-link text-uppercase" href="{% url 'account_logout' %}">Logout</a>
                     </li> 
                     <li class="site-heading-upper text-primary mb-3" >
-                        <a href="#"> Logged in as: <span class="text-uppercase">{{ user.username }}</span></a>
+                        <a href="{% url 'profile' %}"> Logged in as: <span class="text-uppercase">{{ user.username }}</span></a>
                     </li>
                 </ul>
                 {% else %}
