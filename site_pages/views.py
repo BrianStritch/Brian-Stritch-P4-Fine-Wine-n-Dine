@@ -30,27 +30,6 @@ class Profile(TemplateView):
     template_name = 'nannys_alternative/profile.html'
 
 
-
-# class User_account_details(TemplateView):
-#     template_name = 'nannys_alternative/user_account_details.html'
-    
-#     def post(self, request):
-
-#         if request.method == 'POST':
-#             form = UserAccountDetailsForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 return redirect('home')
-
-#         else:
-#             form = UserAccountDetailsForm()
-#             details = {
-#                 'form': form,
-#             }
-#             return render(request, 'nannys_alternative/user_account_details.html', details)
-    
-
-
 """
 SIgn Up template with form which allows users to input a username, first name, last name
 email address and a password with a password verifcation check.
@@ -117,16 +96,6 @@ class Edit_profile(TemplateView):
                 'form': form,
             }
             return render(request, self.template_name, details)
-
-
-
-
-
-
-
-
-
-
 
 """
 
