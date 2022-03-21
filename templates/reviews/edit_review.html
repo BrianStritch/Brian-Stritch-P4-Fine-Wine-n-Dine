@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+
+<section class="page-section cta">
+  <div class="container">
+     <div class="row">  <!--  action="" url 'save_new_review' -->
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+            
+            {% if new_review %}
+            <h1 id="msg">Thank you for your review, your review will be published shortly. </h1>
+            <div>
+              <h1>Review Content</h1>
+                  <h2> Review Title:  {{ title }}</h2>
+                  <h2> Review Content:  {{ content }}</h2>
+                  <h2> Review {{ featured_image }}</h2>
+                  <h2> 4 {{ excerpt }}</h2>
+                  <h2> 5 user id = {{ user.id }}</h2>
+                  <h2>6 {{ new_review }}</h2>
+              </div> 
+            {% else %}
+            <h1>Update Review:</h1>
+            <h2>request.review = {{ title }}</h2>
+            <h2>request user id = {{ request.id}} </h2>
+            <form  method="POST" style="margin-top: 1.3em;">  
+                          
+                {{ form | crispy }}
+                
+                {% csrf_token %}
+                
+                <button type="submit" class="btn btn-primary btn-xl" >EDIT</button> 
+                
+                              
+            </form> 
+            {% endif %}   
+
+            
+            
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+    {% endblock %}

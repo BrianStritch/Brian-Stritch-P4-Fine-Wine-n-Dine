@@ -82,6 +82,11 @@
                             </strong>
                             {% endwith %}
                         </div>
+                        <h2>review id = {{review.id}} </h2>
+                        {% if review.author == request.user %}
+                        <input type='hidden' name='id' value='{{ review.id}}' />                        
+                        <a href="{% url 'edit_review'  review.id %}"><button>EDIT</button></a>                        
+                        {% endif %}
                     </div>
                 </div>
 
@@ -107,7 +112,20 @@
                         </p>
                         {{ comment.body  | linebreaks }}
                     </div>
+                    <div>
+                        <p>comment id = {{ comment.id }}</p>
+                        <p>request.user = {{ user.username }}</p>
+                        {% if comment.name == user.username %} 
+                        
+                        
+                                             
+                        <a href="{url 'home' }"><button>EDIT</button></a>                        
+                                                
+                        {% endif %}  
+                    </div>
                     {% endfor %}
+                    
+                    
                 </div>
             </div>
             <div class="col-md-4 card mb-4  mt-3 wooden-back">
