@@ -85,13 +85,28 @@
                         <h2>review id = {{ review.id }} </h2>
                         <h2>review slug = {{ review.slug }} </h2>
                         {% if review.author == request.user %}
-                        <input type='hidden' name='id' value='{{ review.id}}' />                        
-                        <a href="{% url 'edit_review'  review.id %}"><button>EDIT</button></a>                        
+                        <input type='hidden' name='id' value='{{ review.id}}' /> 
+                        <div>
+                            <button class="btn btn-primary btn-xl" onclick="toggleHide()">EDIT</button>  
+                        </div> 
+                                            
+                        <!-- <a href="{% url 'edit_review'  review.id %}"></a>                         -->
                         {% endif %}
                     </div>
-                </div>
-
-                
+                   
+                </div> 
+                <div id="edit_review" class="hide card-body">
+                    <form  method="POST" style="margin-top: 1.3em;">  
+                        
+                        {{ form | crispy }}
+                        
+                        {% csrf_token %}
+                        
+                        <button type="submit" class="btn btn-primary btn-xl" >SUBMIT</button> 
+                        
+                                        
+                    </form> 
+                </div>                
             </div>
         </div>
         <div class="row">

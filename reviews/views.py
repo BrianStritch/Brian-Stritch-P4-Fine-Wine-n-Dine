@@ -18,6 +18,7 @@ class ReviewsList(generic.ListView):
 class ReviewsDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
+        form = EditReviewForm()
         queryset = Review.objects.filter(status=1)
         review = get_object_or_404(queryset, slug=slug)
         comments = review.comments.filter(approved=True).order_by('created_on')
@@ -34,6 +35,7 @@ class ReviewsDetail(View):
                 "commented": False,
                 "liked": liked,
                 'comment_form': CommentForm(),
+                'form': form,
             },
         )
 
@@ -46,6 +48,7 @@ class ReviewsDetail(View):
             liked = True
         
         comment_form = CommentForm(data=request.POST)
+        form = EditReviewForm(data=request.POST)
 
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -53,8 +56,17 @@ class ReviewsDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = review
             comment.save()
+        
+        # elif form.is_valid():
+        #     review.content = form.cleaned_data['content']
+        #     review.featured_image = form.cleaned_data['featured_image']
+        #     review.excerpt = form.cleaned_data['excerpt']
+        #     form.save()
+        #     return render(request, self.template_name, {'form':form})
+
         else:
             comment_form = CommentForm()
+            form = EditReviewForm()
 
         return render(
             request,
@@ -65,6 +77,7 @@ class ReviewsDetail(View):
                 "commented": True,
                 "liked": liked,
                 'comment_form': CommentForm(),
+                'form': form,
             },
         )
 
@@ -274,7 +287,7 @@ class EditReview(TemplateView):
 
     def post(self, request, slug):
         if request.method == 'POST':            
-            review = get_object_or_404(Review, slug=slug)
+            review = get_object_or_404(Review, id=slug)
             form = EditReviewForm(request.POST, instance=request.user)
             if form.is_valid():
                 review.content = form.cleaned_data['content']

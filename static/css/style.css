@@ -11610,3 +11610,7 @@ a {
 #nav-right{
   float: right;
 }
+
+.hide{
+  display:none;
+}

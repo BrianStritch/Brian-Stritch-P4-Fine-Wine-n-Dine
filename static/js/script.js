@@ -17,3 +17,8 @@ setTimeout(function () {
 }, 2500);
 
 
+function toggleHide(){
+    let edit_btn = document.getElementById('edit_review');
+    edit_btn.classList.toggle('hide')
+
+}
