@@ -82,7 +82,8 @@
                             </strong>
                             {% endwith %}
                         </div>
-                        <h2>review id = {{review.id}} </h2>
+                        <h2>review id = {{ review.id }} </h2>
+                        <h2>review slug = {{ review.slug }} </h2>
                         {% if review.author == request.user %}
                         <input type='hidden' name='id' value='{{ review.id}}' />                        
                         <a href="{% url 'edit_review'  review.id %}"><button>EDIT</button></a>                        
