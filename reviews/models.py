@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.shortcuts import render, reverse
+from django.template.defaultfilters import slugify
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
@@ -20,6 +22,13 @@ class Review(models.Model):
 
     class Meta:
         ordering = ['-created_on']
+
+    def get_absolute_url(self):
+        return reverse('reviews')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

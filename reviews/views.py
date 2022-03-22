@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.models import User
 from django.views import generic, View 
 from django.template.defaultfilters import slugify
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, UpdateView
 from django.http import HttpResponseRedirect
 from .models import Review
 from .forms import CommentForm, CreateReviewForm, EditReviewForm
@@ -56,13 +56,6 @@ class ReviewsDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = review
             comment.save()
-        
-        # elif form.is_valid():
-        #     review.content = form.cleaned_data['content']
-        #     review.featured_image = form.cleaned_data['featured_image']
-        #     review.excerpt = form.cleaned_data['excerpt']
-        #     form.save()
-        #     return render(request, self.template_name, {'form':form})
 
         else:
             comment_form = CommentForm()
@@ -266,42 +259,52 @@ class CreateReview(TemplateView):
 
 ###############################################################################################
 
-
-
-class EditReview(TemplateView):
-    """
-    Edit profile template with form which allows users to Edit their username,
-    first name, last name, email address and a password with a password
-    verifcation check.
-    """
+class EditReview(UpdateView):
+    model = Review
     template_name = 'reviews/edit_review.html'
+    fields = [
+        'title',
+        'content',
+        'featured_image',
+        'excerpt',
+        ]
 
-    def get(self, request, slug):
-        form = EditReviewForm()
-        return render(
-            request,
-            self.template_name,
-            {
-                'form': form,
-            })
 
-    def post(self, request, slug):
-        if request.method == 'POST':            
-            review = get_object_or_404(Review, id=slug)
-            form = EditReviewForm(request.POST, instance=request.user)
-            if form.is_valid():
-                review.content = form.cleaned_data['content']
-                review.featured_image = form.cleaned_data['featured_image']
-                review.excerpt = form.cleaned_data['excerpt']
-                form.save()
-                return render(request, self.template_name, {'form':form})
 
-        else:
-            form = EditReviewForm(instance=request.user)
-            details = {
-                'form': form,
-            }
-            return render(request, self.template_name, details)
+# class Edit_________________Review(TemplateView):
+#     """
+#     Edit profile template with form which allows users to Edit their username,
+#     first name, last name, email address and a password with a password
+#     verifcation check.
+#     """
+#     template_name = 'reviews/edit_review.html'
+
+#     def get(self, request, slug):
+#         form = EditReviewForm()
+#         return render(
+#             request,
+#             self.template_name,
+#             {
+#                 'form': form,
+#             })
+
+#     def post(self, request, slug):
+#         if request.method == 'POST':            
+#             review = get_object_or_404(Review, id=slug)
+#             form = EditReviewForm(request.POST, instance=request.user)
+#             if form.is_valid():
+#                 review.content = form.cleaned_data['content']
+#                 review.featured_image = form.cleaned_data['featured_image']
+#                 review.excerpt = form.cleaned_data['excerpt']
+#                 form.save()
+#                 return render(request, self.template_name, {'form':form})
+
+#         else:
+#             form = EditReviewForm(instance=request.user)
+#             details = {
+#                 'form': form,
+#             }
+#             return render(request, self.template_name, details)
 
 
 
