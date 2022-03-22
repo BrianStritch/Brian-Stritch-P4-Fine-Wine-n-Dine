@@ -24,8 +24,6 @@
               </div> 
             {% else %}
             <h1>Update Review:</h1>
-            <h2>request.review = {{ title }}</h2>
-            <h2>request user id = {{ request.id}} </h2>
             <form  method="POST" style="margin-top: 1.3em;">  
                           
                 {{ form | crispy }}

@@ -4,7 +4,7 @@ from django.views import generic, View
 from django.template.defaultfilters import slugify
 from django.views.generic import TemplateView, UpdateView
 from django.http import HttpResponseRedirect
-from .models import Review
+from .models import Review, Comment
 from .forms import CommentForm, CreateReviewForm, EditReviewForm
 
 
@@ -78,6 +78,12 @@ class ReviewsDetail(View):
 
 ##############################################  comment editing form ########################################
 
+class EditComment(UpdateView):
+    model = Comment
+    template_name = 'reviews/edit_comment.html'
+    fields = [
+        'body',
+        ]
 
 
 
@@ -85,50 +91,51 @@ class ReviewsDetail(View):
 
 
 
-class EditComment(TemplateView):
-    template_name = "reviews/edit_comment.html"
 
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Review.objects.all()
-        review = get_object_or_404(queryset, id=id)
-        form = CommentForm()
-        id=id
+# class EditComment(TemplateView):
+#     template_name = "reviews/edit_comment.html"
+
+#     def get(self, request, slug, *args, **kwargs):
+#         queryset = Review.objects.all()
+#         review = get_object_or_404(queryset, id=id)
+#         form = CommentForm()
+#         id=id
         
 
-        return render(
-            request,
-            "reviews/edit_comment.html",
-            {
-                'form': CommentForm(),
-                'id':id
-            },
-        )   
-    def post(self, request, slug, *args, **kwargs):
+#         return render(
+#             request,
+#             "reviews/edit_comment.html",
+#             {
+#                 'form': CommentForm(),
+#                 'id':id
+#             },
+#         )   
+#     def post(self, request, slug, *args, **kwargs):
         
-            queryset = Comments.objects.filter(id=request.comment.id)
-            review = get_object_or_404(queryset, slug=slug, id=id)
-            comment_form = CommentForm(data=request.POST)
+#             queryset = Comments.objects.filter(id=request.comment.id)
+#             review = get_object_or_404(queryset, slug=slug, id=id)
+#             comment_form = CommentForm(data=request.POST)
 
-            if comment_form.is_valid():
-                comment_form.instance.email = request.user.email
-                comment_form.instance.name = request.user.username
-                comment = comment_form.save(commit=False)
-                comment.post = review
-                comment.save()
-            else:
-                comment_form = CommentForm()
+#             if comment_form.is_valid():
+#                 comment_form.instance.email = request.user.email
+#                 comment_form.instance.name = request.user.username
+#                 comment = comment_form.save(commit=False)
+#                 comment.post = review
+#                 comment.save()
+#             else:
+#                 comment_form = CommentForm()
 
-            return render(
-                request,
-                self.template_name ,
-                {
-                    "review": review,
-                    "comments": comments,
-                    "commented": True,
-                    "liked": liked,
-                    'comment_form': CommentForm(),
-                },
-            )
+#             return render(
+#                 request,
+#                 self.template_name ,
+#                 {
+#                     "review": review,
+#                     "comments": comments,
+#                     "commented": True,
+#                     "liked": liked,
+#                     'comment_form': CommentForm(),
+#                 },
+#             )
 
 ##################################################################################
 

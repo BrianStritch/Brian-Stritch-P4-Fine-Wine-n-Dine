@@ -7,60 +7,19 @@
 
 <section class="page-section cta">
   <div class="container">
-     <div class="row">  <!--  action="" url 'save_new_review' -->
+     <div class="row">  
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
-            
-            {% if new_review %}
-            <h1 id="msg">Thank you for updating your review, your review will be published shortly. </h1>
-            <div>
-              <h1>Review Content</h1>
-                  <h2> Review Title:  {{ title }}</h2>
-                  <h2> Review Content:  {{ content }}</h2>
-                  <h2> Review {{ featured_image }}</h2>
-                  <h2> 4 {{ excerpt }}</h2>
-                  <h2> 5 user id = {{ user.id }}</h2>
-                  <h2>6 {{ new_review }}</h2>
-              </div> 
-            {% else %}
-            <h1>Create a Review:</h1>
-            <h2>request.review = {{ review.id }}</h2>
-            <form  method="POST" style="margin-top: 1.3em;">  
-              <div class="col-md-4 card mb-4  mt-3 wooden-back">
-                <div >
-                    {% if commented %}
-                      <div class="card-body min-20">
-                          <div class="alert alert-success" role="alert" id="msg">
-                      Your comment is awaiting approval
-                          </div>
-                      </div>                
-                    {% else %}
-                      {% if user.is_authenticated %}
-                      <div class="min-20">
-                          <h3 class="wooden-back" >Leave a comment:</h3>
-                          <div class="card-body ">
-                              <p>Posting as: {{ user.username }}</p>
-                              <form method="post" style="margin-top: 1.3em;">
-                                  {{ comment_form | crispy }}
-                                  {% csrf_token %}
-                                  <button type="submit" class="btn btn-primary btn-xl" >Submit</button>                    
-                              </form>
-                          </div>
-                      </div>    
-                      {% endif %}
-                    {% endif %}                
-                </div>
-            </div>
-                
-                <button type="submit" class="btn btn-primary btn-xl" >EDIT</button> 
-                
-                              
-            </form> 
-            {% endif %}   
-
-            
-            
-            
+                    
+          <h1>Update Comment:</h1>
+          <form  method="POST" style="margin-top: 1.3em;">  
+                        
+              {{ form | crispy }}
+              
+              {% csrf_token %}
+              
+              <button type="submit" class="btn btn-primary btn-xl" >UPDATE COMMENT</button> 
+          </form>   
         </div>
       </div>
     </div>

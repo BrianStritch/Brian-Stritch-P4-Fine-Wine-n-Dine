@@ -87,8 +87,7 @@
                         <div>
                             <a href="{% url 'edit_review' review.pk %}">
                                 <button class="btn btn-primary btn-xl">EDIT REVIEW</button>
-                            </a>
-                            
+                            </a>                            
                         </div>
                         {% endif %}
                     </div>
@@ -116,13 +115,12 @@
                         {{ comment.body  | linebreaks }}
                     </div>
                     <div>
-                        <p>comment id = {{ comment.id }}</p>
-                        <p>request.user = {{ user.username }}</p>
-                        {% if comment.name == user.username %} 
-                        
-                        
-                                             
-                        <a href="{url 'home' }"><button>EDIT</button></a>                        
+                        {% if comment.name == user.username %}
+                        <div>
+                            <a href="{% url 'edit_comment' comment.pk %}">
+                                <button class="btn btn-primary btn-xl">EDIT COMMENT</button>
+                            </a>                            
+                        </div>                     
                                                 
                         {% endif %}  
                     </div>
