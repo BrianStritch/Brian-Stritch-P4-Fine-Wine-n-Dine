@@ -29,7 +29,7 @@
               <div class="col-md-9 row  centre-cards">
                 <div class="card mb-4 ml-6 ">
                     <div class=" card-body ">
-                      <a href="{% url 'booking_details' booking.slug %}" class="review-link">
+                      <a href="{% url 'booking_details' booking.id %}" class="review-link">
                         <h3>Booking date : {{ booking.booking_date}}</h3>
                         <p>
                           Meal time :
@@ -72,6 +72,7 @@
                       <p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
                       <p class="card-text">Additional comments: {{ booking.additional_comments }}</p>
                       <p>booking id = {{ booking.id  }} </p>
+                      <h1>{{booking.pk}} , {{booking.slug}}</h1>
                       <hr />
                       <p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} <i
                           class="far fa-heart"></i>

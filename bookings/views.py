@@ -106,27 +106,27 @@ class EditBookings(UpdateView):
 
 
 
-class BookingDetails(TemplateView):
-    # template_name = 'bookings/bookings_detail.html'
+# class BookingDetails(View):
+#     # template_name = 'bookings/bookings_detail.html'
     
 
-    def get(self, request, slug,  *args, **kwargs):
-        queryset = Booking.objects.all()
-        booking = get_object_or_404(queryset, slug=slug)
+#     def get(self, request, slug,  *args, **kwargs):
+#         queryset = Booking.objects.all()
+#         booking = get_object_or_404(queryset, slug=slug)
 
-        return render(
-            request,
-            'bookings/bookings_detail.html',
-            {
-                'booking': booking,
-                'dietary_notes': dietary_notes,
-                'additional_comments': additional_comments,
-                'number_of_guests': number_of_guests,
-                'number_of_tables': number_of_tables,
-                'Meal_time': Meal_time,
-                'booking_date': booking_date,
-            },
-       )
+#         return render(
+#             request,
+#             'bookings/bookings_detail.html',
+#             {
+#                 'booking': booking,
+#                 'dietary_notes': dietary_notes,
+#                 'additional_comments': additional_comments,
+#                 'number_of_guests': number_of_guests,
+#                 'number_of_tables': number_of_tables,
+#                 'Meal_time': Meal_time,
+#                 'booking_date': booking_date,
+#             },
+#        )
 
     # def post(self, request, slug, *args, **kwargs):
     #     queryset = Booking.objects.all()
@@ -146,3 +146,27 @@ class BookingDetails(TemplateView):
     #             'booking_date': booking_date,
     #         },
     #     )
+
+
+
+
+
+class BookingDetails(View):
+
+    def get(self, request, *args, **kwargs):
+        queryset = Booking.objects.filter(booking_status=1)
+        booking = get_object_or_404(queryset, id=self.id)
+
+        return render(
+            request,
+            "bookings/bookings_detail.html",
+            {
+                'booking': booking,
+                'dietary_notes': dietary_notes,
+                'additional_comments': additional_comments,
+                'number_of_guests': number_of_guests,
+                'number_of_tables': number_of_tables,
+                'Meal_time': Meal_time,
+                'booking_date': booking_date, 
+            },
+        )

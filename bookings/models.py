@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 
 BOOKING_STATUS = (
@@ -54,6 +55,12 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ['-booking_created_on']
+
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(f"{self.primary_guest}_{self.booking_date}_{self.Meal_time}")
+        super().save(*args, **kwargs)
+
 
     def get_absolute_url(self):
         return reverse('bookings')
