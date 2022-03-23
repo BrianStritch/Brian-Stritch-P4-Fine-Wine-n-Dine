@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<!-- <div class="container ">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 my-3">
+            
+        </div>
+    </div>
+</div> -->
+
+
+<div class="col-xl-7 mx-auto">
+    <div class="masthead">
+        <div class="container">
+            <div class="row g-0 centre-cards ">
+                <div class="col-md-6 masthead-text">
+                    <h1 class="post-title ">
+                        {{ booking.booking_date }} | {{ booking.Meal_time }}
+                    </h1>
+                    <p class="post-subtitle ">{{ booking.primary_guest }} | {{ booking.created_on }}</p>                
+                </div>
+                <div>
+                    {% if booking.primary_guest == user.username %}
+                    <div>
+                        <a href="{% url 'edit_comment' comment.pk %}">
+                            <button class="btn btn-primary btn-xl">EDIT BOOKING</button>
+                        </a>                            
+                    </div>                  
+                    {% endif %}  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

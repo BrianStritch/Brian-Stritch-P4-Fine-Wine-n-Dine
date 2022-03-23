@@ -54,3 +54,6 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ['-booking_created_on']
+
+    def get_absolute_url(self):
+        return reverse('bookings')

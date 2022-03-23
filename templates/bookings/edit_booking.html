@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+
+<section class="page-section cta">
+  <div class="container">
+     <div class="row">  <!--  action="" url 'save_new_review' -->
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+            
+            
+            <h1>Update Booking:</h1>
+            <form  method="POST" style="margin-top: 1.3em;">  
+                          
+                {{ form | crispy }}
+                
+                {% csrf_token %}
+                
+                <button type="submit" class="btn btn-primary btn-xl" >UPDATE</button> 
+                
+                              
+            </form> 
+             
+
+            
+            
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+    {% endblock %}

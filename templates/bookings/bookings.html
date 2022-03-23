@@ -28,9 +28,8 @@
             {% if booking.primary_guest.id == request.user.id %}
               <div class="col-md-9 row  centre-cards">
                 <div class="card mb-4 ml-6 ">
-                  <a href="#">
                     <div class=" card-body ">
-                      <a href="#" class="review-link">
+                      <a href="{% url 'booking_details' booking.slug %}" class="review-link">
                         <h3>Booking date : {{ booking.booking_date}}</h3>
                         <p>
                           Meal time :
@@ -77,8 +76,7 @@
                       <p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} <i
                           class="far fa-heart"></i>
                         {{ booking.id }}</p>
-                    </div>
-                  </a>
+                    </div>                  
                 </div>
               {% if forloop.counter|divisibleby:3 %}
               </div>
