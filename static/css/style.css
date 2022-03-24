@@ -11614,3 +11614,12 @@ a {
 .hide{
   display:none;
 }
+
+.full-screen{
+  width: 54rem;
+}
+
+.red:hover{
+  background-color: red;
+  color: white;
+}

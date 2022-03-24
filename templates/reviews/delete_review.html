@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="page-section cta">
+  <div class="container">
+     <div class="row"> 
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+            <h1>Delete Review: {{review.title}}</h1>
+            <br>
+            <hr>
+            <form  method="POST" style="margin-top: 1.3em;">                 
+                {% csrf_token %}
+                <strong><hr></strong>
+                <strong>Are You Sure You Want To DELETE this review?</strong>
+                <strong><hr></strong>
+                <button type="submit" class="btn btn-primary btn-xl red" >DELETE REVIEW !</button> 
+            </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -36,20 +36,12 @@
                     {% endif %}
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 
     <div class="container">
         <div class="row reviews-detail">
             <div class="col card mb-4  mt-3 left  top wooden-back">
-
-
-
                 <div class="card-body">
                     <p class="card-text "> {{ review.content | safe }}</p>
                     <div class="row">
@@ -88,6 +80,9 @@
                             <a href="{% url 'edit_review' review.pk %}">
                                 <button class="btn btn-primary btn-xl">EDIT REVIEW</button>
                             </a>                            
+                            <a href="{% url 'delete_review' review.pk %}">
+                                <button class="btn btn-primary btn-xl red">DELETE REVIEW</button>
+                            </a>                            
                         </div>
                         {% endif %}
                     </div>
@@ -119,6 +114,9 @@
                         <div>
                             <a href="{% url 'edit_comment' comment.pk %}">
                                 <button class="btn btn-primary btn-xl">EDIT COMMENT</button>
+                            </a>                            
+                            <a href="{% url 'delete_comment' comment.pk %}">
+                                <button class="btn btn-primary btn-xl">DELETE COMMENT</button>
                             </a>                            
                         </div>                     
                                                 

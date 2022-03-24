@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.shortcuts import reverse
 
 
 BOOKING_STATUS = (
@@ -51,7 +52,7 @@ class Booking(models.Model):
 
     booking_created_on = models.DateTimeField(auto_now=True)
 
-    booking_date = models.TextField(max_length=200, blank=True)
+    booking_date = models.TextField(max_length=200, blank=True )
 
     class Meta:
         ordering = ['-booking_created_on']

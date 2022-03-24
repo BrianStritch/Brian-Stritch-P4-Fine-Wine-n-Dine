@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.models import User
 from django.views import generic, View 
 from django.template.defaultfilters import slugify
-from django.views.generic import TemplateView, UpdateView
+from django.views.generic import TemplateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from .models import Review, Comment
-from .forms import CommentForm, CreateReviewForm, EditReviewForm
+from .forms import CommentForm, CreateReviewForm 
 
 
 class ReviewsList(generic.ListView):
@@ -55,6 +56,11 @@ class EditReview(UpdateView):
         'excerpt',
         ]
 
+class DeleteReview(DeleteView):
+    model = Review
+    template_name = 'reviews/delete_review.html'
+    success_url = reverse_lazy('reviews')
+
 
 class ReviewsDetail(View):
 
@@ -87,7 +93,6 @@ class ReviewsDetail(View):
             liked = True
         
         comment_form = CommentForm(data=request.POST)
-        form = EditReviewForm(data=request.POST)
 
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -98,7 +103,6 @@ class ReviewsDetail(View):
 
         else:
             comment_form = CommentForm()
-            form = EditReviewForm()
 
         return render(
             request,
@@ -118,6 +122,11 @@ class EditComment(UpdateView):
     fields = [
         'body',
         ]
+
+class DeleteComment(DeleteView):
+    model = Comment
+    template_name = 'reviews/delete_comment.html'
+    success_url = reverse_lazy('reviews')
 
 
 class ReviewLike(View):

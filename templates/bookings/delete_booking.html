@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="page-section cta">
+  <div class="container">
+     <div class="row"> 
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+            
+            <hr>
+            <h1>Delete Booking: <br>
+              Booking Date: {{ booking.booking_date}}<br>
+              Meal time :
+              {% if booking.Meal_time == 0 %}
+              <span>No time Specified, please call reception</span>
+              {% elif booking.Meal_time == 1 %}
+              <span>10:00</span>
+              {% elif booking.Meal_time == 2 %}
+              <span>11:00</span>
+              {% elif booking.Meal_time == 3 %}
+              <span>12:00</span>
+              {% elif booking.Meal_time == 4 %}
+              <span>13:00</span>
+              {% elif booking.Meal_time == 5 %}
+              <span>14:00</span>
+              {% elif booking.Meal_time == 6 %}
+              <span>15:00</span>
+              {% elif booking.Meal_time == 7 %}
+              <span>16:00</span>
+              {% elif booking.Meal_time == 8 %}
+              <span>17:00</span>
+              {% elif booking.Meal_time == 9 %}
+              <span>18:00</span>
+              {% endif %}
+            </h1>
+            <br>
+            <hr>
+            <form  method="POST" style="margin-top: 1.3em;">                 
+                {% csrf_token %}
+                <strong><hr></strong>
+                <strong>Are You Sure You Want To DELETE this booking?</strong>
+                <strong><hr></strong>
+                <button type="submit" class="btn btn-primary btn-xl red" >DELETE BOOKING !</button> 
+            </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

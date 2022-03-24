@@ -22,3 +22,15 @@ function toggleHide(){
     edit_btn.classList.toggle('hide')
 
 }
+
+
+
+document.querySelector( document ).ready(function() {
+    document.querySelector("#id_booking_date").datepicker({ 
+        format: 'dd-mm-yyyy'
+    });
+    document.querySelector("#id_booking_date").addEventListener("change", function () {
+        var fromdate = document.querySelector(this).value;
+        alert(fromdate);
+    });
+}); 

@@ -3,38 +3,64 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
-<!-- <div class="container ">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 my-3">
-            
-        </div>
-    </div>
-</div> -->
-
-
-<div class="col-xl-7 mx-auto">
-    <div class="masthead">
-        <div class="container">
-            <div class="row g-0 centre-cards ">
-                <div class="col-md-6 masthead-text">
-                    <h1 class="post-title ">
-                        {{ booking.booking_date }} | {{ booking.Meal_time }}
-                    </h1>
-                    <p class="post-subtitle ">{{ booking.primary_guest }} | {{ booking.created_on }}</p>                
-                </div>
-                <div>
-                    {% if booking.primary_guest == user.username %}
-                    <div>
-                        <a href="{% url 'edit_comment' comment.pk %}">
-                            <button class="btn btn-primary btn-xl">EDIT BOOKING</button>
-                        </a>                            
-                    </div>                  
-                    {% endif %}  
-                </div>
+        <div class="container centre-text">
+            <div class="row centre-text">
+                <div class="col card mb-4  mt-3 top wooden-back">
+                    <div class="card-body centre-text">
+                        <div class="col-md-12  ">
+                            <h2>
+                                Booking Date: {{ booking.booking_date}}
+                            </h2>                        
+                            <h2>
+                                Meal time :
+                            {% if booking.Meal_time == 0 %}
+                            <span>No time Specified, please call reception</span>
+                            {% elif booking.Meal_time == 1 %}
+                            <span>10:00</span>
+                            {% elif booking.Meal_time == 2 %}
+                            <span>11:00</span>
+                            {% elif booking.Meal_time == 3 %}
+                            <span>12:00</span>
+                            {% elif booking.Meal_time == 4 %}
+                            <span>13:00</span>
+                            {% elif booking.Meal_time == 5 %}
+                            <span>14:00</span>
+                            {% elif booking.Meal_time == 6 %}
+                            <span>15:00</span>
+                            {% elif booking.Meal_time == 7 %}
+                            <span>16:00</span>
+                            {% elif booking.Meal_time == 8 %}
+                            <span>17:00</span>
+                            {% elif booking.Meal_time == 9 %}
+                            <span>18:00</span>
+                            {% endif %}
+                            </h2>                        
+                            <p >Primary Guest Name: {{ booking.primary_guest.first_name }} {{ booking.primary_guest.last_name }} </p>                
+                        </div>
+                        <div>
+                            <h3>Dietary Notes</h3>
+                            <p>{{ booking.dietary_notes }} </p>
+                        </div>
+                        <div>
+                            <h3>Additional Comments</h3>
+                            <p>{{ booking.additional_comments }}</p>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="{% url 'edit_booking' booking.pk %}">
+                                    <button class="btn btn-primary btn-xl">EDIT BOOKING</button>
+                                </a>
+                                <a href="{% url 'delete_booking' booking.pk %}">
+                                    <button class="btn btn-primary btn-xl red">DELETE BOOKING</button>
+                                </a>                            
+                            </div>                    
+                                                       
+                        </div>
+                            
+                    </div>
+                    
+                </div>                           
             </div>
         </div>
-    </div>
-</div>
 
 {% endblock content %}

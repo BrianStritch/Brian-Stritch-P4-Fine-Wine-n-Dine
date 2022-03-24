@@ -36,7 +36,8 @@ class BookingForm(forms.ModelForm):
 
             'booking_date': forms.TextInput(
                 attrs={
-                    'type': 'date'
+                    'type': 'date',
+                    'data-date-format': 'dd-mm-yyyy',
                     }),
 
             'number_of_guests': forms.TextInput(

@@ -8,25 +8,23 @@ urlpatterns = [
         name='bookings'
         ),
     path(
-        'bookings/<int:pk>/',
+        'bookings/<slug:slug>/',
         views.BookingDetails.as_view(),
         name='booking_details'
         ),     
     path(
+        'edit_booking/<int:pk>/',
+        views.EditBookings.as_view(),
+        name='edit_booking'
+        ),
+    path(
+        'delete_booking/<int:pk>/',
+        views.DeleteBooking.as_view(),
+        name='delete_booking'
+        ),
+    path(
         'create_a_booking/',
         views.CreateBookings.as_view(),
         name='create_a_booking'
-        ),    
-    # path(
-    #     'bookings/bookings_detail/<int:pk>',
-    #     views.BookingDetails.as_view(),
-    #     name='booking_details'
-    #     ),    
-       
-    # path(
-    #     'edit_booking/',
-    #     views.EditBookings.as_view(),
-    #     name='edit_booking'
-    #     ),
+        ),
 ]
-
