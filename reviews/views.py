@@ -1,23 +1,21 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.contrib.auth.models import User
-from django.views import generic, View 
+from django.views import generic, View
 from django.template.defaultfilters import slugify
 from django.views.generic import TemplateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Review, Comment
-from .forms import CommentForm, CreateReviewForm 
+from .forms import CommentForm, CreateReviewForm
 
 
 class ReviewsList(generic.ListView):
     model = Review
-    queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'reviews/reviews.html'
-    paginate_by = 8
+    paginate_by = 6
+
 
 class CreateReview(TemplateView):
-    template_name = 'reviews/create_review.html'
-    
+    template_name = 'reviews/create_review.html'    
     
     def get(self, request):
         form = CreateReviewForm()
@@ -27,10 +25,6 @@ class CreateReview(TemplateView):
         form = CreateReviewForm(request.POST)        
         
         if form.is_valid():
-            form.instance.email = request.user.email
-            email = form.instance.email
-            form.instance.name = request.user.username
-            name = form.instance.name
             form.instance.author = request.user
             title = form.cleaned_data['title']
             form.instance.slug = slugify(title)
@@ -55,6 +49,7 @@ class EditReview(UpdateView):
         'featured_image',
         'excerpt',
         ]
+
 
 class DeleteReview(DeleteView):
     model = Review
@@ -116,12 +111,14 @@ class ReviewsDetail(View):
             },
         )
 
+
 class EditComment(UpdateView):
     model = Comment
     template_name = 'reviews/edit_comment.html'
     fields = [
         'body',
         ]
+
 
 class DeleteComment(DeleteView):
     model = Comment
