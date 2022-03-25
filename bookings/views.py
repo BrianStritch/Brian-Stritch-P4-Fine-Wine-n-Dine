@@ -11,7 +11,7 @@ from .models import Booking
 class Bookings(TemplateView):   
 
     def get(self, request):
-        bookings = Booking.objects.all()        
+        bookings = Booking.objects.all()
         template_name = 'bookings/bookings.html'
         paginate_by = 8
         return render(
@@ -44,7 +44,8 @@ class CreateBookings(TemplateView):
 
     def post(self, request, *args, **kwargs):
         form = BookingForm(request.POST)
-        booking = Booking.objects.all()
+        booking = Booking.objects.all()       
+
         
         if form.is_valid():
             form.instance.email = request.user.email
@@ -60,13 +61,40 @@ class CreateBookings(TemplateView):
             additional_comments = form.cleaned_data['additional_comments']
             form.instance.slug = (f"{primary_guest}_{booking_date}_{Meal_time}")
             slug = form.instance.slug
-            booked = form.save(commit=False)
-            primary_guest = request.user
-            booked.post = booked            
-            booked.save() 
+            q = Booking.objects.filter(Meal_time=Meal_time, booking_date__contains=booking_date)        
+            check = q.count()  
+
+            if check < 3:
+                booked = form.save(commit=False)
+                primary_guest = request.user
+                booked.post = booked            
+                booked.save()
+                return HttpResponseRedirect(reverse('bookings'))
+
+
+            else:
+                message = 'Unfortunately we are fully booked for your chosen mealtime, please choose another mealtime.'
+                return render(
+                request, 
+                self.template_name, 
+                {
+                'form': form,
+                'message': message,               
+                })
         else:
             form = BookingForm()
         return HttpResponseRedirect(reverse('bookings'))
+        # else:
+        #     return render(
+        #     request, 
+        #     self.template_name, 
+        #     {
+        #     'form': form,
+        #     'q':q,
+        #     'check':check,               
+        #     })
+        
+        
 
 
 class EditBookings(UpdateView):
