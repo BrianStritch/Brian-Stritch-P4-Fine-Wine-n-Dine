@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.template.defaultfilters import slugify
-from django.views import generic, View
+from django.views import View
 from django.views.generic import TemplateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -26,14 +25,14 @@ class CreateBookings(TemplateView):
     template_name = 'bookings/create_a_booking.html'
     booking = Booking.objects.all()
     bookings_list = {
-        'bookings':booking
+        'bookings': booking,
     }
 
     def get(self, request):
         form = BookingForm()
         booking = Booking.objects.all()
         bookings_list = {
-            'bookings':booking
+            'bookings':booking,
         }
         return render(
             request, 
@@ -84,17 +83,6 @@ class CreateBookings(TemplateView):
         else:
             form = BookingForm()
         return HttpResponseRedirect(reverse('bookings'))
-        # else:
-        #     return render(
-        #     request, 
-        #     self.template_name, 
-        #     {
-        #     'form': form,
-        #     'q':q,
-        #     'check':check,               
-        #     })
-        
-        
 
 
 class EditBookings(UpdateView):
@@ -123,6 +111,7 @@ class BookingDetails(View):
                 'booking': booking, 
             },
         )
+
 
 class DeleteBooking(DeleteView):
     model = Booking

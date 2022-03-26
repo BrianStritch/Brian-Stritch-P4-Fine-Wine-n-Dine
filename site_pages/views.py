@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views.generic import TemplateView
+from django.contrib.auth.models import User
+from django.views.generic import TemplateView, DeleteView
+from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from .forms import UserAccountDetailsForm, EditProfileForm
+from .forms import UserCreationForm, UserAccountDetailsForm, EditProfileForm
 
 
 class Home(TemplateView):
@@ -33,7 +35,7 @@ class Sign_up(TemplateView):
     first name, last name, email address and a password with a password
     verifcation check.
     """    
-    template_name = 'nannys_alternative/edit_profile.html'
+    template_name = 'nannys_alternative/sign_up.html'
 
     def get(self, request):
         form = UserAccountDetailsForm()
@@ -96,3 +98,8 @@ class Edit_profile(TemplateView):
                 'form': form,
             }
             return render(request, self.template_name, details)
+
+class DeleteProfile(DeleteView):
+    model = User
+    template_name = 'nannys_alternative/delete_profile.html'
+    success_url = reverse_lazy('home')

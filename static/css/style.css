@@ -11623,3 +11623,10 @@ a {
   background-color: red;
   color: white;
 }
+
+.center{
+  text-align: center;
+  width: -webkit-fill-available;
+  padding: 50px auto;
+  margin: auto;
+}

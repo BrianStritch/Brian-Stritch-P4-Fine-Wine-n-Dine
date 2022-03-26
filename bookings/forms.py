@@ -8,16 +8,16 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = (
             'booking_date',
-            'Meal_time', 
-            'number_of_guests', 
-            'dietary_notes', 
+            'Meal_time',
+            'number_of_guests',
+            'dietary_notes',
             'additional_comments',
             )
 
         widgets = {
             'dietary_notes': forms.Textarea(
                 attrs={
-                    'cols': 20, 
+                    'cols': 20,
                     'rows': 2,
                     }),
 

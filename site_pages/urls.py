@@ -42,4 +42,9 @@ urlpatterns = [
         views.Edit_profile.as_view(),
         name='edit_profile'
         ),
+    path(
+        'nannys_alternative/delete_profile/<int:pk>/',
+        views.DeleteProfile.as_view(),
+        name='delete_profile'
+        ),
 ]
