@@ -4,6 +4,7 @@ from django.template.defaultfilters import slugify
 from django.shortcuts import reverse
 
 
+
 BOOKING_STATUS = (
     (0, 'Pending'),
     (1, 'Approved'),
@@ -52,7 +53,7 @@ class Booking(models.Model):
 
     booking_created_on = models.DateTimeField(auto_now=True)
 
-    booking_date = models.DateField(max_length=200, blank=True )
+    booking_date = models.DateField( max_length=200, blank=True )
     
 
     class Meta:

@@ -1,5 +1,6 @@
 from django import forms
 from .models import Booking
+from .widgets import DateInput
 
 
 class BookingForm(forms.ModelForm):
@@ -34,11 +35,13 @@ class BookingForm(forms.ModelForm):
             #       'step': '3600',
             #     }),
 
-            'booking_date': forms.TextInput(
-                attrs={
-                    'type': 'date',
-                    'data-date-format': 'dd-mm-yyyy',
-                    }),
+            # 'booking_date': forms.TextInput(
+            #     attrs={
+            #         'type': 'date',
+            #         'data-date-format': 'dd-mm-yyyy',
+            #         }),
+            'booking_date': DateInput(),
+            
 
             'number_of_guests': forms.TextInput(
                 attrs={

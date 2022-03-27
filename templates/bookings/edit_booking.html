@@ -13,8 +13,9 @@
             
             
             <h1>Update Booking:</h1>
+            
             <form  method="POST" style="margin-top: 1.3em;">  
-                          
+              <h6>{{ message }}</h6>          
                 {{ form | crispy }}
                 
                 {% csrf_token %}

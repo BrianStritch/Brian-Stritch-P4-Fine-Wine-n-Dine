@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+	<div class="container">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mx-auto">
+				<li class="nav-item px-lg-4">
+					<a class="nav-link text-uppercase" href="#">admin nav button 1</a>
+				</li>
+				<li class="nav-item px-lg-4">
+					<a class="nav-link text-uppercase" href="#">admin nav button 2</a>
+				</li>
+				<li class="nav-item px-lg-4">
+					<a class="nav-link text-uppercase" href="#">admin nav button 3</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<section class="page-section cta">
+  <div class="container">
+     <div class="row"> 
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+           <h1>Current Bookings: </h1> 
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Booking id</th>
+                <th scope="col">Primary guest</th>
+                <th scope="col">Booking_date</th>
+                <th scope="col">Meal_time</th>
+              </tr>
+            </thead>
+            {% for booking in bookings %}
+            <tbody class="table-hover">
+              <tr>
+                <a href="{% url 'booking_details' booking.slug %}">
+                
+                  <th scope="row">{{ booking.id }}</th>
+                  <td>{{ booking.primary_guest }}</td>
+                  <td>{{ booking.booking_date}}</td>
+                  <td>
+                      {% if booking.Meal_time == 0 %}
+                      <span>No time Specified, please call reception</span>
+                      {% elif booking.Meal_time == 1 %}
+                      <span>10:00</span>
+                      {% elif booking.Meal_time == 2 %}
+                      <span>11:00</span>
+                      {% elif booking.Meal_time == 3 %}
+                      <span>12:00</span>
+                      {% elif booking.Meal_time == 4 %}
+                      <span>13:00</span>
+                      {% elif booking.Meal_time == 5 %}
+                      <span>14:00</span>
+                      {% elif booking.Meal_time == 6 %}
+                      <span>15:00</span>
+                      {% elif booking.Meal_time == 7 %}
+                      <span>16:00</span>
+                      {% elif booking.Meal_time == 8 %}
+                      <span>17:00</span>
+                      {% elif booking.Meal_time == 9 %}
+                      <span>18:00</span>
+                      {% endif %}                
+                  </td>
+                </a>  
+              </tr>
+              
+              
+              {% endfor %}
+            </tbody>
+          </table>
+            
+            
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+    {% endblock %}

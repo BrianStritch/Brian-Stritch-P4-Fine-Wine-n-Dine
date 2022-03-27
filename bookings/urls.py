@@ -27,4 +27,9 @@ urlpatterns = [
         views.CreateBookings.as_view(),
         name='create_a_booking'
         ),
+    path(
+        'admin_bookings_view/',
+        views.AdminBookings.as_view(),
+        name='admin_bookings'
+        ),
 ]

@@ -1982,6 +1982,9 @@ progress {
   vertical-align: top;
   border-color: #dee2e6;
 }
+.table :hover{
+  cursor: pointer;
+}
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
