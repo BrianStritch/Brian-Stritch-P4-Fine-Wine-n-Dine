@@ -92,23 +92,21 @@ class TestUserprofileViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'nannys_alternative/profile.html', 'base.html')
 
+# 6
+class TestSignUpView(TestCase):
+    """
+    A class for testing sign up page views
+    """
+    def test_sign_up_page(self):
+        """
+        This test checks that the sign up page
+        is displayed correctly
+        """
+        response = self.client.get('/sign_up_now/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'nannys_alternative/sign_up.html', 'base.html')
 
-# class TestSignUpView(TestCase):
-#     """
-#     A class for testing sign up page views
-#     """
-#     def test_sign_up_page(self):
-#         """
-#         This test checks that the sign up page
-#         is displayed correctly
-#         *******************************************************************************************************
-#         this test is not working because the url is not 
-#         loading due to a fault in my code where its not rendering the right page
-#         """
-#         response = self.client.get('/sign_up/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'nannys_alternative/sign_up.html', 'base.html')
-
+# 7
 def test_done_defaults_to_True(self):
         user = User.objects.create_user(
             email='testUser@test.com',
