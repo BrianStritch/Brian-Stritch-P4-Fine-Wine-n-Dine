@@ -1,22 +1,20 @@
 from django.urls import path
 from . import views
+from reviews.views import ReviewsDetail
 
 urlpatterns = [
-    path(
-        'reviews/create_review/',
-        views.CreateReview.as_view(),
-        name='create_review'
-        ),
+    
     path(
         'reviews/reviews/',
         views.ReviewsList.as_view(),
         name='reviews'
         ),
+    
     path(
-        'reviews/<slug:slug>/',
-        views.ReviewsDetail.as_view(),
-        name='review_details'
-        ),
+        'reviews/create_review/',
+        views.CreateReview.as_view(),
+        name='create_review'
+        ),    
     path(
         'reviews/like/<slug:slug>/',
         views.ReviewLike.as_view(),
@@ -41,5 +39,10 @@ urlpatterns = [
         'reviews/delete_comment/<int:pk>/',
         views.DeleteComment.as_view(),
         name='delete_comment'
+        ),
+    path(
+        'reviews/<slug:slug>/',
+        views.ReviewsDetail.as_view(),
+        name='review_details'
         ),
 ]

@@ -28,23 +28,29 @@ urlpatterns = [
         name='about'
         ),
     path(
-        'nannys_alternative/sign_up/',
+        'sign_up/',
         views.Sign_up.as_view(),
         name='sign_up'
         ),
     path(
-        'nannys_alternative/profile/',
+        'profile/',
         views.Profile.as_view(),
         name='profile'
         ),
     path(
-        'nannys_alternative/edit_profile/',
+        'edit_profile/',
         views.Edit_profile.as_view(),
         name='edit_profile'
         ),
     path(
-        'nannys_alternative/delete_profile/<int:pk>/',
+        'delete_profile/<int:pk>/',
         views.DeleteProfile.as_view(),
         name='delete_profile'
         ),
+    path(
+        'account_details/', 
+        views.Profile.as_view(), 
+        name='user_account'
+        ),
+    
 ]

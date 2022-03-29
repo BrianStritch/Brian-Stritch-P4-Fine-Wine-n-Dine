@@ -167,10 +167,10 @@ class EditBookings(View):
                     please choose another timeslot.'
                 return render(
                     request, 
-                    self.template_name, 
+                    self.template_name,
                     {
-                    'form': form,
-                    'message': message,               
+                        'form': form,
+                        'message': message,
                     })
         else:
             form = BookingForm()

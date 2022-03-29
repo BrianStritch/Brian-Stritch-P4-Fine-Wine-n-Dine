@@ -8,6 +8,8 @@ from .forms import UserCreationForm, UserAccountDetailsForm, EditProfileForm
 
 class Home(TemplateView):
     template_name = 'index.html'
+        
+    
 
 
 class Menu(TemplateView):

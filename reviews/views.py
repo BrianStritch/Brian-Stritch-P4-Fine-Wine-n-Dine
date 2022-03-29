@@ -9,7 +9,8 @@ from .forms import CommentForm, CreateReviewForm
 
 
 class ReviewsList(generic.ListView):
-    model = Review
+    model = Review    
+    queryset = Review.objects.filter(status=1).order_by('-created_on')
     template_name = 'reviews/reviews.html'
     paginate_by = 6
 
@@ -58,6 +59,7 @@ class DeleteReview(DeleteView):
 
 
 class ReviewsDetail(View):
+    template_name = "reviews/reviews_detail.html"
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Review.objects.filter(status=1)
@@ -69,7 +71,7 @@ class ReviewsDetail(View):
 
         return render(
             request,
-            "reviews/reviews_detail.html",
+            self.template_name,
             {
                 "review": review,
                 "comments": comments,

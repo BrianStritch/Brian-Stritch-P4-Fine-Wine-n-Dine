@@ -23,11 +23,10 @@ from site_pages import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('site_pages.urls'), name='home'),
+    path('sign_up/', include('site_pages.urls'), name='sign_up'),
     path('reviews/', include('reviews.urls'), name='reviews'),
     path('bookings/', include('bookings.urls'), name='bookings'),
-    path('accounts/', include('allauth.urls')),
-    path('sign_up/', include('site_pages.urls'), name='sign_up'),
-    path('account_details/', include('site_pages.urls'), name='user_account'),
-    
+    path('accounts/', include('allauth.urls')),    
+    path('', include('site_pages.urls'), name='home'),
+        
 ]
