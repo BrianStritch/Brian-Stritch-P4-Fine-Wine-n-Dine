@@ -139,4 +139,4 @@ class ReviewLike(View):
         return HttpResponseRedirect(reverse('review_details', args=[slug]))
 
 
-
+    

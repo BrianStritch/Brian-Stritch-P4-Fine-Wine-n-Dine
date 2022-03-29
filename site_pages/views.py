@@ -28,9 +28,6 @@ class About(TemplateView):
     template_name = 'nannys_alternative/about.html'
 
 
-
-
-
 class Sign_up(TemplateView):
     """
     SIgn Up template with form which allows users to input a username,
