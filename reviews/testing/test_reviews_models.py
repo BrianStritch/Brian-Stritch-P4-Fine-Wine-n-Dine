@@ -87,8 +87,7 @@ class TestCommentModel(TestCase):
     # def test_front_end(self):        
     #     user = User.objects.get(email='test@test.com')
     #     self.client.login(username='test_username', password='testpassword')
-    #     review = Review.objects.get(title='test_review_for_all_tests')
-        
+    #     review = Review.objects.get(title='test_review_for_all_tests')        
     #     args = {'review': review}
     #     page = self.client.get('/reviews/reviews/')
     #     self.assertEqual(page.status_code, 200)

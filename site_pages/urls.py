@@ -28,7 +28,7 @@ urlpatterns = [
         name='about'
         ),
     path(
-        'sign_up/',
+        'sign_up_now/',
         views.Sign_up.as_view(),
         name='sign_up'
         ),
