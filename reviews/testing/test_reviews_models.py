@@ -129,7 +129,12 @@ class TestCommentModel(TestCase):
     #     self.assertEqual(book.author, 'J.D. Salinger')
 
 
-
+    def test_create_review_page(self):
+        url = reverse('create_review')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'reviews/create_review.html')
+        self.assertContains(response, 'reviews')
 
 
 
