@@ -9,7 +9,9 @@ from django.test import Client
 
 
 class TestBookingModel(TestCase):
-
+    """
+        classmethod creating a user and booking instances for testing
+    """
     @classmethod
     def setUpTestData(cls):
         
@@ -30,7 +32,10 @@ class TestBookingModel(TestCase):
         booking.save()
 
     # 1
-    def test_model_slugify(self): 
+    def test_model_slugify(self):
+        """
+            tests for booking model slug
+        """
         user = User.objects.get(email='test@test.com')
         booking = Booking.objects.get(booking_date = '2023-03-30')       
         self.client.login(username='test_username', password='testpassword')
@@ -42,6 +47,9 @@ class TestBookingModel(TestCase):
        
     # 2
     def test_Create_Booking(self):
+        """
+            tests for create booking
+        """
         user = User.objects.get(email='test@test.com')
         booking = Booking(
             primary_guest = user,
@@ -54,7 +62,7 @@ class TestBookingModel(TestCase):
     # 3
     def test_Edit_booking(self):
         """
-        
+            tests for edit booking
         """
         booking = Booking.objects.get(booking_date = '2023-03-30')
         booking.Meal_time = 3
@@ -64,11 +72,17 @@ class TestBookingModel(TestCase):
 
     # 4
     def test_Delete_booking(self):
+        """
+            tests for delete booking
+        """
         booking = Booking.objects.get(booking_date = '2023-03-30')        
         self.assertTrue(booking.delete())
     
     # 5
     def test_Edit_booking_front_end(self):
+        """
+            tests for front end edit booking page
+        """
         booking = Booking.objects.get(booking_date = '2023-03-30')
         booking.Meal_time = 3
         booking.save()
@@ -81,7 +95,9 @@ class TestBookingModel(TestCase):
     
     # 6
     def test_delete_booking_front_end(self):
-        
+        """
+            tests for front end delete booking page
+        """
         booking = Booking.objects.get(booking_date = '2023-03-30')
         response = self.client.post(
             reverse(
@@ -90,9 +106,12 @@ class TestBookingModel(TestCase):
             )
         self.assertTrue(booking.delete())
         self.assertEqual(response.status_code, 302)
-
-
+    
+    # 7
     def test_create_a_booking_page(self):
+        """
+            tests for front end create a booking page
+        """
         user = User.objects.get(email='test@test.com')
         booking = Booking(
             primary_guest = user,
@@ -109,11 +128,10 @@ class TestBookingModel(TestCase):
         self.assertTrue(reverse('bookings'))
         self.assertEqual(booking.slug, f"{booking.primary_guest}_{booking.booking_date}_{booking.Meal_time}")
         
-        
-
+    # 8
     def test_view_all_my_bookings_page(self):
         """
-        tests for front end bookings page
+            tests for front end bookings page
         """
         self.client.login(username='test_username', password='testpassword')
         user = User.objects.get(email='test@test.com')
