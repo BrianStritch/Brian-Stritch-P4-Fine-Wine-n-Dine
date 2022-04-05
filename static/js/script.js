@@ -7,7 +7,7 @@
 window.addEventListener('DOMContentLoaded', event => {
     const listHoursArray = document.body.querySelectorAll('.list-hours li');
     listHoursArray[new Date().getDay()].classList.add(('today'));
-})
+});
 
 
 setTimeout(function () {
@@ -15,36 +15,3 @@ setTimeout(function () {
     let alert = new bootstrap.Alert(messages);
     alert.close();
 }, 2500);
-
-
-function toggleHide(){
-    let edit_btn = document.getElementById('edit_review');
-    edit_btn.classList.toggle('hide')
-
-}
-
-
-
-document.querySelector( document ).ready(function() {
-    document.querySelector("#id_booking_date").datepicker({ 
-        format: 'dd-mm-yyyy'
-    });
-    document.querySelector("#id_booking_date").addEventListener("change", function () {
-        var fromdate = document.querySelector(this).value;
-        alert(fromdate);
-    });
-}); 
-
-
-const list = document.querySelectorAll('.nav-list');
-function activeLink(){
-    list.forEach((item) => {
-        item.classList.remove('active'); 
-        this.classList.add('active'); 
-    });
-        
-}
-
-list.forEach((item) =>{
-    item.addEventListener('click', activeLink)
-});

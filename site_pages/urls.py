@@ -1,3 +1,7 @@
+"""
+    imports  -------------site_pages urls.py----------------------
+"""
+# third party imports
 from django.urls import path
 from . import views
 
@@ -29,7 +33,7 @@ urlpatterns = [
         ),
     path(
         'sign_up_now/',
-        views.Sign_up.as_view(),
+        views.SignUp.as_view(),
         name='sign_up'
         ),
     path(
@@ -39,7 +43,7 @@ urlpatterns = [
         ),
     path(
         'edit_profile/',
-        views.Edit_profile.as_view(),
+        views.EditProfile.as_view(),
         name='edit_profile'
         ),
     path(
@@ -47,10 +51,4 @@ urlpatterns = [
         views.DeleteProfile.as_view(),
         name='delete_profile'
         ),
-    path(
-        'account_details/', 
-        views.Profile.as_view(), 
-        name='user_account'
-        ),
-    
 ]
