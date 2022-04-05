@@ -3,7 +3,7 @@
 """
 # third party imports
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import View, generic
+from django.views import View
 from django.views.generic import TemplateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -15,7 +15,7 @@ from .models import Booking
 class Bookings(TemplateView):
 
     def get(self, request, *args, **kwargs):
-        bookings = Booking.objects.all()
+        bookings = Booking.objects.all().order_by('booking_date')
         template_name = 'bookings/bookings.html'
         paginate_by = 6
         return render(
@@ -59,8 +59,8 @@ class CreateBookings(TemplateView):
             booking_date = form.cleaned_data['booking_date']
             additional_comments = form.cleaned_data['additional_comments']
             form.instance.slug = (
-                f"{primary_guest}_{booking_date}_{Meal_time}"
-                )
+               f"{primary_guest}_{booking_date}_{Meal_time}"
+               )
             slug = form.instance.slug
 
             already_booked = Booking.objects.filter(

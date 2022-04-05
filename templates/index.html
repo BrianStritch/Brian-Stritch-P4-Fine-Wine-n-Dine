@@ -9,15 +9,46 @@
                 alt="Nanny's of Duleek front" />
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Fresh Coffee</span>
-                    <span class="section-heading-lower">Worth Drinking</span>
+                    <span class="section-heading-upper">Hot Food Served Daily</span>
+                    <span class="section-heading-lower">A La Carte</span>
                 </h2>
-                <p class="mb-3">Every cup of our quality artisan coffee starts with
-                    locally sourced, hand picked ingredients. Once you try it, our
-                    coffee will be a blissful addition to your everyday morning routine
-                    - we guarantee it!</p>
-                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#">Visit Us Today!</a></div>
+                <p class="mb-3">We pride ourselves on delivering you the finest foods 
+                    at a reasonable price. All our foods are prepared and cooked in-house by our 
+                    award winning chef. Click the link below to sign up and log in to create a booking today!</p>
+                {% if user.is_authenticated %}                
+                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'create_a_booking' %}">Create a Booking</a></div>
+                {% else %}
+                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'sign_up' %}">Sign Up</a></div>
+                {% endif %}
             </div>
+        </div>
+    </div>
+</section>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            
+            <div class="intro-text right-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Nanny's Mixers</span>
+                    <span class="section-heading-lower">COCKTAIL BAR</span>
+                </h2>
+                <p class="mb-3">We have invested in the latest technology in our newly established bar and we are proud to 
+                    offer the finest selection of cocktails in our cocktail bar!</p>
+                
+            </div>
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Nanny's Mixers</span>
+                    <span class="section-heading-lower">COCKTAIL BAR</span>
+                </h2>
+                <p class="mb-3">We have invested in the latest technology in our newly established bar and we are proud to 
+                    offer the finest selection of cocktails in our cocktail bar!</p>
+                
+            </div>
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="/static/images/cocktail-bar.jpg"
+                alt="Nanny's of Duleek front" />
+            
         </div>
     </div>
 </section>
@@ -30,11 +61,12 @@
                         <span class="section-heading-upper">Our Promise</span>
                         <span class="section-heading-lower">To You</span>
                     </h2>
-                    <p class="mb-0">When you walk into our shop to start your day,
+                    <p class="mb-0">When you walk into our establishment,
                         we are dedicated to providing you with friendly service, a
                         welcoming atmosphere, and above all else, excellent products
                         made with the highest quality ingredients. If you are not satisfied,
-                        please let us know and we will do whatever we can to make things right!</p>
+                        please let us know and we will do whatever we can to make things right!
+                    </p>
                 </div>
             </div>
         </div>

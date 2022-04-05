@@ -4059,8 +4059,10 @@ textarea.form-control-lg {
 .navbar > .container-xxl {
   display: flex;
   flex-wrap: inherit;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-content: stretch;
 }
 .navbar-brand {
   padding-top: 0.3125rem;
@@ -11653,10 +11655,14 @@ a {
 
 .gallery-pic{
   width: 24vw;
-  /* height: 38vh; */
 }
 
 img{
   height: 30vh;
   width: 30vw;
+}
+
+.topnav{
+  justify-content: center;
+  align-items: center;
 }
