@@ -57,18 +57,18 @@
             <section class="outer-area">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">                    
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home' %}"><i class="fas fa-home"> </i>  home </a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home' %}"><i class="fas fa-home">   home </i></a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase" href="{% url 'bookings' %}"><i class="fas fa-book-open "></i>  Bookings</a>
+                            <a class="nav-link text-uppercase" href="{% url 'bookings' %}"><i class="fas fa-book-open ">  Bookings</i></a>
                         </li>
                         {% else %}                
                         {% endif %}                                             
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'reviews' %}"><i class="fas fa-comment">  Reviews</i></a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'menu' %}"><i class="fas fa-utensils"></i>  Menu</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'gallery' %}"><i class="fas fa-photo-video"></i>  Gallery</a></li>   
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}"><i class="fas fa-phone"></i>  Contact & About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'opening_hours' %}"><i class="fas fa-clock"></i> Opening hours</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'menu' %}"><i class="fas fa-utensils"> Menu</i> </a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'gallery' %}"><i class="fas fa-photo-video">  Gallery</i></a></li>   
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}"><i class="fas fa-phone">  Contact & About</i></a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'opening_hours' %}"><i class="fas fa-clock"> Opening hours</i></a></li>
                         
                     </ul>
                 </div>
