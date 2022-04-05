@@ -1,9 +1,11 @@
-from django.db import models
+"""
+    imports  -------------------------------------------------------
+"""
+# third party imports
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.shortcuts import reverse
-
-
+from django.db import models
 
 BOOKING_STATUS = (
     (0, 'Pending'),
@@ -25,15 +27,17 @@ TIMESLOTS = (
     )
 
 
-# Booking Model
 class Booking(models.Model):
+    """
+        Class based model for bookings
+    """
     primary_guest = models.ForeignKey(
-        User, on_delete=models.CASCADE, 
+        User, on_delete=models.CASCADE,
         related_name='Booking_form'
         )
 
     booking_status = models.IntegerField(
-        choices=BOOKING_STATUS, 
+        choices=BOOKING_STATUS,
         default=0
         )
 
@@ -53,17 +57,24 @@ class Booking(models.Model):
 
     booking_created_on = models.DateTimeField(auto_now=True)
 
-    booking_date = models.DateField( max_length=200, blank=True )
-    
+    booking_date = models.DateField(max_length=200, blank=True)
 
     class Meta:
+        """
+            meta class to set the order in which
+            the bookings are displayed
+        """
         ordering = ['-booking_created_on']
 
-    
     def save(self, *args, **kwargs):
-        self.slug = slugify(f"{self.primary_guest}_{self.booking_date}_{self.Meal_time}")
+        self.slug = slugify(
+            f"{self.primary_guest}_{self.booking_date}_{self.Meal_time}"
+            )
         super().save(*args, **kwargs)
 
-
     def get_absolute_url(self):
+        """
+            function to define the reverse URL
+            for after a booking is created or edited
+        """
         return reverse('bookings')

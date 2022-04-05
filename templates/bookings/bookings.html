@@ -16,66 +16,67 @@
 
 
 <div class="container-fluid ">
-	<div class="row ">
+	<div class="row justify-content-center">
 		<div class="col-12 mt-3 left">
 			<div class="row centre-cards">
 				{% for booking in bookings %}
 				{% if booking.primary_guest.id == request.user.id %}
-				<div class="col-md-4">
-					<div class="card mb-4 ml-6 ">
-						<div class=" card-body ">
-							<a href="{% url 'booking_details' booking.slug %}" class="review-link">
-								<h3>Booking date : {{ booking.booking_date| date:"d M, Y"}}									
-								</h3>
-								<p>
-									Meal time :
-									{% if booking.Meal_time == 0 %}
-									<span>No time Specified, please call reception</span>
-									{% elif booking.Meal_time == 1 %}
-									<span>10:00</span>
-									{% elif booking.Meal_time == 2 %}
-									<span>11:00</span>
-									{% elif booking.Meal_time == 3 %}
-									<span>12:00</span>
-									{% elif booking.Meal_time == 4 %}
-									<span>13:00</span>
-									{% elif booking.Meal_time == 5 %}
-									<span>14:00</span>
-									{% elif booking.Meal_time == 6 %}
-									<span>15:00</span>
-									{% elif booking.Meal_time == 7 %}
-									<span>16:00</span>
-									{% elif booking.Meal_time == 8 %}
-									<span>17:00</span>
-									{% elif booking.Meal_time == 9 %}
-									<span>18:00</span>
+					<div class="col-md-4">
+											
+						<div class="card mb-4 ml-6 ">
+							<div class=" card-body ">
+								<a href="{% url 'booking_details' booking.slug %}" class="review-link">
+									<h3>Booking date : {{ booking.booking_date| date:"d M, Y"}}									
+									</h3>
+									<p>
+										Meal time :
+										{% if booking.Meal_time == 0 %}
+										<span>No time Specified, please call reception</span>
+										{% elif booking.Meal_time == 1 %}
+										<span>10:00</span>
+										{% elif booking.Meal_time == 2 %}
+										<span>11:00</span>
+										{% elif booking.Meal_time == 3 %}
+										<span>12:00</span>
+										{% elif booking.Meal_time == 4 %}
+										<span>13:00</span>
+										{% elif booking.Meal_time == 5 %}
+										<span>14:00</span>
+										{% elif booking.Meal_time == 6 %}
+										<span>15:00</span>
+										{% elif booking.Meal_time == 7 %}
+										<span>16:00</span>
+										{% elif booking.Meal_time == 8 %}
+										<span>17:00</span>
+										{% elif booking.Meal_time == 9 %}
+										<span>18:00</span>
+										{% endif %}
+									</p>
+								</a>
+								<hr />
+								<p class="card-title">
+									booking status :
+									{% if booking.booking_status == 0 %}
+									<span>Pending</span>
+									{% elif booking.booking_status == 1 %}
+									<span>Approved</span>
+									{% else %}
+									<span>Completed</span>
 									{% endif %}
 								</p>
-							</a>
-							<hr />
-							<p class="card-title">
-								booking status :
-								{% if booking.booking_status == 0 %}
-								<span>Pending</span>
-								{% elif booking.booking_status == 1 %}
-								<span>Approved</span>
-								{% else %}
-								<span>Completed</span>
-								{% endif %}
-							</p>
-							<p>Booking created by: {{ booking.primary_guest }}</p>
-							<p>Number of guests = {{ booking.number_of_guests  }} </p>
-							<p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
-							<p class="card-text">Additional comments: {{ booking.additional_comments }}</p>
-							<p>booking id = {{ booking.id  }} </p>
-							<hr />
-							<p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} </p>
+								<p>Booking created by: {{ booking.primary_guest }}</p>
+								<p>Number of guests = {{ booking.number_of_guests  }} </p>
+								<p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
+								<p class="card-text">Additional comments: {{ booking.additional_comments }}</p>
+								<p>booking id = {{ booking.id  }} </p>
+								<hr />
+								<p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} </p>
+							</div>
 						</div>
 					</div>
-				</div>
 				{% if forloop.counter|divisibleby:3 %}
-			</div>
-			<div class="col-xl-9 row centre-cards ">
+				</div>
+				<div class="col-xl-9 row centre-cards ">
 				{% endif %}
 				{% endif %}
 

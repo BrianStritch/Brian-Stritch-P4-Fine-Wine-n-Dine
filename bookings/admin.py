@@ -1,18 +1,27 @@
+"""
+    imports  -------------------------------------------------------
+"""
+# third party imports
 from django.contrib import admin
-from .models import Booking
 from django_summernote.admin import SummernoteModelAdmin
+# internal imports
+from .models import Booking
 
 
 @admin.register(Booking)
 class BookingAdmin(SummernoteModelAdmin):
+    """
+    Class to set the fields to be displayed in the django
+    admin panel
+    """
 
     list_display = (
-        'primary_guest', 
+        'primary_guest',
         'availability',
-        'booking_status', 
-        'booking_created_on', 
-        'booking_date', 
-        'Meal_time', 
+        'booking_status',
+        'booking_created_on',
+        'booking_date',
+        'Meal_time',
         )
 
     list_filter = (
@@ -21,12 +30,12 @@ class BookingAdmin(SummernoteModelAdmin):
         )
 
     search_fields = [
-        'primary_guest', 
-        'Meal_time', 
+        'primary_guest',
+        'Meal_time',
         'booking_date',
         ]
-        
+
     summernote_fields = (
-        'dietary_notes', 
+        'dietary_notes',
         'additional_comments'
         )

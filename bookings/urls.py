@@ -1,17 +1,22 @@
+"""
+    imports  -------------------------------------------------------
+"""
+# third party imports
 from django.urls import path
+# internal imports
 from . import views
 
-urlpatterns = [    
+urlpatterns = [
     path(
-        'bookings/', 
-        views.Bookings.as_view(), 
+        'bookings/',
+        views.Bookings.as_view(),
         name='bookings'
         ),
     path(
         'bookings/<slug:slug>/',
         views.BookingDetails.as_view(),
         name='booking_details'
-        ),     
+        ),
     path(
         'edit_booking/<int:pk>/',
         views.EditBookings.as_view(),

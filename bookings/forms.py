@@ -1,11 +1,25 @@
+"""
+    imports  -------------------------------------------------------
+"""
+# third party imports
 from django import forms
-from .models import Booking
 from .widgets import DateInput
+# internal imports
+from .models import Booking
 
 
 class BookingForm(forms.ModelForm):
+    """
+    Class based form to create new bookings using the
+    bookings model
+    """
 
     class Meta:
+        """
+        Class to set the fields in the booking model form,
+        and the additional widgets to set the attributes of the
+        fields
+        """
         model = Booking
         fields = (
             'booking_date',
@@ -24,24 +38,10 @@ class BookingForm(forms.ModelForm):
 
             'additional_comments': forms.Textarea(
                 attrs={
-                    'cols': 20, 
+                    'cols': 20,
                     'rows': 2,
                     }),
-
-            # 'Meal_time': forms.TextInput(attrs={
-            #     'type': 'time',
-            #     'min': '09:00',
-            #     'max': '18:00',
-            #       'step': '3600',
-            #     }),
-
-            # 'booking_date': forms.TextInput(
-            #     attrs={
-            #         'type': 'date',
-            #         'data-date-format': 'dd-mm-yyyy',
-            #         }),
             'booking_date': DateInput(),
-            
 
             'number_of_guests': forms.TextInput(
                 attrs={
@@ -50,8 +50,3 @@ class BookingForm(forms.ModelForm):
                     'max': '10',
                     })
         }
-
-
-
-
-

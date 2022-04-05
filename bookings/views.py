@@ -1,26 +1,34 @@
+"""
+    imports  -------------------------------------------------------
+"""
+# third party imports
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import View
-from django.views.generic import TemplateView, UpdateView, DeleteView
+from django.views import View, generic
+from django.views.generic import TemplateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+# internal imports
 from .forms import BookingForm
 from .models import Booking
-from .bscode import reverseMealDate
-from datetime import datetime
 
 
-class Bookings(TemplateView):   
+class Bookings(TemplateView):
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         bookings = Booking.objects.all()
         template_name = 'bookings/bookings.html'
-        paginate_by = 8
+        paginate_by = 6
         return render(
-            request, 
+            request,
             template_name,
             {
                 'bookings': bookings,
-            })       
+            })
+# class Bookings(generic.ListView):
+#     model = Booking   
+#     queryset = Booking.objects.all()
+#     template_name = 'bookings/bookings.html'
+#     paginate_by = 6
 
 
 class CreateBookings(TemplateView):
@@ -30,51 +38,52 @@ class CreateBookings(TemplateView):
         'bookings': booking,
     }
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         form = BookingForm()
         booking = Booking.objects.all()
         bookings_list = {
-            'bookings':booking,
+            'bookings': booking,
         }
         return render(
-            request, 
-            self.template_name, 
+            request,
+            self.template_name,
             {
-            'form': form,                
+                'form': form,
             })
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         form = BookingForm(request.POST)
-        booking = Booking.objects.all()       
+        booking = Booking.objects.all()
 
-        
         if form.is_valid():
             form.instance.primary_guest = request.user
             primary_guest = form.instance.primary_guest
             number_of_guests = form.cleaned_data['number_of_guests']
             dietary_notes = form.cleaned_data['dietary_notes']
-            Meal_time = form.cleaned_data['Meal_time']            
+            Meal_time = form.cleaned_data['Meal_time']
             booking_date = form.cleaned_data['booking_date']
             additional_comments = form.cleaned_data['additional_comments']
-            form.instance.slug = (f"{primary_guest}_{booking_date}_{Meal_time}")
+            form.instance.slug = (
+                f"{primary_guest}_{booking_date}_{Meal_time}"
+                )
             slug = form.instance.slug
 
-            already = Booking.objects.filter(
+            already_booked = Booking.objects.filter(
                 primary_guest=primary_guest,
-                Meal_time=Meal_time, 
+                Meal_time=Meal_time,
                 booking_date__contains=booking_date
-                )  
+                )
             q = Booking.objects.filter(
-                Meal_time=Meal_time, 
+                Meal_time=Meal_time,
                 booking_date__contains=booking_date
-                )        
-            check = q.count()  
+                )
+            check = q.count()
 
-            if not already:
+            if not already_booked:
                 if check < 6:
                     booked = form.save(commit=False)
                     primary_guest = request.user
-                    booked.post = booked            
+                    booked.post = booked
                     booked.save()
                     return HttpResponseRedirect(reverse('bookings'))
 
@@ -82,21 +91,21 @@ class CreateBookings(TemplateView):
                     message = 'Unfortunately we are fully booked for your \
                         chosen mealtime, please choose another mealtime.'
                     return render(
-                    request, 
-                    self.template_name, 
-                    {
-                    'form': form,
-                    'message': message,              
-                    })
+                        request,
+                        self.template_name,
+                        {
+                            'form': form,
+                            'message': message,
+                        })
             else:
                 message = 'You currently have a booking at this time, \
                     please choose another timeslot.'
                 return render(
-                    request, 
-                    self.template_name, 
+                    request,
+                    self.template_name,
                     {
-                    'form': form,
-                    'message': message,               
+                        'form': form,
+                        'message': message,
                     })
 
         else:
@@ -107,18 +116,18 @@ class CreateBookings(TemplateView):
 class EditBookings(View):
     template_name = 'bookings/edit_booking.html'
 
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, pk):
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, id=pk)
         form = BookingForm(instance=booking)
         return render(
-            request, 
-            self.template_name, 
+            request,
+            self.template_name,
             {
-            'form': form,              
+                'form': form,
             })
 
-    def post(self, request, pk, *args, **kwargs):
+    def post(self, request, pk):
         """
         Handle POST requests: instantiate a form instance with the passed
         POST variables and then check if it's valid.
@@ -126,47 +135,46 @@ class EditBookings(View):
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, id=pk)
         form = BookingForm(request.POST, instance=booking)
-        
 
-        if form.is_valid():            
+        if form.is_valid():
             Meal_time = form.cleaned_data['Meal_time']
             booking_date = form.cleaned_data['booking_date']
             form.instance.primary_guest = request.user
             primary_guest = form.instance.primary_guest
 
-            already = Booking.objects.filter(
+            already_booked = Booking.objects.filter(
                 primary_guest=primary_guest,
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
-                )    
+                )
             q = Booking.objects.filter(
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
                 )
             check = q.count()
 
-            if not already:
+            if not already_booked:
                 if check < 6:
                     booked = form.save(commit=False)
-                    booked.post = booked            
+                    booked.post = booked
                     booked.save()
                     return HttpResponseRedirect(reverse('bookings'))
-                                
+
                 else:
                     message = 'Unfortunately we are fully booked for your\
                          chosen mealtime, please choose another mealtime.'
                     return render(
-                        request, 
-                        self.template_name, 
+                        request,
+                        self.template_name,
                         {
-                        'form': form,
-                        'message': message,               
+                            'form': form,
+                            'message': message,
                         })
             else:
                 message = 'You currently have a booking at this time, \
                     please choose another timeslot.'
                 return render(
-                    request, 
+                    request,
                     self.template_name,
                     {
                         'form': form,
@@ -177,10 +185,9 @@ class EditBookings(View):
             return HttpResponseRedirect(reverse('bookings'))
 
 
-
 class BookingDetails(View):
 
-    def get(self, request, slug , *args, **kwargs):
+    def get(self, request, slug):
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, slug=slug)
 
@@ -188,7 +195,7 @@ class BookingDetails(View):
             request,
             "bookings/bookings_detail.html",
             {
-                'booking': booking, 
+                'booking': booking,
             },
         )
 
@@ -204,8 +211,9 @@ class AdminBookings(TemplateView):
 
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.all().order_by('booking_date')
-        
-        return render(request,
+
+        return render(
+            request,
             'bookings/admin_bookings_view.html',
             {
                 'bookings': bookings,

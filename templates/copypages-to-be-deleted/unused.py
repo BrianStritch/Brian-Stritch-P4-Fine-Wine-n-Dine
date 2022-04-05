@@ -574,4 +574,16 @@
 
 
 
-    
+ 
+            # 'Meal_time': forms.TextInput(attrs={
+            #     'type': 'time',
+            #     'min': '09:00',
+            #     'max': '18:00',
+            #       'step': '3600',
+            #     }),
+
+            # 'booking_date': forms.TextInput(
+            #     attrs={
+            #         'type': 'date',
+            #         'data-date-format': 'dd-mm-yyyy',
+            #         }),   
