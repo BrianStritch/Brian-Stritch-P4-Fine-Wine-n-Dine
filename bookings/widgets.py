@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  ------Bookings widgets.py----------------------
 """
 # third party imports
 from django import forms

@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  -----------------Bookings models.py----------------------
 """
 # third party imports
 from django.contrib.auth.models import User

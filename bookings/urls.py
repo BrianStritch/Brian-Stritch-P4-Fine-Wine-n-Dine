@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  ------Bookings urls.py----------------------
 """
 # third party imports
 from django.urls import path

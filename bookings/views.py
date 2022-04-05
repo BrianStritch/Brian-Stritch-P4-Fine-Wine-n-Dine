@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  ------Bookings views.py----------------------
 """
 # third party imports
 from django.shortcuts import render, get_object_or_404, reverse
@@ -13,7 +13,10 @@ from .models import Booking
 
 
 class Bookings(TemplateView):
-
+    """
+        Class based view to display bookings
+        relative to the logged in user
+    """
     def get(self, request, *args, **kwargs):
         bookings = Booking.objects.all().order_by('booking_date')
         template_name = 'bookings/bookings.html'
@@ -27,6 +30,11 @@ class Bookings(TemplateView):
 
 
 class CreateBookings(TemplateView):
+    """
+        Class based view to render create bookings page
+        with BookingForm to create new bookings, GET request
+        data from user and process POST request accordingly
+    """
     template_name = 'bookings/create_a_booking.html'
     booking = Booking.objects.all()
     bookings_list = {
@@ -34,6 +42,10 @@ class CreateBookings(TemplateView):
     }
 
     def get(self, request, *args, **kwargs):
+        """
+        GET request for rendering the create booking
+        page including the bookingform
+        """
         form = BookingForm()
         booking = Booking.objects.all()
         bookings_list = {
@@ -47,6 +59,12 @@ class CreateBookings(TemplateView):
             })
 
     def post(self, request):
+        """
+        POST request for processing the bookingform
+        data passed from the create booking form and if
+        form is valid and if specific conditions are met
+        saves booking to database.
+        """
         form = BookingForm(request.POST)
         booking = Booking.objects.all()
 
@@ -68,11 +86,11 @@ class CreateBookings(TemplateView):
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
                 )
-            q = Booking.objects.filter(
+            query = Booking.objects.filter(
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
                 )
-            check = q.count()
+            check = query.count()
 
             if not already_booked:
                 if check < 6:
@@ -109,9 +127,19 @@ class CreateBookings(TemplateView):
 
 
 class EditBookings(View):
+    """
+        Class based view to display edit booking
+        page with booking form relative to the
+        current selected booking and processing the
+        POST data and saving updated data to the database.
+    """
     template_name = 'bookings/edit_booking.html'
 
     def get(self, request, pk):
+        """
+        GET request to render the edit bookings page relative to
+        the selected booking with the attached Booking form
+        """
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, id=pk)
         form = BookingForm(instance=booking)
@@ -125,7 +153,9 @@ class EditBookings(View):
     def post(self, request, pk):
         """
         Handle POST requests: instantiate a form instance with the passed
-        POST variables and then check if it's valid.
+        POST variables and then check if it's valid, meets the specified
+        requirements and updates the data accordingly, or returns to the
+        edit booking view displaying the error message.
         """
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, id=pk)
@@ -142,11 +172,11 @@ class EditBookings(View):
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
                 )
-            q = Booking.objects.filter(
+            query = Booking.objects.filter(
                 Meal_time=Meal_time,
                 booking_date__contains=booking_date
                 )
-            check = q.count()
+            check = query.count()
 
             if not already_booked:
                 if check < 6:
@@ -181,8 +211,15 @@ class EditBookings(View):
 
 
 class BookingDetails(View):
-
+    """
+        Class based view to display the selected
+        bookings specific details.
+    """
     def get(self, request, slug):
+        """
+        class based function to render the bookings detail page
+        diaplaying the booking details for the selected booking
+        """
         queryset = Booking.objects.all()
         booking = get_object_or_404(queryset, slug=slug)
 
@@ -196,15 +233,26 @@ class BookingDetails(View):
 
 
 class DeleteBooking(DeleteView):
+    """
+        Class based view to delete the selected
+        booking using the built in Django Deleteview.
+    """
     model = Booking
     template_name = 'bookings/delete_booking.html'
     success_url = reverse_lazy('bookings')
 
 
 class AdminBookings(TemplateView):
+    """
+        Class based view to render the Admin bookings page
+        and display all bookings in a table to the administrator.
+    """
     template_name = 'bookings/admin_bookings_view.html'
 
     def get(self, request, *args, **kwargs):
+        """
+        GET request to render the admin bookings view and diaply all bookings
+        """
         bookings = Booking.objects.all().order_by('booking_date')
 
         return render(

@@ -1,20 +1,23 @@
+"""
+    imports  ------Bookings urls.py----------------------
+"""
+# third party imports
 from django.urls import path
+# internal imports
 from . import views
-from reviews.views import ReviewsDetail
 
 urlpatterns = [
-    
     path(
         'reviews/reviews/',
         views.ReviewsList.as_view(),
         name='reviews'
         ),
-    
+
     path(
         'reviews/create_review/',
         views.CreateReview.as_view(),
         name='create_review'
-        ),    
+        ),
     path(
         'reviews/like/<slug:slug>/',
         views.ReviewLike.as_view(),

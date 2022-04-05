@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  -------------Bookings forms.py----------------------
 """
 # third party imports
 from django import forms
@@ -16,9 +16,9 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         """
-        Class to set the fields in the booking model form,
-        and the additional widgets to set the attributes of the
-        fields
+        Class to indicate which model to use and to set the
+        fields in the booking model form, and the additional
+        widgets to set the attributes of the fields
         """
         model = Booking
         fields = (

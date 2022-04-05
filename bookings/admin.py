@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  ------Bookings admin.py----------------------
 """
 # third party imports
 from django.contrib import admin

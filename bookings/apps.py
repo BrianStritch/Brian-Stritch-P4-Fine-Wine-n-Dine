@@ -1,5 +1,5 @@
 """
-    imports  -------------------------------------------------------
+    imports  ------Bookings apps.py----------------------
 """
 # third party imports
 from django.apps import AppConfig
