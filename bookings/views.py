@@ -24,11 +24,6 @@ class Bookings(TemplateView):
             {
                 'bookings': bookings,
             })
-# class Bookings(generic.ListView):
-#     model = Booking   
-#     queryset = Booking.objects.all()
-#     template_name = 'bookings/bookings.html'
-#     paginate_by = 6
 
 
 class CreateBookings(TemplateView):
