@@ -11633,3 +11633,30 @@ a {
   padding: 50px auto;
   margin: auto;
 }
+
+.photos {
+  clear: both;
+  line-height: 0;
+  column-count: 4;
+  column-gap: 2;
+  margin: auto;  
+}
+
+.photos > img {
+  width: 50%;
+  border: 5px solid brown;
+  padding: 0;
+  margin: 2px;
+  box-shadow: 5px 5px 5px blue;
+  border-radius: 50%;
+}
+
+.gallery-pic{
+  width: 24vw;
+  /* height: 38vh; */
+}
+
+img{
+  height: 30vh;
+  width: 30vw;
+}

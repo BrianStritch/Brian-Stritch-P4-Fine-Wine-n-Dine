@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.models import User
 from django.views.generic import TemplateView, DeleteView
+from django.views import generic, View
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from .forms import UserCreationForm, UserAccountDetailsForm, EditProfileForm
+from reviews.models import Review
 
 
 class Home(TemplateView):
@@ -20,8 +22,12 @@ class OpeningHours(TemplateView):
     template_name = 'nannys_alternative/opening-times.html'
 
 
-class ProductsPage(TemplateView):
-    template_name = 'nannys_alternative/about.html'
+class Gallery(generic.ListView):
+    template_name = 'nannys_alternative/gallery.html'
+    model = Review    
+    queryset = Review.objects.filter(status=1).order_by('-created_on')
+    paginate_by = 6
+
 
 
 class About(TemplateView):

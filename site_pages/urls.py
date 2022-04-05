@@ -18,9 +18,9 @@ urlpatterns = [
         name='menu'
         ),
     path(
-        'products/',
-        views.OpeningHours.as_view(),
-        name='products'
+        'gallery/',
+        views.Gallery.as_view(),
+        name='gallery'
         ),
     path(
         'about/',
