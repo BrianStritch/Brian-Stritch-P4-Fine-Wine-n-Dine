@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 logo-div ">
             <div class="container " >
                 <button class="navbar-toggler nav-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <section class="outer-area top">                    
+                <div class="outer-area top">                    
                     <div class="collapse navbar-collapse topnav" id="navbarSupportedContent">
                         <div class="float-left">
                         <a href="{% url 'home' %}">
@@ -43,7 +43,7 @@
                             {% endif %}
                         </ul>
                     </div>
-                </section> 
+                </div> 
             </div>
         </nav> 
         <h1 class="site-heading text-center text-faded d-none d-lg-block">
@@ -54,7 +54,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4  " id="mainNav">
         <div class="container " >
-            <section class="outer-area">
+            <div class="outer-area">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">                    
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home' %}"><i class="fas fa-home">   home </i></a></li>
@@ -72,10 +72,7 @@
                         
                     </ul>
                 </div>
-            </section>
-            
-               
-              
+            </div>
         </div>
     </nav>
     
@@ -88,7 +85,17 @@
 
     <footer class="footer text-faded text-center py-5">
         <div class="container">
-            <p class="m-0 small">Copyright Fine-Wine-n-Dine @ Nanny's       EST.    2022</p>
+            <h3 id="social-text">Follow us on social media for all the latest news and specials!</h3>
+            <div class="social-outer">
+                
+                <div class="social-square"><a href="https://www.instagram.com/nannysofduleek/" target="_blank"><i class="fa fa-instagram"></i></a></div>
+                <div class="social-square"><a href="https://m.facebook.com/Nannysofduleek/photos/a.111039901319148/136734105416394/" target="_blank"><i class="fa fa-facebook"></i></a></div>
+                <div class="social-square"><a href="https://twitter.com/home?lang=en" target="_blank"><i class="fa fa-twitter"></i></a></div>
+                <div class="social-square"><a href="https://www.snapchat.com/" target="_blank"><i class="fa fa-snapchat"></i></a></div>
+            </div>
+            
+            
+            <h4 >Copyright Fine-Wine-n-Dine @ Nanny's       est.    2022</h4>
         </div>
     </footer>
     <!-- Font Awesome -->

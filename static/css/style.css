@@ -11339,7 +11339,7 @@ p {
 
 .page-section {
   margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 15rem;
 }
 
 .section-heading {
@@ -11394,6 +11394,23 @@ p {
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
     color: #e6a756;
   }
+  .page-section {
+    margin-top: 3rem;
+    margin-bottom: 11rem;
+  }
+}
+
+@media(max-width:992px){
+  .page-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  .intro-img, .intro-img-3{
+    width: 100%;
+  }
+  .intro-text2, .intro-text3{
+    margin-bottom: 5rem;
+  }
 }
 
 .btn {
@@ -11445,7 +11462,18 @@ p {
   .intro .intro-img {
     margin-top: -30px;
     width: 75%;
+    max-height: 66vh;
     float: right;
+  }
+  .intro-img-2 {
+    margin-top: -30px;
+    width: 44%;
+    float: left;
+  }
+  .intro-img-3 {
+    margin-top: -30px;
+    width: 65%;
+    float: left;
   }
   .intro .intro-text {
     left: -50px;
@@ -11453,7 +11481,34 @@ p {
     margin-top: 3rem;
     position: absolute;
   }
+  
   .intro .intro-text .intro-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+  }
+  
+  .intro-text2{
+    width: 53%;
+    right: -2rem;
+    position: absolute;
+  }
+  .intro .intro-text2 .intro-button {
+    width: 100%;
+    left: 0;
+    position: absolute;
+    bottom: -2rem;
+    
+  }
+  .intro-text3{
+    width: 53%;
+    right: 0;
+    position: absolute;
+    top: 4rem;
+    
+  }
+  .intro .intro-text3 .intro-button {
     width: 100%;
     left: 0;
     position: absolute;
@@ -11461,9 +11516,13 @@ p {
   }
 }
 @media (min-width: 1200px) {
-  .intro .intro-text {
+  .intro .intro-text,
+  .intro .intro-text2,
+  .intro .intro-text3 {
     width: 45%;
   }
+  
+  
 }
 
 @media (min-width: 992px) {
@@ -11665,4 +11724,71 @@ img{
 .topnav{
   justify-content: center;
   align-items: center;
+}
+
+.social-outer{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+  margin-top: -8vh;
+}
+
+.social-square a{
+  height: 80px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.social-square a:hover{
+  color: white;
+}
+
+#social-text{
+  text-align: center;
+}
+
+/* ************************ google maps styles ******************************/
+#map{
+  padding: 9%;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 75vh;
+  width: 80vw;
+}
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 75vh;
+  width: 80vw;
+}
+iframe{  
+  height: 75vh;
+  width: 80vw;
+  
+}
+@media(max-width:996px){
+  #map{
+    padding: 5%;
+  }
+  .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 75vh;
+    width: 80vw;
+  }
+  .mapouter {
+    position: relative;
+    text-align: right;
+    height: 75vh;
+    width: 80vw;
+  }
+  iframe{  
+    height: 75vh;
+    width: 80vw;
+    
+  }
 }
