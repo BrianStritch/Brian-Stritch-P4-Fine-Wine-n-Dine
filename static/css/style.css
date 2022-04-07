@@ -11763,6 +11763,20 @@ img{
     display: flex;
     flex-direction: column;
   }
+  .card-img, .card-img-top, .card-img-bottom {
+    width: 100%;
+    height: auto;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background-color: #e6a756ab;
+    width: 90vw;
+  }
+  .reviews-detail>img{    
+      height: 50vh;
+      width: 88vw;  
+  }
 }
 
 /* ************************ google maps styles ******************************/
