@@ -4,27 +4,24 @@
 
 {% block content %}
 
-    <section class="page-section cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <div class="cta-inner bg-faded  rounded">
-                        <h1 class="text-center">Registration Form</h1>  
-                        <hr>                      
-                        <form method="post" action="" class="needs-validation">
-                            
-                            {% csrf_token %} 
-                            {{ form.as_p }}      
-                            <button type="submit" class="btn btn-success btn-xl">Sign UP</button>
-                            
-                        </form>
-                        
-                        
-                        
-                    </div>
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded  rounded">
+                    <h1 class="text-center">Registration Form</h1>
+                    <hr>
+                    <form method="post" class="needs-validation">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success btn-xl">
+                            Sign Up!
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 {% endblock %}
