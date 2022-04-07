@@ -33,6 +33,8 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 ALLOWED_HOSTS = ['b-stritch-p4-fine-wine-n-dine.herokuapp.com', 'localhost']
 
 
