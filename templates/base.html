@@ -36,6 +36,7 @@
                             <li class="nav-item px-lg-4" ><a class="text-uppercase" href="{% url 'profile' %}"><i class="fas fa-user"> Logged in as: {{ user.username }}</i></a></li>
                             {% if user.is_superuser %}
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'admin_bookings' %}"><i class="fas fa-book-open">  Admin Bookings</i></a><li> 
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'admin' %}"><i class="fas fa-pen">  Admin Panel</i></a><li> 
                             {% endif %}
                             {% else %}
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'sign_up' %}"><i class="fas fa-pen">  Register</i></a></li>
@@ -67,7 +68,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'reviews' %}"><i class="fas fa-comment">  Reviews</i></a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'menu' %}"><i class="fas fa-utensils"> Menu</i> </a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'gallery' %}"><i class="fas fa-photo-video">  Gallery</i></a></li>   
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}"><i class="fas fa-phone">  Contact & About</i></a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'about' %}"><i class="fas fa-phone">  Contact & About Us</i></a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'opening_hours' %}"><i class="fas fa-clock"> Opening hours</i></a></li>
                         
                     </ul>

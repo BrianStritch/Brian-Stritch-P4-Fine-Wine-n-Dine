@@ -51,4 +51,9 @@ urlpatterns = [
         views.DeleteProfile.as_view(),
         name='delete_profile'
         ),
+    path(
+        'admin/',
+        views.Admin.as_view(),
+        name='admin'
+        ),
 ]

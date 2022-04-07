@@ -262,3 +262,69 @@ class AdminBookings(TemplateView):
                 'bookings': bookings,
             }
         )
+
+
+class AdminBookingsApproved(TemplateView):
+    """
+        Class based view to render the Admin bookings page
+        and display all bookings in a table to the administrator.
+    """
+    template_name = 'bookings/admin_bookings_view_approved.html'
+
+    def get(self, request, *args, **kwargs):
+        """
+        GET request to render the admin bookings view and diaply all bookings
+        """
+        bookings = Booking.objects.all().order_by('booking_date')
+
+        return render(
+            request,
+            'bookings/admin_bookings_view_approved.html',
+            {
+                'bookings': bookings,
+            }
+        )
+
+
+class AdminBookingsPending(TemplateView):
+    """
+        Class based view to render the Admin bookings page
+        and display all bookings in a table to the administrator.
+    """
+    template_name = 'bookings/admin_bookings_view_pending.html'
+
+    def get(self, request, *args, **kwargs):
+        """
+        GET request to render the admin bookings view and diaply all bookings
+        """
+        bookings = Booking.objects.all().order_by('booking_date')
+
+        return render(
+            request,
+            'bookings/admin_bookings_view_pending.html',
+            {
+                'bookings': bookings,
+            }
+        )
+
+
+class AdminBookingsCompleted(TemplateView):
+    """
+        Class based view to render the Admin bookings page
+        and display all bookings in a table to the administrator.
+    """
+    template_name = 'bookings/admin_bookings_view_completed.html'
+
+    def get(self, request, *args, **kwargs):
+        """
+        GET request to render the admin bookings view and diaply all bookings
+        """
+        bookings = Booking.objects.all().order_by('booking_date')
+
+        return render(
+            request,
+            'bookings/admin_bookings_view_completed.html',
+            {
+                'bookings': bookings,
+            }
+        )

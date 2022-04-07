@@ -151,3 +151,6 @@ class DeleteProfile(DeleteView):
     model = User
     template_name = 'nannys_alternative/delete_profile.html'
     success_url = reverse_lazy('home')
+
+class Admin(TemplateView):
+    template_name = 'index.html/admin/'

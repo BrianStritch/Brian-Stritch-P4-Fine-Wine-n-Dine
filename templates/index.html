@@ -12,12 +12,16 @@
                     <span class="section-heading-upper">Hot Food Served Daily</span>
                     <span class="section-heading-lower">A La Carte</span>
                 </h2>
+                {% if user.is_authenticated %}  
+                <p class="mb-3">We pride ourselves on delivering you the finest foods 
+                    at a reasonable price. All our foods are prepared and cooked in-house by our 
+                    award winning chef. Click the link below to create a booking now!</p>
+                              
+                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'create_a_booking' %}">Create a Booking</a></div>
+                {% else %}
                 <p class="mb-3">We pride ourselves on delivering you the finest foods 
                     at a reasonable price. All our foods are prepared and cooked in-house by our 
                     award winning chef. Click the link below to sign up and log in to create a booking today!</p>
-                {% if user.is_authenticated %}                
-                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'create_a_booking' %}">Create a Booking</a></div>
-                {% else %}
                 <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'sign_up' %}">Sign Up</a></div>
                 {% endif %}
             </div>

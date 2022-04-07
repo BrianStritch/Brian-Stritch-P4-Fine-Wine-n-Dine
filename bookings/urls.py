@@ -37,4 +37,19 @@ urlpatterns = [
         views.AdminBookings.as_view(),
         name='admin_bookings'
         ),
+    path(
+        'admin_bookings_view_approved/',
+        views.AdminBookingsApproved.as_view(),
+        name='approved'
+        ),
+    path(
+        'admin_bookings_view_pending/',
+        views.AdminBookingsPending.as_view(),
+        name='pending'
+        ),
+    path(
+        'admin_bookings_view_completed/',
+        views.AdminBookingsCompleted.as_view(),
+        name='completed'
+        ),
 ]
