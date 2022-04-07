@@ -19,7 +19,8 @@
 	<div class="row justify-content-center">
 		<div class="col-12 mt-3 left">
 			<div class="col-xl-9 row centre-cards">
-			{% for booking in bookings %}
+				{% for booking in bookings %}
+
 				{% if booking.primary_guest.id == request.user.id %}
 				<div class="col-md-4">										
 					<div class="card mb-4 ml-6 ">
@@ -72,15 +73,15 @@
 							<p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} </p>
 						</div>
 					</div>
-				</div>	
-			{% if forloop.counter|divisibleby:3 %}
+					
+				{% if forloop.counter|divisibleby:3 %}
+				</div>
+				<div class="col-md-4 ">
+				{% endif %}				
+				</div>
+				{% endif %}
+				{% endfor %}
 			</div>
-			<div class="col-xl-9 row centre-cards ">
-			{% endif %}
-			{% endif %}
-			</div>
-			{% endfor %}
-			
 		</div>
 	</div>
 
