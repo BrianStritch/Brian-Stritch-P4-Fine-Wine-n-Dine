@@ -152,5 +152,9 @@ class DeleteProfile(DeleteView):
     template_name = 'nannys_alternative/delete_profile.html'
     success_url = reverse_lazy('home')
 
+
 class Admin(TemplateView):
+    """
+    Class based view to render django admin panel for admin users
+    """
     template_name = 'index.html/admin/'
