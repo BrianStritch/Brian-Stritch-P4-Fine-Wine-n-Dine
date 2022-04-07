@@ -42,7 +42,7 @@ class Gallery(generic.ListView):
     template_name = 'nannys_alternative/gallery.html'
     model = Review
     queryset = Review.objects.filter(status=1).order_by('-created_on')
-    paginate_by = 6
+    paginate_by = 12
 
 
 class About(TemplateView):
