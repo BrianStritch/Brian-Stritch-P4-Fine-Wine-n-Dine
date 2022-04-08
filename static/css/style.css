@@ -11794,6 +11794,8 @@ img{
   text-align: right;
   height: 75vh;
   width: 80vw;
+  margin-left: -5vw;
+  
 }
 iframe{  
   height: 75vh;
@@ -11815,6 +11817,7 @@ iframe{
     text-align: right;
     height: 75vh;
     width: 80vw;
+    
   }
   iframe{  
     height: 75vh;
@@ -11822,3 +11825,4 @@ iframe{
     
   }
 }
+

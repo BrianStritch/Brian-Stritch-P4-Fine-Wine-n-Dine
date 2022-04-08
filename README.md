@@ -81,7 +81,7 @@ Once logged in, the members will have access to the sites remaining functionalit
 
 ![User Profile](static/readme_images/users-account-info.JPG "Example of the users profile")
 
-Once logged in, staff members have access to the same functionality as members for testing purposes.The staff status allows selected users to access the management area where staff can view all bookings , pending bookings, approved bookings, completed bookings and allows access to the django administration area where the staff member can view all bookings, reviews, comments, users etc and has administartion priveledges which allows them to create edit and update reviews, comments, bookins, users etc. The administration area is required in order to publish comments which have been submitted for approval prior to the comment getting published.
+Once logged in, staff members have access to the same functionality as members for testing purposes.The staff status allows selected users to access the management area where staff can view all bookings , pending bookings, approved bookings, completed bookings and allows access to the django administration area where the staff member can view all bookings, reviews, comments, users etc and has administration priveledges which allows them to create edit and update reviews, comments, bookings, users etc. The administration area is required in order to publish comments which have been submitted for approval prior to the comment getting published.
 
 ![Administartion bookings view](static/readme_images/admin-current-bookings.JPG "Example of the admin bookings view")
 ![Administartion bookings view](static/readme_images/admin-pending-bookings.JPG "Example of the admin bookings pending view")
@@ -90,72 +90,101 @@ Once logged in, staff members have access to the same functionality as members f
 
 ### User Stories
 #### New Users
-
-# __*************************** i am here *******************__
 - As a new user, I would like to be able to view information about the establishment so that I can decide whether to use their services or not
 - As a new user, I would like to be able to see reasons why I should create an account so that I can decide if I would like to become a members
 - As a new user, I would like to be able to view a menu to see what type of foods are on offer
 - As a new user, I would like to be able to view reviews from past guests so that I can see what other users think of the establishment
 
 #### Existing Members
+- As an existing member, I would like to be able to log into my profile easily so that I avail of members only attributes of the website.
 - As an existing member, I would like to be able to log into my profile easily so that I can review my profile information
 - As an existing member, I would like to be able to edit my personal information on my profile so that I can keep the information up to date on the database
 - As an existing member, I would like to be able to delete my profile should i wish to do so
-- As an existing member, I would like to be able to view my recent bookings 
-- As an existing member, I would like to be able to view all of my bookings so that I check the status of my booking
-- As an existing member, I would like to be able to view my recent reviews so that I can edit or delete them if neccessary
+
+- As an existing member, I would like to be able to view my bookings 
+- As an existing member, I would like to be able to edit all of my bookings
+- As an existing member, I would like to be able to delete my bookings
+
+- As an existing member, I would like to be able to view all reviews 
+- As an existing member, I would like to be able to edit all of my reviews
+- As an existing member, I would like to be able to delete my reviews
+
+- As an existing member, I would like to be able to view my comments on reviews 
+- As an existing member, I would like to be able to edit all of my comments on reviews
+- As an existing member, I would like to be able to delete my comments on reviews
+
 #### Admin / Staff Users
-- As a staff member, I would like to be able to manage all the restaurant bookings 
-- As a staff member, I would like to be able to manage all the restaurant bookings 
-- As a staff member, I would like to be able to edit existing products so that I can change them when neccessary
-- As a staff member, I would like to be able to be able to delete items from the store when they are no longer available
+- As a staff member, I would like to be able to view all the restaurant bookings 
+- As a staff member, I would like to be able to view all the pending restaurant bookings 
+- As a staff member, I would like to be able to view all the approved restaurant bookings 
+- As a staff member, I would like to be able to view all the completed restaurant bookings 
+- As a staff member, I would like to be able to manage all the restaurant bookings
+- As a staff member, I would like for the application to stop any booking duplications
+- As a staff member, I would like for the application to only allow a predefined number of guests per hour
+
+- As a staff member, I would like to be able to view all the reviews
+- As a staff member, I would like to be able to edit any of the reviews if required
+- As a staff member, I would like to be able to delete a review in the event that it contains any offensive or inappropriate content
+- As a staff member, I would like to be able to view all comments on reviews
+- As a staff member, I would like to be able to approve or disprove all comments on reviews in the event that they contain any offensive or inappropriate content
+- As a staff member, I would like to be able to edit any of the comments on a review if required 
+
+
 - As a staff member, I would like to be able to view all of the users of the website so that I can manage them
-- As a staff member, I would like to be able to be able to edit and delete reviews in case they contain any offensive or inappropriate content
-- As a staff member, I would like to be able to delete a user from the website in case it is neccessary
-- As a staff member, I would like to be able to be able to edit a users information in case it is neccessary
-- As a staff member, I would like to be able to be able to grant a user staff access or remove it if neccessary
+- As a staff member, I would like to be able to edit a users Information should it be required
+- As a staff member, I would like to be able to delete a user from the website if required
+- As a staff member, I would like to be able to be able to edit a users information if required
+- As a staff member, I would like to be able to be able to grant a user staff access or remove if required
 
 ### Wireframes
 As there are many pages to this project, I have included the wireframes in a separate document.
 
-Please see the wireframes.md file for the entire collection of wireframes: https://github.com/aidan-stritch/magical-deals/blob/master/wireframes.md
+Please see the wireframes.md file for the entire collection of wireframes: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/wireframes.md
+
+### Site Map
+![Site Map](static/wireframe_images/site-map-diagram.JPG "Site Map Diagram showing Layout of Web application")
 
 ### Entity Relationship Diagram (ERD)
-![Entity Relationship Diagram](static/development_diagrams/ERD.png "Entity Relationship Diagram showing relationships on Database")
+![Entity Relationship Diagram](static/wireframe_images/ERD-entity-relationship-diagram.JPG "Entity Relationship Diagram showing relationships on Database")
+
+
 
 ## Features
 ### Existing Features
 #### Regular Users 
 1. Login - The customers are able to create their own accounts and log into the website with secure details.
-2. Sign-Up - New users can sign up themselves if they wish to set up an account.
-3. User Profile - Each user has their own profile that welcomes them by Username for personalisation.
-4. Users can view their order history from their profile
-5. Users can view their review history from their profile
-6. Users can review any items that they have purchased using a link from their profile or in the individual products page
-7. Once logged in, customers can see our full range of products on the products page
-8. Users can log out at any time from the store by clicking on the logout button 
-9. Users can add items to the cart while browsing the store, from there they can remove the items or checkout using the Stripe payment management system securely and easily
-10. Users can search on the products page for items based on name so that they can narrow down their options
-11. When creating a profile, it will not allow users to create a profile with the same username as another member
+2. Sign-Up - New users can sign up to create an account.
+3. When creating a profile, it will not allow users to create a profile with the same username as another member
+4. User Profile - Each user has their own profile that welcomes them by Username for personalisation.
+5. Users can create bookings from the bookings page which is visible to logged in users.
+6. Users can view their bookings from the bookings page which is visible to logged in users.
+7. Users can select a booking and view , edit or delete the booking from the bookings detail page which is visible to logged in users.
+8. Users can view reviews from past guests from the reviews page which is visible to all users.
+9. Users can view specific reviews details and comments by clicking the review which redirects to the reviews detail page.
+10. Users can edit or delete their own reviews or comments from the reviews detail page where an edit and delete button are visible to logged in users, but only for reviews or comments which were created by that user.
+11. Users can view the menu to see what food products are available.
+12. Users can view the contact and about us page to understand who the owners of the establishment are and what they are about. 
+13. Users can also see the contact information, should they wish to contact the establisment directly.
+14. Users can view the opnening hours to see when the establishment is open for business.
+15. Users can see a gallery of images populated by images provided by guests from reviews.
+16. Users can log out at any time from the site by clicking on the logout button 
 
 #### Staff Users
-1. Create Data - Staff users can add new products to the database using a simple form.
-2. Staff and view all users and edit their basic profile information, including making them staff or not
-3. Staff can delete any user profile from the all users page
-4. Staff can edit and delete products from the store at the click of a button
+1. Edit Bookings - Staff users can edit any bookings saved to the database using a simple form.
+2. Edit Reviews - Staff users can edit any reviews saved to the database using a simple form.
+3. Edit Comments- Staff users can edit any comments saved to the database using a simple form.
+4. Delete Bookings - Staff users can delete any bookings saved to the database.
+5. Delete Reviews - Staff users can delete any reviews saved to the database.
+6. Delete Comments- Staff users can delete any comments saved to the database.
+7. Edit Users - Staff users can edit any users saved to the database.
+8. Delete Users - Staff users can delete any users saved to the database.
 
 ### Future Features
-1. Users will be able to add items to a wishlist that will be visible on their profile so that they can purchase the items at a later data
-2. Magical Deals will be able to use data stored from users reviews, search history and order history to provide suggestions in an "our picks for you" section
-3. Users will be able to search based on multiple criteria, such as description, keywords and prices
-4. Users will be able to sort items on the products page, all orders, all reviews etc by multiple criteria, including date, price, category etc
-5. When creating a product, Staff users will be able to include the stock amount which will reduce when orders are made and can be edited/increased through the edit product form. Items out of stock will appear without the ability to add to basket and with a message stating that it is currently out of stock
-6. When creating a product, in future releases we will allow currency selection to be an option for buying/selling in other countries
-7. Review date and time will be included on the review card view so that users will know if the reviews are recent 
-8. When creating / editing an account, the user will be able to select country from a picklist to avoid spelling errors in the database
-9. In future releases, userss will be able to store their card information on their profile for faster checkout
-10. In future releases, users will be able to include multiple delivery addresses for ease of use
-11. An average review score will be included on the product view page and in the product cards on other pages
+1. An Accomodation booking application will be added in a future update so the guests can stay in our new state of the art rooms.
+2. A Menu app will be added in order for the staff / admin users to change the menu with a simple update form.
+3. A payment method would be added in a future update so that the user can pre-pay their booking
+4. A Merchandise shop will be added so that guests can purchase Nanny's clothing merchandise
+
 
 ## Technologies Used
 - HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
@@ -163,13 +192,11 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 - Bootstrap - This site uses Bootstrap elements to help design the framework of the site
 - Django - This was the chosen framework for developing the project
 - Python - This language was chosen to code the a large amount of the functionality of the site
-- JavaScript - this was used to program some of the features on the site, such as the calendar
+- JavaScript - this was used to program some of the features on the site, such as the messages timeout
 - Balsamiq - This was used to create the wireframes in the design phase
 - Heroku - This was chosen to host the website app for deployment.
-- Stripe - This was used to process the credit card payments in the checkout app
-- Travis - This was used to handle the continuous integration
 - Coverage - This reporting tool was installed and used to produce reports showing how much of the apps had been tested
-- Amazon AWS - S3 Buckets were set up and used for storing website images and files
+- Cloudinary - Cloudinary storage was set up and used for storing website images
 - Postgres - This Relational Datatabase was used to handle the data storage
 
 ## Testing
@@ -177,17 +204,15 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 There are two main uses on this site; a site member and a site staff member. Please use the logins below to access and review both user types:
 
 #### Test User
-- Username: TestUser
-- Email Address: test@test.ie
-- Password: test
+- Username: testuser
+- Password: administration
 
-#### Test User Staff
-- Username: TestUserStaff
-- Email Address: staff@test.ie
-- Password: test
+#### Admin User
+- Username: admin
+- Password: administration
 
 ### Manual
-As there are many pages for the Magical Deals website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
+As there are many pages for the fine-wine-n-dine website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
 
 Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can use this link to reach the file: https://github.com/aidan-stritch/magical-deals/blob/master/manual_testing.md
 
