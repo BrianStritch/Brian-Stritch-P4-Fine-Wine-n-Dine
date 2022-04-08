@@ -214,7 +214,9 @@ There are two main uses on this site; a site member and a site staff member. Ple
 ### Manual
 As there are many pages for the fine-wine-n-dine website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
 
-Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can use this link to reach the file: https://github.com/aidan-stritch/magical-deals/blob/master/manual_testing.md
+Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can use this link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/manual-testing.md
+
+# ************** i am here now **********************
 
 During this process, several issues were discovered which have been since fixed on the site. Some examples of these include; 
 - When a customer adds a product with a negative value it accepts it and is created 
