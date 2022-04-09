@@ -77,16 +77,11 @@
                         {% if review.author == request.user %}
                         <input type='hidden' name='id' value='{{ review.id}}' /> 
                         <div>
-                            <a href="{% url 'edit_review' review.pk %}">
-                                <button class="btn btn-primary btn-xl">EDIT REVIEW</button>
-                            </a>                            
-                            <a href="{% url 'delete_review' review.pk %}">
-                                <button class="btn btn-primary btn-xl red">DELETE REVIEW</button>
-                            </a>                            
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'edit_review' review.pk %}">EDIT REVIEW</a></div>
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl red" href="{% url 'delete_review' review.pk %}">DELETE REVIEW</a></div>
                         </div>
                         {% endif %}
                     </div>
-                   
                 </div>                           
             </div>
         </div>
@@ -112,19 +107,12 @@
                     <div>
                         {% if comment.name == user.username %}
                         <div>
-                            <a href="{% url 'edit_comment' comment.pk %}">
-                                <button class="btn btn-primary btn-xl">EDIT COMMENT</button>
-                            </a>                            
-                            <a href="{% url 'delete_comment' comment.pk %}">
-                                <button class="btn btn-primary btn-xl">DELETE COMMENT</button>
-                            </a>                            
-                        </div>                     
-                                                
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'edit_comment' comment.pk %}">EDIT COMMENT</a></div>
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl red" href="{% url 'delete_comment' comment.pk %}">DELETE COMMENT</a></div>
+                        </div>             
                         {% endif %}  
                     </div>
                     {% endfor %}
-                    
-                    
                 </div>
             </div>
             <div class="col-md-4 card mb-4  mt-3 wooden-back">
