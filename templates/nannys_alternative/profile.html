@@ -16,16 +16,11 @@
                             <h3>Last Name : {{ user.last_name }} </h3>
                             <h3>Email : {{ user.email }} </h3>
                             <h3>User id : {{user.id}} </h3>
-                        <hr>   
-                            <a href="{% url 'edit_profile' %}"><button class="btn btn-primary btn-xl">Edit User Details</button></a>
-                            <a href="{% url 'delete_profile' user.pk %}">
-                                <button class="btn btn-primary btn-xl red">DELETE USER PROFILE</button>
-                            </a>   
-                            
-                        </form>
-                        
-                        
-                        
+                        <hr> 
+                        <div>
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'edit_profile' %}">Edit User Details</a></div>
+                            <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl red" href="{% url 'delete_profile' user.pk %}">DELETE ACCOUNT</a></div>
+                        </div>
                     </div>
                 </div>
             </div>

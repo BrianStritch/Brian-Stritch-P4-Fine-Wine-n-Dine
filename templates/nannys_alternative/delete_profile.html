@@ -9,14 +9,14 @@
         <div class="cta-inner bg-faded text-center rounded">
             
             <hr>
-            <h1>DELETE USER PROFILE FOR {{ user.username }}</h1>
+            <h2>DELETE USER PROFILE FOR {{ user.username }}</h2>
             <br>
             <hr>
             <form  method="POST" style="margin-top: 1.3em;">                 
                 {% csrf_token %}
-                <strong><hr></strong>
-                <strong>Are You Sure You Want To DELETE your profile?</strong>
-                <strong><hr></strong>
+                <hr>
+                <strong>Are You Sure You Want To DELETE your account?</strong>
+                <hr>
                 <button type="submit" class="btn btn-primary btn-xl red" >DELETE USER PROFILE !</button> 
             </form> 
         </div>
