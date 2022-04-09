@@ -11800,6 +11800,9 @@ img{
 iframe{  
   height: 75vh;
   width: 80vw;
+  overflow: hidden;
+  border: none;
+  margin: 0;
   
 }
 @media(max-width:996px){
