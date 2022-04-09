@@ -13,7 +13,7 @@
                 src="{% static 'images/food-critic.jpg' %}">
             
             {% else %}
-            <img class="gallery-pic" src="{{review.featured_image.url}}" alt="{{ review.exerpt }}">
+            <img class="gallery-pic" src="{{review.featured_image.url}}" alt="{{ review.title }}">
             {% endif %}
         {% if forloop.counter|divisibleby:2 %}
         </div>

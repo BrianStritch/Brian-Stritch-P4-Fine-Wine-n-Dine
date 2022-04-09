@@ -67,7 +67,7 @@ This project was designed to allow users to, through CRUD functionality, manage 
 - Allows users to edit their comment through the edit comment form attached to the reviews page
 - Allows users to delete their comment through the edit comment link attached to the edit reviews page
 
-This website is designed for the regular everyday individuals and is appropriate to all age groups as the restaurant aters for all age groups and with the additional sports bar attached which would be particularly aimed at sports fans as the venue has 12 large screens based in seperate areas in the establishment and offers a diverse selection of sporting events daily. The website allows guests to create reviews and tells others of their experiences. 
+This website is designed for the regular everyday individuals and is appropriate to all age groups as the restaurant caters for all age groups and with the additional sports bar attached which would be particularly aimed at sports fans as the venue has 12 large screens based in seperate areas in the establishment and offers a diverse selection of sporting events daily. The website allows guests to create reviews and tells others of their experiences. 
 
 At nanny's, there are four types of vintage wines on draught along with all the regular slection of beers, however, nanny's has been fitted with a cocktail bar for the guests who like an exotic beverage which makes for some fantastic images for reviews.
 
