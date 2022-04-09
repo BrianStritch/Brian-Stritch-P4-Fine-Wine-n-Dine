@@ -30,7 +30,7 @@
      <div class="row"> 
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
-           <h1>Completed Bookings: </h1> 
+           <h2>Completed Bookings: </h2> 
           <table class="table table-hover">
             <thead>
               <tr>
@@ -44,8 +44,6 @@
             {% if booking.booking_status == 3 %}
             <tbody class="table-hover">
               <tr>
-                <a href="{% url 'booking_details' booking.slug %}">
-                
                   <th scope="row">{{ booking.id }}</th>
                   <td>{{ booking.primary_guest }}</td>
                   <td>{{ booking.booking_date}}</td>
@@ -72,28 +70,15 @@
                       <span>18:00</span>
                       {% endif %}                
                   </td>
-                </a>  
               </tr>
-              
               {% endif %}
               {% endfor %}
             </tbody>
           </table>
-            
-            
-            
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-    {% endblock %}
+{% endblock %}
