@@ -219,13 +219,13 @@ Please see the manual_testing.md file for the full breakdown of the manual testi
 # ************** i am here now **********************
 
 During this process, several issues were discovered which have been since fixed on the site. Some examples of these include; 
-- When a customer adds a product with a negative value it accepts it and is created 
-- On forms the required fields were not clearly defined for users to be aware
-- Guidelines on site (such as list of tips for creating products) were not consistently handled by CSS
-- Error message for invalid fields on form submission were not clearly visible
-- Some fields that are not neccessary on the user create form are marked as mandatory (e.g. Address Line Three). This was changed. 
-- Product Search box on Products.html page was too small for UX. This was resized.
-- Some button labels did not clearly define what it does (e.g. "Add" instead of "Add to Cart")
+- 
+- 
+- 
+- 
+-  
+- 
+- 
 
 There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
 
@@ -246,19 +246,8 @@ In order to avoid this, the page source code was used for testing, however the t
 #### JavaScript
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
 
-#### Codacy
-The Codacy.com app was used to inspect the entire projects code and product a report on each page of any errors in layout, duplication etc. The majority of issues have been corrected, however there are errors reported linked to keywords and built in terms for files which cannot be changed. All files have been assessed and the only errors which remain are deemed to be acceptable and the result is a B. As a part of this report, Codacy provides a Codacy quality badge which is included below: 
-
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/27bfa163e6014d6e9fa2a9b06a47a2a2)](https://www.codacy.com/manual/aidan-stritch/magical-deals?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aidan-stritch/magical-deals&amp;utm_campaign=Badge_Grade)
 
 ### Automated
-#### Travis
-Travis Continuous Integration was used to run tests on the code every time a push is made to GitHub so that errors could be flagged and managed in an efficient manner. 
-
-The build status tool below shows that the website is working efficiently. 
-
-[![Build Status](https://travis-ci.org/aidan-stritch/magical-deals.svg?branch=master)](https://travis-ci.org/aidan-stritch/magical-deals)
-
 #### Django / Coverage
 Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. The results for each of the sites apps can be found here: https://github.com/aidan-stritch/magical-deals/blob/master/testing_results.md 
 
