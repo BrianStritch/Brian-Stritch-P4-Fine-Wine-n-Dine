@@ -15,3 +15,8 @@ setTimeout(function () {
     let alert = new bootstrap.Alert(messages);
     alert.close();
 }, 2500);
+
+function navToggler() {
+    var element = document.getElementById("navbarSupportedContent-main");
+    element.classList.toggle("collapse");
+  }
