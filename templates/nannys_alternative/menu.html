@@ -61,61 +61,60 @@
                                 <span class="ms-auto"> €14.00</span>
                             </li>
                         </ul>
+                        <h4> KIDS MENU: </h4>
+                        <hr>
                         <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                            <h4> KIDS MENU: </h4>
-                            <hr>
-                            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Bangers & Mash <br>
-                                    <span class="ms-auto"> €7.00</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Chicken Goujons & Skinny Chips <br>
-                                    <span class="ms-auto"> €7.00</span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-                                <h4> DESERT MENU: </h4>
-                                <hr>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Selection of Ice Cream in a Gourmet Waffle Cone <br>
-                                    <span class="ms-auto"> €4.00</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Profite Rolls in Chocolate Sauce with Cream <br>
-                                    <span class="ms-auto"> €4.00</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Eaten Mess, With Mixed Berry Compote <br>
-                                    <span class="ms-auto"> €4.00</span>
-                                </li>
-                                <li class="list-unstyled-item list-hours-item d-flex">
-                                    Kids Jelly and Ice Cream <br>
-                                    <span class="ms-auto"> €4.00</span>
-                                </li>
-                            </ul>
-                            <p class="address mb-5">
-                                <em>
-                                    <strong>Nanny's Of Duleek</strong>
-                                    <strong>Knockisland,<br>
-                                        Newtown Commons, </strong>
-                                    <br />
-                                    Duleek, Co. Meath
-                                </em>
-                            </p>
-                            <p class="mb-0">
-                                <small><em>Contact number</em></small>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Bangers & Mash <br>
+                                <span class="ms-auto"> €7.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Chicken Goujons & Skinny Chips <br>
+                                <span class="ms-auto"> €7.00</span>
+                            </li>
+                        </ul>
+                        <h4> DESERT MENU: </h4>
+                        <hr>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto">                            
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Selection of Ice Cream in a Gourmet Waffle Cone <br>
+                                <span class="ms-auto"> €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Profite Rolls in Chocolate Sauce with Cream <br>
+                                <span class="ms-auto"> €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Eaten Mess, With Mixed Berry Compote <br>
+                                <span class="ms-auto"> €4.00</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                Kids Jelly and Ice Cream <br>
+                                <span class="ms-auto"> €4.00</span>
+                            </li>
+                        </ul>
+                        <p class="address mb-5">
+                            <em>
+                                <strong>Nanny's Of Duleek</strong>
+                                <strong>Knockisland,<br>
+                                    Newtown Commons, </strong>
                                 <br />
-                                (046) 981-12345
-                            </p>
-                            <p class="mb-0">
-                                <small>
-                                    <em>Online Booking Service available</em>
-                                    {% if user.is_authenticated %}
-                                    <a href="{% url 'bookings' %}">Click Here</a>
-                                    {% endif %}
-                                </small>
-                            </p>
+                                Duleek, Co. Meath
+                            </em>
+                        </p>
+                        <p class="mb-0">
+                            <small><em>Contact number</em></small>
+                            <br />
+                            (046) 981-12345
+                        </p>
+                        <p class="mb-0">
+                            <small>
+                                <em>Online Booking Service available</em>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'bookings' %}">Click Here</a>
+                                {% endif %}
+                            </small>
+                        </p>
                     </div>
                 </div>
             </div>
