@@ -47,12 +47,9 @@
                         </div>
                         <div>
                             <div>
-                                <a href="{% url 'edit_booking' booking.pk %}">
-                                    <button class="btn btn-primary btn-xl">EDIT BOOKING</button>
-                                </a>
-                                <a href="{% url 'delete_booking' booking.pk %}">
-                                    <button class="btn btn-primary btn-xl red">DELETE BOOKING</button>
-                                </a>                            
+                                <button class="btn btn-primary btn-xl"><a href="{% url 'edit_booking' booking.pk %}">EDIT BOOKING</a></button>
+                                <button class="btn btn-primary btn-xl red"><a href="{% url 'delete_booking' booking.pk %}">DELETE BOOKING</a></button>
+                                                          
                             </div>                    
                                                        
                         </div>
