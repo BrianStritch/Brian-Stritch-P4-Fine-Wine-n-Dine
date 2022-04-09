@@ -228,23 +228,49 @@ During this process, several issues were discovered which have been since fixed 
 - 
 
 There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
+<hr>
 
 ### Validation
+
+<hr>
+
 #### CSS
-The custom.css file code was validated using the The W3C CSS Validation Service and the image below verifies that the code was successfully validated with no errors. 
+The custom.css file code was validated using the The W3C CSS Validation Service and the image below verifies that the code was successfully validated with no errors. Numerous warnings were noted which relate to the bootstrap CSS files inherited with the template, however none of the custom css written for this web application failed or had any warnings present.
+
+![W3C CSS Validation](static/w3c_validation/W3C-CSS-validation.JPG "W3C CSS validation")
+
 <p>
-    <img style="border:0;width:88px;height:31px"
-        src="http://jigsaw.w3.org/css-validator/images/vcss"
-        alt="Valid CSS!" />
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
 </p>
+     
+
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+    </a>
+</p>
+       
+<hr>
 
 #### HTML
-All HTML pages have been checked using the W3C Markup Validation Service and have reported no errors. As this tool does not recognise several Django symbols (such as {% %}), the validation service does not report as 100% no issues and no image is available as in above CSS validation section. 
 
-In order to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code. All issues found, such as alt being missing from some img links have been corrected. 
+All HTML pages have been checked using the W3C Markup Validation Service. Some Errors were found in the Edit_profile.html page which relate to the fields automaticaly rendered using crispy forms.
+
+Some of the page urls were raising a 500 error when the validator attempted to test the page, howeve to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code, however these issues only related to the crispy forms mentioned above.
+
+Please see the w3c-validation.md file for the full breakdown of the HTML W3C validation testing done for this site. You can use this link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/w3c-validation.md
+
 
 #### JavaScript
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
+
+![index.html](static/wireframe_images/home-page-logged-out.JPG "index.html Logged Out page desktop, tablet  and mobile views")
 
 
 ### Automated
