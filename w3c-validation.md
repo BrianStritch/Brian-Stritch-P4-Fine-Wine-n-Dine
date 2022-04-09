@@ -5,13 +5,16 @@
 ![index.html](static/w3c_validation/Home-logged-in-validation.JPG "index.html W3C validation")
 
 ### User Profile Page
-![profile.html](static/w3c_validation/# "profile.html W3C validation")
+![profile.html](static/w3c_validation/user-profile-page-validation.JPG "profile.html W3C validation")
 
 ### Edit Profile Page
-![edit_profile.html](static/wireframe_images/edit-user-profile-page-validation.JPG "edit_profile.html W3C validation")
+![edit_profile.html](static/w3c_validation/edit-profile-page-validation.JPG "edit_profile.html W3C validation")
+
+### Edit Profile Page Validation Errors
+![edit_profile.html](static/w3c_validation/edit-profile-page-errors.JPG "edit_profile.html W3C validation")
 
 ### Delete User Page
-![delete_profile.html](static/wireframe_images/delete-user-account-page-validation.JPG "delete_profile W3C validation")
+![delete_profile.html](static/w3c_validation/delete-profile-page-validation.JPG "delete_profile W3C validation")
 
 ### Menu Page
 ![menu.html](static/w3c_validation/menu-page-validation.JPG "menu.html W3C validation")
@@ -27,7 +30,7 @@
 ![bookings.html](static/w3c_validation/bookings-page-validation.JPG "bookings.html W3C validation")
 
 ### Create Booking Page
-![create_a_booking.html](static/w3c_validation/# "create_a_booking.html W3C validation")
+![create_a_booking.html](static/w3c_validation/create-a-booking-page-validation.JPG"create_a_booking.html W3C validation")
 
 ### Booking Details Page
 ![bookings_detail.html](static/w3c_validation/bookings-detail-page-validation.JPG "bookings_detail.html W3C validation")
@@ -55,7 +58,7 @@
 ![reviews.html](static/w3c_validation/reviews-page-validation.JPG "reviews.html W3C validation")
 
 ### Create Review
-![create_review.html](static/w3c_validation/# "create_review.html W3C validation")
+![create_review.html](static/w3c_validation/create-review-page-validation.JPG "create_review.html W3C validation")
 
 ### Review Details and Create and read Comments
 ![reviews_detail.html](static/w3c_validation/reviews-detail-page-validation.JPG"reviews_detail.html W3C validation")
@@ -67,8 +70,8 @@
 ![delete_review.html](static/w3c_validation/delete-review-page-validation.JPG "delete_review.html W3C validation")
 
 ### Edit Comment
-![edit_comment.html](static/w3c_validation/# "edit_comment.html W3C validation")
+![edit_comment.html](static/w3c_validation/edit-comment-page-validation.JPG "edit_comment.html W3C validation")
 
 ### Delete Comment
-![delete_comment.html](static/w3c_validation/# "delete_comment.html W3C validation")
+![delete_comment.html](static/w3c_validation/delete-comments-page-validation.JPG "delete_comment.html W3C validation")
 
