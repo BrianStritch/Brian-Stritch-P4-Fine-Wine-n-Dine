@@ -9,7 +9,7 @@
         <div class="cta-inner bg-faded text-center rounded">
             
             <hr>
-            <h1>Delete Booking: <br>
+            <h2>Delete Booking: <br>
               Booking Date: {{ booking.booking_date}}<br>
               Meal time :
               {% if booking.Meal_time == 0 %}
@@ -33,7 +33,7 @@
               {% elif booking.Meal_time == 9 %}
               <span>18:00</span>
               {% endif %}
-            </h1>
+            </h2>
             <br>
             <hr>
             <form  method="POST" style="margin-top: 1.3em;">                 
