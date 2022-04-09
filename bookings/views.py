@@ -207,7 +207,12 @@ class EditBookings(View):
                     })
         else:
             form = BookingForm()
-            return HttpResponseRedirect(reverse('bookings'))
+            return render(
+                request,
+                self.template_name,
+                {
+                    'form': form,
+                })
 
 
 class BookingDetails(View):

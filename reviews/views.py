@@ -58,6 +58,7 @@ class CreateReview(TemplateView):
             review.save()
         else:
             form = CreateReviewForm()
+            return render(request, self.template_name, {'form': form})
 
         return HttpResponseRedirect(reverse('reviews'))
 

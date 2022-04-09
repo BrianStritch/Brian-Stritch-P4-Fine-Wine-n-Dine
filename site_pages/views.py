@@ -85,6 +85,13 @@ class SignUp(TemplateView):
                 form.save()
                 return HttpResponseRedirect(reverse('home'))
 
+            else:
+                form = UserAccountDetailsForm()
+                details = {
+                    'form': form,
+                }
+                return render(request, self.template_name, details)
+
         else:
             form = UserAccountDetailsForm()
             details = {
@@ -134,6 +141,13 @@ class EditProfile(TemplateView):
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(reverse('profile'))
+
+            else:
+                form = EditProfileForm(instance=request.user)
+                details = {
+                    'form': form,
+                }
+                return render(request, self.template_name, details)
 
         else:
             form = EditProfileForm(instance=request.user)
