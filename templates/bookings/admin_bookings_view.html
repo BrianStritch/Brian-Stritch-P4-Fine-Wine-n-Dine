@@ -16,7 +16,6 @@
 				<li class="nav-item px-lg-4">
 					<a class="nav-link text-uppercase" href="{% url 'completed' %}">Completed Bookings</a>
 				</li>
-				
 			</ul>
 		</div>
 	</div>
@@ -41,8 +40,6 @@
             {% for booking in bookings %}
             <tbody class="table-hover">
               <tr>
-                <a href="{% url 'booking_details' booking.slug %}">
-                
                   <th scope="row">{{ booking.id }}</th>
                   <td>{{ booking.primary_guest }}</td>
                   <td>{{ booking.booking_date}}</td>
@@ -69,28 +66,15 @@
                       <span>18:00</span>
                       {% endif %}                
                   </td>
-                </a>  
               </tr>
-              
-              
               {% endfor %}
             </tbody>
           </table>
-            
-            
             
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
 
     {% endblock %}
