@@ -187,7 +187,7 @@ class EditBookings(View):
 
                 else:
                     message = 'Unfortunately we are fully booked for your\
-                         chosen mealtime, please choose another mealtime.'
+                         chosen mealtime, please choose another mealtime'
                     return render(
                         request,
                         self.template_name,
@@ -197,7 +197,7 @@ class EditBookings(View):
                         })
             else:
                 message = 'You currently have a booking at this time, \
-                    please choose another timeslot.'
+                    please choose another timeslot'
                 return render(
                     request,
                     self.template_name,
