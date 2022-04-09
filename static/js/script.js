@@ -17,6 +17,12 @@ setTimeout(function () {
 }, 2500);
 
 function navToggler() {
-    var element = document.getElementById("navbarSupportedContent-main");
-    element.classList.toggle("collapse");
+    var toggleMain = document.getElementById("navbarSupportedContent-main");
+    toggleMain.classList.toggle("collapse");
+    var toggleBooking = document.getElementById("navbarSupportedContent-booking");
+    toggleBooking.classList.toggle("collapse");
+    var toggleReviews = document.getElementById("navbarSupportedContent-reviews");
+    toggleReviews.classList.toggle("collapse");
+    var toggleAdmin = document.getElementById("navbarSupportedContent-admin");
+    toggleAdmin.classList.toggle("collapse");
   }
