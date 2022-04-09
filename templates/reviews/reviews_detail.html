@@ -30,9 +30,9 @@
                 </div>
                 <div class="d-md-block col-md-6 masthead-image reviews-detail">
                     {% if "placeholder" in review.featured_image.url %}
-                    <img src="{% static 'images/food-critic.jpg' %}" width="100%">
+                    <img src="{% static 'images/food-critic.jpg' %}" width="100%" alt="No image supplied and placeholder image used of cartoon food critic">
                     {% else %}
-                    <img src="{{ review.featured_image.url }}" width="100%">
+                    <img src="{{ review.featured_image.url }}" width="100%"  alt="image related to review {{ review.title }}">
                     {% endif %}
                 </div>
             </div>
