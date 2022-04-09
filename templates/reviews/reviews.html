@@ -32,7 +32,7 @@
                                         src="/static/images/food-critic.jpg">
                                     
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ review.featured_image.url }}">
+                                    <img class="card-img-top" src=" {{ review.featured_image.url }}" alt="image related to review {{ review.title }}">
                                     {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ review.author }}</p>
