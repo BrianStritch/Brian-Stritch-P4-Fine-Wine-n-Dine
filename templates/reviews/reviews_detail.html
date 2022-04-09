@@ -32,7 +32,7 @@
                     {% if "placeholder" in review.featured_image.url %}
                     <img src="{% static 'images/food-critic.jpg' %}" alt="No image supplied and placeholder image used of cartoon food critic">
                     {% else %}
-                    <img src="{{ review.featured_image.url }}" width="100%"  alt="image related to review {{ review.title }}">
+                    <img src="{{ review.featured_image.url }}" alt="image related to review {{ review.title }}">
                     {% endif %}
                 </div>
             </div>
