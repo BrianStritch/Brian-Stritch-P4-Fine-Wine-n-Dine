@@ -353,22 +353,18 @@ All HTML pages have been tested for accessibility and performance using Chrome D
 
 ### Automated
 #### Django / Coverage
-Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. On testing the applicatin with coverage it was noted that an overall score of 86% was obtained. After adding Docstrings to the files this figure was reduced significantly to 50%. The results for each of the coverge tests can be seen below.
+Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. On testing the applicatin with coverage it was noted that an overall score of 85% was obtained.
 
 1. In the terminal, use: "coverage report"
     - generates a detailed report showing what has/what needs testing
 
 2. In order to product a html report which allows you to inspect in each file, to see in easy to use colour codes the lines of code which have been tested or which have not yet been tested, please use the following command: "coverage html"
 
-##### __Coverage report prior to adding docstrings__
-![JSHint report](static/readme_images/coverage-report-results/coverage-report-prior-to-docstrings.JPG "JSHint report")
-##### __Coverage report after adding docstrings__
-![JSHint report](static/readme_images/coverage-report-results/coverage-report-after-adding-docstrings.JPG "JSHint report")
+##### __Coverage report page 1__
+![coverage report page 1](static/readme_images/coverage-report-results/Coverage-report-page-1.JPG "coverage report page 1")
+##### __Coverage report page 2__
+![coverage report page 2](static/readme_images/coverage-report-results/Coverage-report-page-2.JPG "coverage report page 2")
 
-
-The overall coverage rate for the entire sites apps is currently at 50%. At a later date, more testing will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
-
-It was also noted at the time of compiling this readme that after running the coverage report and obtaining a 50% Total result, after switching the database for running unittest tests, the coverage report now has a result of 10%, however the report is now testing the migration files which it was not previously. I was getting a 50% total when running the tests prior to this and i think there may be an error in the testing of the application, however i would not posess the technical knowledge or ability to confirm this. 
 
 ##### Unittest
 In order to run tests on GitPod using unittest (which has been installed to handle testing), please follow the below steps in the terminal on GitPod:
