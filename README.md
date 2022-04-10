@@ -8,7 +8,8 @@ Users can also create, read, comment and like reviews from past guests or leave 
 
 The benefit of this application will allow users to create and manage bookings online and their bookings will be catered for on their chosen date and time. Users can create accounts and update edit and delete their accounts should they feel the need to do so.
 
-### Deployed at: https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/
+
+[Deployed site](https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/)
 
 ## Table of Contents
 1. [**UX**](#ux)
