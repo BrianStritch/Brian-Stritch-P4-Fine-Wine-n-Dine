@@ -11452,6 +11452,9 @@ p {
 
 .footer {
   background-color: rgba(47, 23, 15, 0.9);
+  width: -webkit-fill-available;
+  position: fixed;
+  bottom: 0;
 }
 
 .intro {
@@ -11782,14 +11785,19 @@ img{
     flex: 1 1 auto;
     padding: 1rem 1rem;
     background-color: #e6a756ab;
-    width: 96vw;
+    width: 94vw;
   }
   .reviews-detail>img{    
       height: 50vh;
-      width: 88vw;  
+      width: 88vw;
+      margin: 0 -14vw; 
   }
+  
+}
+
+@media(max-width:600px){
   .card-width-sml{
-    width: 96vw;
+    width: 94vw;
   }
 }
 

@@ -26,7 +26,7 @@
 
 				{% if booking.primary_guest.id == request.user.id %}
 				<div class="col-md-4">										
-					<div class="card mb-4 ml-6">
+					<div class="card mb-4 ml-6 card-width-sml">
 						<div class=" card-body ">
 							<a href="{% url 'booking_details' booking.slug %}" class="review-link">
 								<h3>Booking date : {{ booking.booking_date| date:"d M, Y"}}									
