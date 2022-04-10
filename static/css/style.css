@@ -11611,6 +11611,7 @@ p {
 .centre-cards-bookings{
   justify-content: center;
   width: fit-content;
+  margin: 0 auto;
 }
 
 #booking-cards{
