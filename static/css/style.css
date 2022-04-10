@@ -11618,6 +11618,7 @@ p {
   width: 30vw ;
 }
 
+
 .centre-text{
   text-align: center;
 }
@@ -11810,13 +11811,13 @@ img{
 
 @media(max-width:762px){
   .card-width-sml{
-    width: 94vw;
+    width: 90vw;
   }
   .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
     background-color: #e6a756ab;
-    width: 94vw;
+    width: 90vw;
   }
   .intro, .intro-text,
   .intro-text2, .intro-text3{
@@ -11826,6 +11827,8 @@ img{
   .centre-cards-bookings{
     justify-content: unset;
   }
+  
+  
 }
 
 /* ************************ google maps styles ******************************/
