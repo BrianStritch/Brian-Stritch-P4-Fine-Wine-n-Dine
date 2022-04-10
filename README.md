@@ -266,7 +266,7 @@ The custom.css file code was validated using the The W3C CSS Validation Service 
 
 All HTML pages have been checked using the W3C Markup Validation Service. Some Errors were found in the Edit_profile.html page which relate to the fields automaticaly rendered using crispy forms.
 
-Some of the page urls were raising a 500 error when the validator attempted to test the page, howeve to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code, however these issues only related to the crispy forms mentioned above.
+Some of the page urls were raising a 500 error when the validator attempted to test the page, however to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code, however these issues only related to the crispy forms mentioned above.
 
 Please see the w3c-validation.md file for the full breakdown of the HTML W3C validation testing done for this site. You can use this link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/w3c-validation.md
 
@@ -335,9 +335,17 @@ On the admin bookings page there is an additional nav bar which contains the lin
 Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
 
 ### Bugs Found
-- numerous bugs were found during the development of this application 
-- UserCreate object names are not valid for ease of use for admin users. This will need to be addressed
-- Address not saving on orders correctly. Currently using the users stored address
+- When the application was deployed on heroku a 500 internal server error was noted on some of the pages when selected and it was found that {% load static %} was not at the top of all documents as i thought it was only required in the base.html file. By placing the {% load static %} statement on the top of all the required pages this rectified this error.
+
+- During the manual testing it was found that the user did not know that by clicking the username that it would redirect to the user profile details page. This issue was rectified by renaming the link.
+
+- When the project was deployed to heroku it was found during manual testing that if the user registration form, create booking form, edit booking form, create review form, edit review form, create comment form, edit comment forms contained any invalid data that the a 500 internal server error was raised and the application would halt. After revising the vews.py files for the respected form views it was found that an if statement was checking the validity of the form data if the data was valid would then save the data to the database. There was no else statement attached and this meant that the application could not process the data and there was no alternative path. To rectify this issue i added an else statement which redirected the user to the required page where the user could resubmit the data.
+
+- It was found during manual testing that some of the page urls were raising a 500 error when the user attempted to test the page, this was rectified by including the {% load static %} tag on all required pages.
+
+- During manual testing it was found that the user did not know that by clicking the booking in the bookings view that it would redirect the user to the booking details page where the user could then edit or delete the booking.The booking card in the bookings page was displaying too much information and the user was able to view all the booking details without selecting the booking and being redirected to the booking details page. To fix this error the information displayed was significantly reduced and a message was displayed to the user to "click on a booking to view booking details".
+
+- During manual testing numerous issues with styling and layouts were noted which required modifications to the bootsrap classes to display the content as required in this application.
 
 ## Deployment
 This project was deployed to Heroku at the address https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/ using the following steps
