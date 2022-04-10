@@ -20,22 +20,13 @@ function navTogglerMain() {
     var toggleMain = document.getElementById("navbarSupportedContent-main");
     toggleMain.classList.toggle("collapse");
   }
-function navTogglerBooking() {
-    var toggleBooking = document.getElementById("navbarSupportedContent-booking");
+function navTogglerAlt() {
+    var toggleBooking = document.getElementById("navbarSupportedContent");
     toggleBooking.classList.toggle("collapse");
   }
-function navTogglerReviews() {
-    var toggleReviews = document.getElementById("navbarSupportedContent-reviews");
-    toggleReviews.classList.toggle("collapse");
-  }
-function navTogglerAdmin() {
-    var toggleAdmin = document.getElementById("navbarSupportedContent-admin");
-    toggleAdmin.classList.toggle("collapse");
-  }
+
 function navToggler() {
-    navTogglerAdmin();
-    navTogglerBooking();
     navTogglerMain();
-    navTogglerReviews();
+    navTogglerAlt();
   }
 
