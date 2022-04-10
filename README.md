@@ -1,8 +1,8 @@
 # FINE-WINE-N-DINE @ NANNY'S
 
-FINE-WINE-N-DINE is a web application based on a local Public house "Nanny's" and restaurant with a state of the art sports bar, cocktail bar and accomodation to come in the near future.
+FINE-WINE-N-DINE is a web application based on a local Public house and restaurant "Nanny's of Duleek" with a state of the art restaurant "Fine-wine-n-dine", sports bar, cocktail bar and accomodation to come in the near future.
 
-The purpose of this web application is to showcase the restaurant Fine-wine-n-dine and allow users to create bookings for the restaurant, which can hold a maximum of 60 guests in one sitting, and to allow bookings of up to 60 guests per hour during the opening hours. 
+The purpose of this web application is to showcase the Public house "Nanny's of Duleek" and restaurant "Fine-wine-n-dine" and allow users to create and manage their bookings for the restaurant, which can hold a maximum of 60 guests in one sitting, and to allow bookings of up to 60 guests per hour during the opening hours. 
 
 Users can also create, read, comment and like reviews from past guests or leave a review voicing their opinions of the restaurant and public house. 
 
@@ -76,7 +76,8 @@ There are a range of apps including Bookings, Reviews and Site pages that all wo
 
 A new user who does not have an account will only have access to the homepage (index.html), the about us page, the menu page, contact and about us page,a restricted version of the reviews page the signup page, and the login page. They will be unable to make bookings, leave reviews or comments on the existing reviews.  
 
-Once logged in, the members will have access to the sites remaining functionality for creating reviews, commenting and liking reviews, creating bookings, viewing existing bookings, editing and deleting reviews,comments and editing content on their personal profile.
+Once logged in, the members will have access to the sites remaining functionality for creating reviews, commenting and liking reviews, creating bookings, viewing existing bookings, editing and deleting reviews,comments and editing content on their personal profile. The bookings displayed to each user are relative to the users username and the application only displays bookings created by that user.
+ 
 ###### User home page view
 ![User Profile](static/readme_images/users-account-info.JPG "Example of the users profile")
 
