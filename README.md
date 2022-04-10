@@ -1,15 +1,26 @@
 # FINE-WINE-N-DINE @ NANNY'S
+## Created and developed by Brian Stritch
+<hr>
 
-FINE-WINE-N-DINE is a web application based on a local Public house and restaurant "Nanny's of Duleek" with a state of the art restaurant "Fine-wine-n-dine", sports bar, cocktail bar and accomodation to come in the near future.
+FINE-WINE-N-DINE is a web application based on aPublic house and restaurant "Nanny's of Duleek"  located in Duleek, County Meath, Ireland, with a state of the art restaurant "Fine-wine-n-dine", sports bar, cocktail and wine bar and accomodation to come in the very near future.
 
 The purpose of this web application is to showcase the Public house "Nanny's of Duleek" and restaurant "Fine-wine-n-dine" and allow users to create and manage their bookings for the restaurant, which can hold a maximum of 60 guests in one sitting, and to allow bookings of up to 60 guests per hour during the opening hours. 
+
+Users can create a personal profile and can manage their credentials in the user profile page and when signed up can avail of the booking and reviews and comments areas of the website.
 
 Users can also create, read, comment and like reviews from past guests or leave a review voicing their opinions of the restaurant and public house. 
 
 The benefit of this application will allow users to create and manage bookings online and their bookings will be catered for on their chosen date and time. Users can create accounts and update edit and delete their accounts should they feel the need to do so.
 
+<hr>
 
-[Deployed site](https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/)
+An image of the responsive design could not be obtained from Amiresponsive.com as this site has X-Frame Options set to Same Origin and therefore the AmIResponsive platform could not execute the task. Please see [**Responsiveness**](#responsiveness) section below.
+
+<hr>
+
+# View the live site [**here**](https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/).
+
+<hr>
 
 ## Table of Contents
 1. [**UX**](#ux)
@@ -25,7 +36,14 @@ The benefit of this application will allow users to create and manage bookings o
         2. [**Staff Users**](#staff-users)
     2. [**Future Features**](#future-features)
 3. [**Technologies Used**](#technologies-used)
-4. [**Testing**](#testing)
+4. [**Database**](#database)
+    1. [**Physical database diagram**](#physical-database-diagram)
+    2. [**Database models**](#models)
+        1. [**User Model**](#user-model)
+        2. [**Booking Model**](#booking-model)
+        3. [**Review Model**](#review-model)
+        4. [**Comment Model**](#comment-model)
+5. [**Testing**](#testing)
     1. [**User Credentials**](#user-credentials)
         1. [**Test User**](#test-user)
         2. [**Test User Staff**](#test-user-staff)
@@ -33,18 +51,26 @@ The benefit of this application will allow users to create and manage bookings o
     3. [**Validation**](#validation)
         1. [**CSS**](#CSS)
         2. [**HTML**](#HTML)
-        3. [**JavaScript**](#javaScript)
-        4. [**Accessibility**](#accessibility)
+        3. [**JavaScript**](#javaScript) 
+        4. [**Python**](#python)
+        5. [**Accessibility**](#accessibility)
     4. [**Automated**](#automated)
         1. [**Django / Coverage**](#django-/-coverage)
             1. [**Test Steps**](#test-steps)
     5. [**Responsiveness**](#responsiveness)
+        1. [**Desktop Size**](#desktop-size)
+        2. [**Tablet Size Screen Navigation Menu**](#tablet-size-screen-navigation-menu)
+        3. [**Mobile Size Home Page**](#mobile-size-home-page)
+        4. [**Mobile Size Home Page Navigation**](#mobile-size-home-page-navigation)
+        5. [**Tablet Size Bookings Page Navigation Menu**](#tablet-size-bookings-page-navigation-menu)
+        6. [**Tablet Size Reviews Page Navigation Menu**](#tablet-size-reviews-page-navigation-menu)
+        7. [**Tablet Size Admin Page Navigation Menu**](#tablet-size-admin-page-navigation-menu)        
     6. [**Bugs Found**](#bugs-found)
-5. [**Deployment**](#deployment)
+6. [**Deployment**](#deployment)
     1. [**GitHub**](#GitHub)
         1. [**To commit the code on GitPod to GitHub**](#to-commit-the-code-on-GitPod-to-GitHub)
     2. [**Heroku**](#heroku)
-6. [**Credits**](#credits)
+7. [**Credits**](#credits)
     1. [**Content**](#content)
     2. [**Media**](#media)
     3. [**Acknowledgements**](#acknowledgements)
@@ -68,6 +94,8 @@ This project was designed to allow users to, through CRUD functionality, manage 
 - Allows users to delete their comment through the edit comment link attached to the edit reviews page
 
 This website is designed for the regular everyday individuals and is appropriate to all age groups as the restaurant caters for all age groups and with the additional sports bar attached which would be particularly aimed at sports fans as the venue has 12 large screens based in seperate areas in the establishment and offers a diverse selection of sporting events daily. The website allows guests to create reviews and tells others of their experiences. 
+
+The Color scheme throughout the website is based on the dark green and light tan brown colors found in the "Nanny's" logos and the wooden or timber colors are based on the country rustic appearance and themed interior of the establishment. THe mahogany color is symbolic of the woodwork in the bar and lounge areas and the lighter brown colors are symbolic to the beer garden located outside the rear of the establishment.
 
 At nanny's, there are four types of vintage wines on draught along with all the regular slection of beers, however, nanny's has been fitted with a cocktail bar for the guests who like an exotic beverage which makes for some fantastic images for reviews.
 
@@ -143,15 +171,11 @@ Once logged in, staff members have access to the same functionality as members f
 ### Wireframes
 As there are many pages to this project, I have included the wireframes in a separate document.
 
-Please see the wireframes.md file for the entire collection of wireframes: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/wireframes.md
+Please [**click here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/wireframes.md) to see the wireframes.md file for the entire collection of wireframes.
+ 
 
 ### Site Map
-![Site Map](static/readme_images/wireframe_images/site-map-diagram.JPG "Site Map Diagram showing Layout of Web application")
-
-### Entity Relationship Diagram (ERD)
-![Entity Relationship Diagram](static/readme_images/wireframe_images/ERD-entity-relationship-diagram.JPG "Entity Relationship Diagram showing relationships on Database")
-### Entity Relationship Diagram (ERD) Map
-![Entity Relationship Diagram Map](static/readme_images/wireframe_images/ERD-entity-relationship-diagram-map.JPG "Entity Relationship Diagram map showing relationships on Database")
+![Site Map](static/readme_images/wireframe_images/site-map-diagram.JPG "Site Map Diagram showing Layout of the Web application")
 
 ## Features
 ### Existing Features
@@ -203,6 +227,38 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 - Cloudinary - Cloudinary storage was set up and used for storing website images
 - Postgres - This Relational Datatabase was used to handle the data storage
 
+### Database
+- The website is a data-centric one with html, javascript, css used with the bootstrap(version 5) framework as a frontend
+- The backend consists of Python built with the Django framework with a database of a Postgres for the deployed Heroku version(production)
+- Postgres is a powerful, open source object-relational database system (https://www.postgresql.org/)
+- A SQLLite database was used for local development (https://www.sqlite.org/index.html)
+
+#### Physical database diagram
+This model contains all fields stored in the database collections with their data type and mimics the structure of what is actually stored in the Postgres database
+<br>![Database diagram](static/readme_images/database/database-diagram.png)
+
+
+#### Models
+- The following models were created to represent the database model structure for the website
+##### User Model
+- The User model contains information about the user. It is part of the Django allauth library
+- The model contains the following fields: username, password, first_name, last_name, email, is_staff, is_active, is_superuser, last_login, date_joined
+
+##### Booking Model
+- The Booking model contains information about reservations made in the restaurant.
+- It contains the User model as a foreign-key.
+- The model contains the following fields: booking_Id, primary_guest, Slug, availability, booking_status, dietary_notes, additional_comments, no_of_guests, no_of_tables.
+
+##### Review Model
+- The Review model contains a review of the establisment by a user/guest
+- It contains the User model as a foreign key.
+- The model contains the following fields: reviewId, authorID, title, slug, content, excerpt, status, featured_image, updated_on, created_on.
+
+##### Comment Model
+- The Comment model contains a comment on a review
+- It contains the User Model as a foreign-key and Review model as a foreign-key.
+- The model contains the following fields: commentID, reviewID, name, email, body, created_on, approved.
+
 ## Testing
 ### User Credentials
 There are two main uses on this site; a site member and a site staff member. Please use the logins below to access and review both user types:
@@ -218,7 +274,7 @@ There are two main uses on this site; a site member and a site staff member. Ple
 ### Manual
 As there are many pages for the fine-wine-n-dine website which had to be manually tested to ensure functionality and UX were correct, they have been included in a separate file to avoid taking up too much space on the README.md documentation.
 
-Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can use this link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/manual-testing.md
+Please see the manual_testing.md file for the full breakdown of the manual testing done for this site. You can click [**here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/manual-testing.md)  to reach the file.
 
 During this process, several issues were discovered which have been since fixed on the site. Some examples of these include;
 
@@ -279,7 +335,7 @@ All HTML pages have been checked using the W3C Markup Validation Service. Some E
 
 Some of the page urls were raising a 500 error when the validator attempted to test the page, however to avoid this, the page source code was used for testing, however the tool pointed to several small issues on some pages that were of no consequence, such as opening p tags not being found for a closing /p tag, when they were present in the code, however these issues only related to the crispy forms mentioned above.
 
-Please see the w3c-validation.md file for the full breakdown of the HTML W3C validation testing done for this site. You can use this link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/w3c-validation.md
+Please see the w3c-validation.md file for the full breakdown of the HTML W3C validation testing done for this site. You can click[**here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/w3c-validation.md) to reach the file. 
 
 
 #### JavaScript
@@ -287,8 +343,11 @@ JS Hint was used to ensure that the JavaScript used in the website had no errors
 
 ![JSHint report](static/readme_images/JSHint/JSHint-report.JPG "JSHint report")
 
+### Python
+All python code pages have been tested to ensure it meets PEP8 standards and the results of which can be found by clicking [**here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/pep8-testing.md) to reach the file. 
+
 ### Accessibility
-All HTML pages have been tested for accessibility and performance using Chrome Devtools Lighthouse testing platform and the results of which can be found by clicking the following link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/accessibility-tests.md
+All HTML pages have been tested for accessibility and performance using Chrome Devtools Lighthouse testing platform and the results of which can be found by clicking [**here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/accessibility-tests.md) to reach the file. 
 
 ### Automated
 #### Django / Coverage
@@ -320,19 +379,25 @@ In order to run tests on GitPod using unittest (which has been installed to hand
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
 
-##### Full Size Menu
+##### Desktop Size
 ![Full Size Menu](static/readme_images/responsive-testing/full-screen-navigation-menus.JPG "An example of how the menu looks on a desktop screen")
 
-##### Small Screen Menu
+##### Tablet Size Screen Navigation Menu
 ![Small Screen Menu](static//readme_images/responsive-testing/moile-and-tablet-sized-screen-navigation-menus.JPG "An example of how the menu looks on a small/mobile screen")
 
-##### Small Screen Menu Additional nav for Bookings
+##### Mobile Size Home Page
+![Mobile Screen home page](static//readme_images/responsive-testing/mobile-sized-screen-home.JPG "An example of how the home page looks on a mobile screen")
+
+##### Mobile Size Home Page Navigation 
+![Mobile Screen Menu](static//readme_images/responsive-testing/mobile-sized-screen-navigation-menus-.JPG "An example of how the menu looks on a mobile screen")
+
+##### Tablet Size Bookings Page Navigation Menu 
 ![Small Screen Menu Additional nav for Bookings](static/readme_images/responsive-testing/bookings-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for bookings")
 
-##### Small Screen Menu Additional nav for Reviews
+##### Tablet Size Reviews Page Navigation Menu 
 ![Small Screen Menu Additional nav for Reviews](static/readme_images/responsive-testing/reviews-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for reviews")
 
-##### Small Screen Menu Additional nav for Admin
+##### Tablet Size Admin Page Navigation Menu 
 ![Small Screen Menu Additional nav for Admin](static/readme_images/responsive-testing/administration-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for admin")
 
 In order to ensure that the navigation bar was as responsive as possible, on Desktop the menu shows accross the top of the page while on mobile screens, the menu reduced to a burger icon wide visible button. When the burger icon is clicked, the menu appears as a dropdown with the links to other pages from the nav bar. 
@@ -367,7 +432,7 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 ![Samsung mobile browser](static/readme_images/samsung-internet-browser.jpg "Samsung mobile browser")
 
 ## Deployment
-This project was deployed to Heroku at the address https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/ using the following steps
+This project was deployed to Heroku at the address **https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/** using the following steps
 
 ### GitHub:
 - Create a new project on GitHub

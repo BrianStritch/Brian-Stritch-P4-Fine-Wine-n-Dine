@@ -1,6 +1,11 @@
 # Python Testing With Pep-8
 
+<hr>
+
 ## Site_pages App
+
+<hr>
+
 ### site_pages/apps.py
 ![site_pages/apps.py](static/readme_images/pep-8-testing/site_pages-app/site_pages-apps.py-pep8.JPG "apps.py pep8 validation")
 
@@ -13,9 +18,12 @@
 ### site_pages/views.py
 ![site_pages/views.py](static/readme_images/pep-8-testing/site_pages-app/site_pages-views.py-pep8.JPG "views.py pep8 validation")
 
-
+<hr>
 
 ## Bookings App
+
+<hr>
+
 ### bookings/apps.py
 ![bookings/apps.py](static/readme_images/pep-8-testing/bookings-app/bookings-apps.py-pep8.JPG "apps.py pep8 validation")
 
@@ -37,9 +45,12 @@
 ### bookings/widgets.py
 ![bookings/widgets.py](static/readme_images/pep-8-testing/bookings-app/bookings-widgets.py-pep8.JPG "widgets.py pep8 validation")
 
-
+<hr>
 
 ## Reviews App 
+
+<hr>
+
 ### Reviewsapps.py
 ![Reviews/apps.py](static/readme_images/pep-8-testing/reviews-app/reviews-apps.py-pep8.JPG "apps.py pep8 validation")
 
