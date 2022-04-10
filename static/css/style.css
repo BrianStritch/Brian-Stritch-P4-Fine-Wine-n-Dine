@@ -11803,6 +11803,10 @@ img{
     background-color: #e6a756ab;
     width: 94vw;
   }
+  .intro, .intro-text,
+  .intro-text2, .intro-text3{
+    margin-bottom: 5rem;
+  }
 }
 
 /* ************************ google maps styles ******************************/
