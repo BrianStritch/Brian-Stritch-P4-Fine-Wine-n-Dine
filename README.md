@@ -148,6 +148,8 @@ Please see the wireframes.md file for the entire collection of wireframes: https
 
 ### Entity Relationship Diagram (ERD)
 ![Entity Relationship Diagram](static/readme_images/wireframe_images/ERD-entity-relationship-diagram.JPG "Entity Relationship Diagram showing relationships on Database")
+### Entity Relationship Diagram (ERD) Map
+![Entity Relationship Diagram Map](static/readme_images/wireframe_images/ERD-entity-relationship-diagram-map.JPG "Entity Relationship Diagram map showing relationships on Database")
 
 ## Features
 ### Existing Features
