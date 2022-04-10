@@ -11868,3 +11868,7 @@ iframe{
 .white{
   color: white;
 }
+
+.booking-card{
+  width: 52%;
+}
