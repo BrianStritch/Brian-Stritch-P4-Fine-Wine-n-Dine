@@ -274,24 +274,33 @@ Please see the w3c-validation.md file for the full breakdown of the HTML W3C val
 #### JavaScript
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
 
-![index.html](static/wireframe_images/home-page-logged-out.JPG "index.html Logged Out page desktop, tablet  and mobile views")
+![JSHint report](static/JSHint/JSHint-report.JPG "JSHint report")
 
 
 ### Automated
 #### Django / Coverage
-Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. The results for each of the sites apps can be found here: https://github.com/aidan-stritch/magical-deals/blob/master/testing_results.md 
+Django tests were written and Coverage was used to product detailed reports to ensure the sites apps were tested as much as possible. On testing the applicatin with coverage it was noted that an overall score of 86% was obtained. After adding Docstrings to the files this figure was reduced significantly to 50%. The results for each of the coverge tests can be seen below.
 
-The overall coverage rate for the entire sites apps is currently at 86% from a total of 50 tests. At a later date, more testing for the views.py files in particular will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
-
-##### Test Steps
-In order to run tests on GitPod using coverage (which has been installed to handle testing), please follow the below steps in the terminal on GitPod:
-1. Run the following code (changing "APPNAME" to the name of the app you want to test): "coverage run --source=APPNAME manage.py test"
-    - This will run a test on all test.py files in the app and product a detailed list of any errors or failures or return "OK" if all tests are passing
-
-2. In the terminal, use: "coverage report"
+1. In the terminal, use: "coverage report"
     - generates a detailed report showing what has/what needs testing
 
-3. In order to product a html report which allows you to inspect in each file, to see in easy to use colour codes the lines of code which have been tested or which have not yet been tested, please use the following command: "coverage html"
+2. In order to product a html report which allows you to inspect in each file, to see in easy to use colour codes the lines of code which have been tested or which have not yet been tested, please use the following command: "coverage html"
+
+##### __Coverage report prior to adding docstrings__
+![JSHint report](static/coverage-report-results/coverage-report-prior-to-docstrings.JPG "JSHint report")
+##### __Coverage report after adding docstrings__
+![JSHint report](static/coverage-report-results/coverage-report-after-adding-docstrings.JPG "JSHint report")
+
+
+The overall coverage rate for the entire sites apps is currently at 50%. At a later date, more testing will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
+
+##### Unittest
+In order to run tests on GitPod using unittest (which has been installed to handle testing), please follow the below steps in the terminal on GitPod:
+
+1. In fine-wine-n-dine settings.py the database needs to be switched to the local database as the tests will not run when on the heroku postgres database. The loal database is kept in commented out form to allow switching of the database for testing purposes.
+
+2. Run the following code : "pyhton3 manage.py test"
+    - This will run a test on all test.py files in the app and will display in the terminal if all tests are passing, and if not will show the error causing the test to fail.
 
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.

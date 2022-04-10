@@ -16,7 +16,10 @@
 
 
 <div class="container-fluid ">
-	<div class="row justify-content-center">
+	<div class="justify-content-center">
+		<h2>Select booking to view booking information</h2>
+	</div>	
+	<div class="row ">
 		<div class="col-12 mt-3 left">
 			<div class="col-xl-9 row centre-cards">
 				{% for booking in bookings %}
@@ -53,24 +56,6 @@
 									{% endif %}
 								</p>
 							</a>
-							<hr />
-							<p class="card-title">
-								booking status :
-								{% if booking.booking_status == 0 %}
-								<span>Pending</span>
-								{% elif booking.booking_status == 1 %}
-								<span>Approved</span>
-								{% else %}
-								<span>Completed</span>
-								{% endif %}
-							</p>
-							<p>Booking created by: {{ booking.primary_guest }}</p>
-							<p>Number of guests = {{ booking.number_of_guests  }} </p>
-							<p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
-							<p class="card-text">Additional comments: {{ booking.additional_comments }}</p>
-							<p>booking id = {{ booking.id  }} </p>
-							<hr />
-							<p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} </p>
 						</div>
 					</div>
 					

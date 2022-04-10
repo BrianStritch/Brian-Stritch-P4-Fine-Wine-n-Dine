@@ -23,14 +23,12 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 logo-div ">
             <div class="container " >
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/nannys-logo.JPG' %}" alt="Nannys of duleek logo" class="nannys-logo">
+                </a>
                 <button class="navbar-toggler nav-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="navToggler()"><span class="navbar-toggler-icon"></span></button>
                 <div class="outer-area top">                    
                     <div class="collapse navbar-collapse topnav" id="navbarSupportedContent">
-                        <div class="float-left">
-                        <a href="{% url 'home' %}">
-                            <img src="{% static 'images/nannys-logo.JPG' %}" alt="Nannys of duleek logo" class="nannys-logo">
-                        </a>
-                        </div>
                         <ul class="navbar-nav mx-auto">                    
                             {% if user.is_authenticated %}
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'account_logout' %}"><i class="fas fa-door-open">  Logout</i></a></li> 

@@ -8,6 +8,7 @@
                 <div class="col card mb-4  mt-3 top wooden-back">
                     <div class="card-body centre-text">
                         <div class="col-md-12  ">
+
                             <h2>
                                 Booking Date: {{ booking.booking_date | date:"d M, Y"}}
                             </h2>                        
@@ -34,17 +35,29 @@
                             {% elif booking.Meal_time == 9 %}
                             <span>18:00</span>
                             {% endif %}
-                            </h2>                        
+                            </h2> 
+                            <hr />
+							<p class="card-title">
+								booking status :
+								{% if booking.booking_status == 0 %}
+								<span>Pending</span>
+								{% elif booking.booking_status == 1 %}
+								<span>Approved</span>
+								{% else %}
+								<span>Completed</span>
+								{% endif %}
+							</p>
+							<p>Booking created by: {{ booking.primary_guest }}</p>
                             <p >Primary Guest Name: {{ booking.primary_guest.first_name }} {{ booking.primary_guest.last_name }} </p>                
+							<p>Number of guests = {{ booking.number_of_guests  }} </p>
+							<p class="card-text">Dietary notes: {{ booking.dietary_notes }}</p>
+							<p class="card-text">Additional comments: {{ booking.additional_comments }}</p>
+							<p>booking id = {{ booking.id  }} </p>
+							<hr />
+							<p class="card-text text-muted h6">Booking created on = {{ booking.booking_created_on}} </p>                       
+                            
                         </div>
-                        <div>
-                            <h3>Dietary Notes</h3>
-                            <p>{{ booking.dietary_notes }} </p>
-                        </div>
-                        <div>
-                            <h3>Additional Comments</h3>
-                            <p>{{ booking.additional_comments }}</p>
-                        </div>
+                        
                         <div>
                             <div>
                                 <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'edit_booking' booking.pk %}">EDIT BOOKING</a></div>

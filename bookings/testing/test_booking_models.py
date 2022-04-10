@@ -101,7 +101,7 @@ class TestBookingModel(TestCase):
         response = self.client.post(
             reverse('edit_booking', kwargs={'pk': booking.id}),
             {'booking.Meal_time': '3'})
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
     # 6
     def test_delete_booking_page(self):
