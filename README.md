@@ -35,8 +35,7 @@ The benefit of this application will allow users to create and manage bookings o
         3. [**JavaScript**](#javaScript)
         4. [**Accessibility**](#accessibility)
     4. [**Automated**](#automated)
-        1. [**Travis**](#travis)
-        2. [**Django / Coverage**](#django-/-coverage)
+        1. [**Django / Coverage**](#django-/-coverage)
             1. [**Test Steps**](#test-steps)
     5. [**Responsiveness**](#responsiveness)
     6. [**Bugs Found**](#bugs-found)
@@ -78,15 +77,18 @@ There are a range of apps including Bookings, Reviews and Site pages that all wo
 A new user who does not have an account will only have access to the homepage (index.html), the about us page, the menu page, contact and about us page,a restricted version of the reviews page the signup page, and the login page. They will be unable to make bookings, leave reviews or comments on the existing reviews.  
 
 Once logged in, the members will have access to the sites remaining functionality for creating reviews, commenting and liking reviews, creating bookings, viewing existing bookings, editing and deleting reviews,comments and editing content on their personal profile.
-
+###### User home page view
 ![User Profile](static/readme_images/users-account-info.JPG "Example of the users profile")
 
 Once logged in, staff members have access to the same functionality as members for testing purposes.The staff status allows selected users to access the management area where staff can view all bookings , pending bookings, approved bookings, completed bookings and allows access to the django administration area where the staff member can view all bookings, reviews, comments, users etc and has administration priveledges which allows them to create edit and update reviews, comments, bookings, users etc. The administration area is required in order to publish comments which have been submitted for approval prior to the comment getting published.
-
-![Administartion bookings view](static/readme_images/admin-current-bookings.JPG "Example of the admin bookings view")
-![Administartion bookings view](static/readme_images/admin-pending-bookings.JPG "Example of the admin bookings pending view")
-![Administartion bookings view](static/readme_images/admin-approved-bookings.JPG "Example of the admin approved pending view")
-![Administartion bookings view](static/readme_images/admin-completed-bookings.JPG "Example of the admin completed pending view")
+###### Administration bookings view
+![Administration bookings view](static/readme_images/admin-current-bookings.JPG "Example of the admin bookings view")
+###### Administration pending bookings view
+![Administration pending bookings view](static/readme_images/admin-pending-bookings.JPG "Example of the admin bookings pending view")
+###### Administration approved bookings view
+![Administration approved bookings view](static/readme_images/admin-approved-bookings.JPG "Example of the admin approved pending view")
+###### Administration completed bookings view
+![Administration completed bookings view](static/readme_images/admin-completed-bookings.JPG "Example of the admin completed pending view")
 
 ### User Stories
 #### New Users
@@ -142,12 +144,10 @@ As there are many pages to this project, I have included the wireframes in a sep
 Please see the wireframes.md file for the entire collection of wireframes: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/wireframes.md
 
 ### Site Map
-![Site Map](static/wireframe_images/site-map-diagram.JPG "Site Map Diagram showing Layout of Web application")
+![Site Map](static/readme_images/wireframe_images/site-map-diagram.JPG "Site Map Diagram showing Layout of Web application")
 
 ### Entity Relationship Diagram (ERD)
-![Entity Relationship Diagram](static/wireframe_images/ERD-entity-relationship-diagram.JPG "Entity Relationship Diagram showing relationships on Database")
-
-
+![Entity Relationship Diagram](static/readme_images/wireframe_images/ERD-entity-relationship-diagram.JPG "Entity Relationship Diagram showing relationships on Database")
 
 ## Features
 ### Existing Features
@@ -276,7 +276,7 @@ JS Hint was used to ensure that the JavaScript used in the website had no errors
 
 ![JSHint report](static/readme_images/JSHint/JSHint-report.JPG "JSHint report")
 
-#### Accessibility
+### Accessibility
 All HTML pages have been tested for accessibility and performance using Chrome Devtools Lighthouse testing platform and the results of which can be found by clicking the following link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/accessibility-tests.md
 
 ### Automated
@@ -296,41 +296,61 @@ Django tests were written and Coverage was used to product detailed reports to e
 
 The overall coverage rate for the entire sites apps is currently at 50%. At a later date, more testing will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
 
+It was also noted at the time of compiling this readme that after running the coverage report and obtaining a 50% Total result, after switching the database for running unittest tests, the coverage report now has a result of 10%, however the report is now testing the migration files which it was not previously. I was getting a 50% total when running the tests prior to this and i think there may be an error in the testing of the application, however i would not posess the technical knowledge or ability to confirm this. 
+
 ##### Unittest
 In order to run tests on GitPod using unittest (which has been installed to handle testing), please follow the below steps in the terminal on GitPod:
 
 1. In fine-wine-n-dine settings.py the database needs to be switched to the local database as the tests will not run when on the heroku postgres database. The loal database is kept in commented out form to allow switching of the database for testing purposes.
 
 2. Run the following code : "pyhton3 manage.py test"
-    - This will run a test on all test.py files in the app and will display in the terminal if all tests are passing, and if not will show the error causing the test to fail.
+    - This will run a test on all test.py files in the app and will display in the terminal if all tests are passing, and if it does not it will show the error causing the test to fail.
 
 ### Responsiveness
 This website has been designed to scale correctly to different screen sizes with no issues on layout. In order to ensure that the view was pleasant to the user, certain divs and items had to be arranged differently or hidden/shown depending on screen size. This was handled using CSS media queries.
 
-![Full Size Menu](static/development_diagrams/nav-full.png "An example of how the menu looks on a desktop screen")
+##### Full Size Menu
+![Full Size Menu](static/readme_images/responsive-testing/full-screen-navigation-menus.JPG "An example of how the menu looks on a desktop screen")
 
-![Small Screen Menu](static/development_diagrams/nav-burger.png "An example of how the menu looks on a small/mobile screen")
+##### Small Screen Menu
+![Small Screen Menu](static//readme_images/responsive-testing/moile-and-tablet-sized-screen-navigation-menus.JPG "An example of how the menu looks on a small/mobile screen")
 
-In order to ensure that the navigation bar was as responsive as possible, on Desktop the menu shows accross the top of the page while on mobile screens, the menu reduced to a burger icon with only the title visible. When the burger icon is clicked, a side menu appears with the links to other pages from the nav bar. 
+##### Small Screen Menu Additional nav for Bookings
+![Small Screen Menu Additional nav for Bookings](static/readme_images/responsive-testing/bookings-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for bookings")
+
+##### Small Screen Menu Additional nav for Reviews
+![Small Screen Menu Additional nav for Reviews](static/readme_images/responsive-testing/reviews-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for reviews")
+
+##### Small Screen Menu Additional nav for Admin
+![Small Screen Menu Additional nav for Admin](static/readme_images/responsive-testing/administration-additional-nav-small-screen-size.JPG "An example of how the menu looks on a small screen with additional nav for admin")
+
+In order to ensure that the navigation bar was as responsive as possible, on Desktop the menu shows accross the top of the page while on mobile screens, the menu reduced to a burger icon wide visible button. When the burger icon is clicked, the menu appears as a dropdown with the links to other pages from the nav bar. 
+
+On the bookings page there is an additional nav bar which contains the link to create a booking which drops down with the navigation menu only on the bookings page. 
+
+On the reviews page there is an additional nav bar which contains the link to create a review which drops down with the navigation menu only on the reviews page. 
+
+On the admin bookings page there is an additional nav bar which contains the links to pending bookings, approved bookings, completed bookings and all bookings which drops down with the navigation menu only on the admin bookings page. 
 
 Each page was altered slightly between mobile and desktop for its layout to ensure that the user is getting the best UX possible, regardless of the screen size they are using. This can be seen in the wireframes section as I have included a wireframe of each page with desktop and mobile view. 
+
 ### Bugs Found
-- When an item is on the database with a negative price (this has since been corrected), an unhandled error appears when attempting to checkout "/app/.heroku/python/lib/python3.6/site-packages/stripe/api_requestor.py in handle_error_response, line 152". This bug should be investigated and handled on the offchance that an item is added in error with a negative price
+- numerous bugs were found during the development of this application 
 - UserCreate object names are not valid for ease of use for admin users. This will need to be addressed
 - Address not saving on orders correctly. Currently using the users stored address
 
 ## Deployment
-This project was deployed to Heroku at the address https://magical-deals.herokuapp.com/ using the following steps
+This project was deployed to Heroku at the address https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/ using the following steps
 
 ### GitHub:
 - Create a new project on GitHub
-- Copy the code for pushing to a GitHub repository and paste in the terminal of your project on GitPod (git remote add origin 'link')
+- Click the green Gitpod button to open in Gitpod
 
 #### To commit the code on GitPod to GitHub:
 - In the terminal, type "git add ." to add all new changes to the code to staging area
 - Next, type "git status" to see which files are ready to be commited
 - Commit these by typing "git commit -m" and adding a detailed description of the commit in ""
-- Next, push the code commit to GitHub by typing "git push -u origin master"
+- Next, push the code commit to GitHub by typing "git push"
 
 ### Heroku:
 - Create a Heroku account
@@ -338,16 +358,16 @@ This project was deployed to Heroku at the address https://magical-deals.herokua
 - Link the Heroku app with your GitHub repository
 - Push changes to git using the terminal and verify that the connection to Heroku is working
 - Add environment variables to Heroku settings.
+- In Heroku click the deploy tab, click on deploy to deploy the latest branch of your repository
+    - You can click on automatic deployment where each new push to github will be deployed to heroku
 
 ## Credits
 ### Content
 - Font icons imported from FontAwesome. 
 ### Media
-As there are many images for the products in this website, I have included the links to the images in a separate document.
-
-Please see the media_files.md file for the entire collection of links: https://github.com/aidan-stritch/magical-deals/blob/master/media_files.md
+As there are many images for the reviews in this website, most of which were obtained from Pexels.com, shutterstock.com and some images obtained from the establishment facebook page.
 
 ### Acknowledgements
-- I would like to acknowledge my mentor Anthony Ngene for all of his help and advice with this project
+- I would like to acknowledge my mentor Mo Shami for all of his help and advice with this project
 - I would like to thank my friends and family for their testing help and advice with this project
-- I would like to also thank the Code Insitute Tutor's for all of their help with some of the trickier functionality in this project. In particular, Tim and Samantha, who have been a massive help.
+- I would like to thanks the establishment management of Nannys for permission to use the images from their facebook site.
