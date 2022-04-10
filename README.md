@@ -212,7 +212,9 @@ Please [**click here**](https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wi
 2. A Menu app will be added in order for the staff / admin users to change the menu with a simple update form.
 3. A payment method would be added in a future update so that the user can pre-pay their booking
 4. A Merchandise shop will be added so that guests can purchase Nanny's clothing merchandise
-
+5. A simple sign up with social media account will be introduced in a future update as we did not have the timescale to complete in this deployment.
+6. A contact link between guests and admin will be established in a future update.
+7. A User account details app will be set up in a future update to manage contact information and payment methods etc.
 
 ## Technologies Used
 - HTML - This site uses HTML to instruct the browser how to interprit the code correctly and arrange the layout.
