@@ -232,6 +232,13 @@ During this process, several issues were discovered which have been since fixed 
 
 - The application is set up to allow a maximum of 60 guests in one hour, and each booking can accomodate up to 10 guests at a table and when a booking is created, the POST request data is checked against two database queries to detemine if the booking can be validated. The first check against the database is to check if the user who is making the booking has already chosen the time and dates submitted and if so will return the user to the booking form page with a message notifying them that they have already created a booking for this date and time and to choose an alternative time or date. The second check against the database checks how many bookings have been created for this specific time and date and if there is an available space will save the booking, and if no space is available, will return the user to the booking form page with a message notifying them that they have already created a booking for this date and time and to choose an alternative time or date. On creating this logic it was found that the standard django updateview allowed the bookings to be edited and did not apply the logic as per the booking creation form. The fix for this issue was to create a custom view with GET and POST requests and apply the same logic to the POST request as the booking creation form to check the validity of the updated data prior to saving to the database.
 
+- During manual testing it was noted that the color schemes were displayed differently between browsers. The tests were carried out on chrome mobile browser and samsung internet browser where differences were noted. please see below images displaying same:
+
+###### Google Chrome mobile browser
+![Google Chrome mobile browser](static/readme_images/google-chrome-browser.jpg "Google Chrome mobile browser")
+
+###### Samsung mobile browser
+![Samsung mobile browser](static/readme_images/samsung-internet-browser.jpg "Samsung mobile browser")
 
 There are other issues that could not be fixed due to ability / time contraints that have been included in the "Bugs Found" section below. 
 <hr>
@@ -348,6 +355,14 @@ Each page was altered slightly between mobile and desktop for its layout to ensu
 - During manual testing it was found that the user did not know that by clicking the booking in the bookings view that it would redirect the user to the booking details page where the user could then edit or delete the booking.The booking card in the bookings page was displaying too much information and the user was able to view all the booking details without selecting the booking and being redirected to the booking details page. To fix this error the information displayed was significantly reduced and a message was displayed to the user to "click on a booking to view booking details".
 
 - During manual testing numerous issues with styling and layouts were noted which required modifications to the bootsrap classes to display the content as required in this application.
+
+- During manual testing it was noted that the color schemes were displayed differently between browsers. The tests were carried out on chrome mobile browser and samsung internet browser where differences were noted. please see below images displaying same:
+
+###### Google Chrome mobile browser
+![Google Chrome mobile browser](static/readme_images/google-chrome-browser.jpg "Google Chrome mobile browser")
+
+###### Samsung mobile browser
+![Samsung mobile browser](static/readme_images/samsung-internet-browser.jpg "Samsung mobile browser")
 
 ## Deployment
 This project was deployed to Heroku at the address https://b-stritch-p4-fine-wine-n-dine.herokuapp.com/ using the following steps
