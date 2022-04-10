@@ -33,7 +33,7 @@ The benefit of this application will allow users to create and manage bookings o
         1. [**CSS**](#CSS)
         2. [**HTML**](#HTML)
         3. [**JavaScript**](#javaScript)
-        4. [**Codacy**](#codacy)
+        4. [**Accessibility**](#accessibility)
     4. [**Automated**](#automated)
         1. [**Travis**](#travis)
         2. [**Django / Coverage**](#django-/-coverage)
@@ -276,6 +276,8 @@ JS Hint was used to ensure that the JavaScript used in the website had no errors
 
 ![JSHint report](static/readme_images/JSHint/JSHint-report.JPG "JSHint report")
 
+#### Accessibility
+All HTML pages have been tested for accessibility and performance using Chrome Devtools Lighthouse testing platform and the results of which can be found by clicking the following link to reach the file: https://github.com/BrianStritch/Brian-Stritch-P4-Fine-Wine-n-Dine/blob/main/accessibility-tests.md
 
 ### Automated
 #### Django / Coverage

@@ -39,7 +39,7 @@
 ![delete_booking.html](static/readme_images/accessibility-tests/delete-booking-accessibility-test.JPG "bookings.html W3C validation")
 
 ### Admin Bookings Page
-![admin_bookings_view.html](static/readme_images/accessibility-tests/admin-bookings-accessibility-test.JPG"admin_bookings_view.html W3C validation")
+![admin_bookings_view.html](static/readme_images/accessibility-tests/admin-bookings-accessibility-test.JPG "admin_bookings_view.html W3C validation")
 
 ### Admin Pending Bookings Page
 ![admin_bookings_view_pending.html](static/readme_images/accessibility-tests/admin-bookings-pending-accessibility-test.JPG "admin_bookings_view_pending.html W3C validation")
@@ -55,7 +55,7 @@
 ![reviews.html](static/readme_images/accessibility-tests/reviews-accessibility-test.JPG "reviews.html W3C validation")
 
 ### Create Review
-![create_review.html](static/readme_images/accessibility-tests/# "create_review.html W3C validation")
+![create_review.html](static/readme_images/accessibility-tests/create-review-accessibility-test.JPG "create_review.html W3C validation")
 
 ### Review Details and Create and read Comments
 ![reviews_detail.html](static/readme_images/accessibility-tests/reviews-detail-accessibility-test.JPG "reviews_detail.html W3C validation")
@@ -67,8 +67,8 @@
 ![delete_review.html](static/readme_images/accessibility-tests/delete-review-accessibility-test.JPG "delete_review.html W3C validation")
 
 ### Edit Comment
-![edit_comment.html](static/readme_images/accessibility-tests/# "edit_comment.html W3C validation")
+![edit_comment.html](static/readme_images/accessibility-tests/edit-comments-accessibility-tests.JPG "edit_comment.html W3C validation")
 
 ### Delete Comment
-![delete_comment.html](static/readme_images/accessibility-tests/# "delete_comment.html W3C validation")
+![delete_comment.html](static/readme_images/accessibility-tests/delete-comment-accessibility-test.JPG "delete_comment.html W3C validation")
 
