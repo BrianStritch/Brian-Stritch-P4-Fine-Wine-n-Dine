@@ -11702,7 +11702,7 @@ a {
   line-height: 1;
   column-count: 4;
   column-gap: 0;
-  margin: auto;  
+  margin: 20px; 
 }
 
 .photos > img {
