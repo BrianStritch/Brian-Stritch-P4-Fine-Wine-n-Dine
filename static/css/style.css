@@ -11803,9 +11803,7 @@ img{
       width: 88vw;
       margin: 0 -14vw; 
   }
-  .centre-cards-bookings{
-    justify-content: unset;
-  }
+  
   
 }
 
@@ -11823,6 +11821,9 @@ img{
   .intro-text2, .intro-text3{
     margin-bottom: 5rem;
     margin-left: 0;
+  }
+  .centre-cards-bookings{
+    justify-content: unset;
   }
 }
 
