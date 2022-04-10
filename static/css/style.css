@@ -11608,6 +11608,10 @@ p {
   width: fit-content;
  
 }
+.centre-cards-bookings{
+  justify-content: center;
+  width: fit-content;
+}
 
 #booking-cards{
   width: 30vw ;
@@ -11756,7 +11760,7 @@ img{
   .centre-cards-margin{
     margin: 1vh 10vw;
   }
-  .centre-cards{
+  .centre-cards-bookings{
     justify-content: unset;
   }
   
