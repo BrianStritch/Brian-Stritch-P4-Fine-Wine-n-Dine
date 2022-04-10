@@ -241,7 +241,7 @@ There are other issues that could not be fixed due to ability / time contraints 
 #### CSS
 The custom.css file code was validated using the The W3C CSS Validation Service and the image below verifies that the code was successfully validated with no errors. Numerous warnings were noted which relate to the bootstrap CSS files inherited with the template, however none of the custom css written for this web application failed or had any warnings present.
 
-![W3C CSS Validation](static/w3c_validation/W3C-CSS-validation.JPG "W3C CSS validation")
+![W3C CSS Validation](static/readme_images/w3c_validation/W3C-CSS-validation.JPG "W3C CSS validation")
 
 <p>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
@@ -274,7 +274,7 @@ Please see the w3c-validation.md file for the full breakdown of the HTML W3C val
 #### JavaScript
 JS Hint was used to ensure that the JavaScript used in the website had no errors.
 
-![JSHint report](static/JSHint/JSHint-report.JPG "JSHint report")
+![JSHint report](static/readme_images/JSHint/JSHint-report.JPG "JSHint report")
 
 
 ### Automated
@@ -287,9 +287,9 @@ Django tests were written and Coverage was used to product detailed reports to e
 2. In order to product a html report which allows you to inspect in each file, to see in easy to use colour codes the lines of code which have been tested or which have not yet been tested, please use the following command: "coverage html"
 
 ##### __Coverage report prior to adding docstrings__
-![JSHint report](static/coverage-report-results/coverage-report-prior-to-docstrings.JPG "JSHint report")
+![JSHint report](static/readme_images/coverage-report-results/coverage-report-prior-to-docstrings.JPG "JSHint report")
 ##### __Coverage report after adding docstrings__
-![JSHint report](static/coverage-report-results/coverage-report-after-adding-docstrings.JPG "JSHint report")
+![JSHint report](static/readme_images/coverage-report-results/coverage-report-after-adding-docstrings.JPG "JSHint report")
 
 
 The overall coverage rate for the entire sites apps is currently at 50%. At a later date, more testing will be needed to increase the coverage rate to 100% to ensure that the website is functioning correctly. However, between the Django tests and the manual testing done, the website does not show any errors or major bugs, other than those listed in the "Bugs Found" section below.
