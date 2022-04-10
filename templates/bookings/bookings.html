@@ -29,7 +29,7 @@
 					<div class="card mb-4 ml-6 ">
 						<div class=" card-body ">
 							<a href="{% url 'booking_details' booking.slug %}" class="review-link">
-								<h3>Booking date : {{ booking.booking_date| date:"d M, Y"}}									
+								<h3>Booking date : <br> {{ booking.booking_date| date:"d M, Y"}}									
 								</h3>
 								<p>
 									Meal time :
