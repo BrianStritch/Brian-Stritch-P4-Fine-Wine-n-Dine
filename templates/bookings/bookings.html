@@ -22,7 +22,7 @@
 	</div>	
 	<div class="row ">
 		<div class="col-12 mt-3 left">
-			<div class="col-xl-9 row centre-cards">
+			<div class="col-xl-9 row centre-cards centre-cards-bookings">
 				{% for booking in bookings %}
 
 				{% if booking.primary_guest.id == request.user.id %}

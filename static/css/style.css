@@ -11756,6 +11756,9 @@ img{
   .centre-cards-margin{
     margin: 1vh 10vw;
   }
+  .centre-cards{
+    justify-content: unset;
+  }
   
 }
 
