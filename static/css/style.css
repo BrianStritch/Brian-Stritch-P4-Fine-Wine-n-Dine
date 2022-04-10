@@ -11853,15 +11853,14 @@ iframe{
     width: 80vw;
     margin-left: -10vw;
     margin-right: -10vw;
-}
-    
-  }
+  } 
   iframe{  
     height: 75vh;
     width: 80vw;
     
   }
 }
+
 .center-white{
   text-align: center;
   color: white;
