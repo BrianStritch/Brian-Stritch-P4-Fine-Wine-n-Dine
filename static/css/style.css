@@ -11788,6 +11788,9 @@ img{
       height: 50vh;
       width: 88vw;  
   }
+  .card-width-sml{
+    width: 96vw;
+  }
 }
 
 /* ************************ google maps styles ******************************/
