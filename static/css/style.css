@@ -4565,6 +4565,7 @@ textarea.form-control-lg {
 
 .card-title {
   margin-bottom: 0.5rem;
+  color: #5a2913;
 }
 
 .card-subtitle {
@@ -4572,8 +4573,13 @@ textarea.form-control-lg {
   margin-bottom: 0;
 }
 
+.card-text{
+  color: #5a2913;
+}
+
 .card-text:last-child {
   margin-bottom: 0;
+  color: #5a2913;
 }
 
 .card-link + .card-link {
