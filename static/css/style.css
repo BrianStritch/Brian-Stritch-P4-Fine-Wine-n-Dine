@@ -11829,4 +11829,7 @@ iframe{
     
   }
 }
-
+.center-white{
+  text-align: center;
+  color: white;
+}
