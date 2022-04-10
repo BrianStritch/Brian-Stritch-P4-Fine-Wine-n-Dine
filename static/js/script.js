@@ -32,4 +32,10 @@ function navTogglerAdmin() {
     var toggleAdmin = document.getElementById("navbarSupportedContent-admin");
     toggleAdmin.classList.toggle("collapse");
   }
+function navToggler() {
+    navTogglerAdmin();
+    navTogglerBooking();
+    navTogglerMain();
+    navTogglerReviews();
+  }
 
