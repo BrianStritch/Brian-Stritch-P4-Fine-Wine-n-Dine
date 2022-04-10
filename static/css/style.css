@@ -11783,7 +11783,7 @@ img{
     flex: 1 1 auto;
     padding: 1rem 1rem;
     background-color: #e6a756ab;
-    width: 94vw;
+    
   }
   .reviews-detail>img{    
       height: 50vh;
@@ -11793,8 +11793,14 @@ img{
   
 }
 
-@media(max-width:600px){
+@media(max-width:762px){
   .card-width-sml{
+    width: 94vw;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background-color: #e6a756ab;
     width: 94vw;
   }
 }
