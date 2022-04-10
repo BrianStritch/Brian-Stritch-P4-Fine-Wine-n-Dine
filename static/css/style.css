@@ -11606,6 +11606,10 @@ p {
 .centre-cards{
   justify-content: center;
   width: fit-content;
+ 
+}
+.centre-cards-margin{
+  margin: 1vh 10vw;
 }
 
 #booking-cards{
