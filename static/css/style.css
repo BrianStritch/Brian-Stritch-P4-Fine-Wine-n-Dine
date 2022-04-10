@@ -11846,6 +11846,9 @@ iframe{
     text-align: right;
     height: 75vh;
     width: 80vw;
+    margin-left: -10vw;
+    margin-right: -10vw;
+}
     
   }
   iframe{  
